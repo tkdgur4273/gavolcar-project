@@ -1,5 +1,5 @@
 package project.team.GaVolCar.vo;
 
-public class controller {
+public class AreaVO {
 
 }
