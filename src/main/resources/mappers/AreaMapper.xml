@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.team.GaVolCar.mapper.AreaMapper">
+	<select id="getAreaList" resultType="project.team.GaVolCar.vo.AreaVO">
+		<![CDATA[
+			select * from "areas" order by "area_name" desc
+		]]>
+	</select>
+	<select id="areaRead" resultType="project.team.GaVolCar.vo.AreaVO">
+		<![CDATA[
+			select * from "areas" where "area_name" = #{area_name} 
+		]]>
+	</select>
+	<select id="areaInsert">
+		<![CDATA[
+			insert into "areas" ("area_name", "area_loc", "area_time", "area_contents", "area_img", "area_tel")
+			values (#{area_name}, #{area_loc}, #{area_time}, #{area_contents}, #{area_img}, #{area_tel})
+		]]>
+	</select>
+	<select id="areaUpdate">
+		<![CDATA[
+			update "areas" set "area_loc"=#{area_loc}, "area_time"=#{area_time}, "area_contents"=#{area_contents}, "area_img"=#{area_img}, "area_tel"=#{area_tel} where "area_name" = #{area_name}
+			
+		]]>
+	</select>
+	<select id="areaDelete">
+		<![CDATA[
+			delete from "areas" where "area_name" = #{area_name}
+		]]>
+	</select>
+
+</mapper>
