@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,80 +21,45 @@ import project.team.GaVolCar.service.AreaService;
 import project.team.GaVolCar.vo.AreaVO;
 
 @Slf4j
-@RequestMapping("/areas/*")
-@RestController
+@Controller
 public class AreaController {
 	
 	@Autowired
 	private AreaService areaService;
 	
-	@GetMapping("/areaList")
-	public List<AreaVO> areaList(Model model){
-		log.info("areaList()...");
+
+	@GetMapping("/arealist")
+	public String list(Model model) {
 		
-		model.addAttribute("list", areaService.getAreaList());
+		log.info("list()...");
 		
-		return areaService.getAreaList();
-	}
-	
-	@GetMapping("/list")
-	public ModelAndView list(ModelAndView mav){
-		log.info("list() ..");
-		
-		mav.setViewName("area/rest_areaList");
-		
-		return mav;	
-	}
-	
-	@GetMapping("/areaList2")
-	public ModelAndView list2(ModelAndView mav){
-		log.info("list() ..");
-		
-		mav.setViewName("area/rest_areaList");
-		
-		return mav;	
+		return "area/rest_areaList";
 	}
 	
 	
-	
-	@GetMapping("/{area_name}")
-	public AreaVO rest_area_view(AreaVO areaVO){
+	@GetMapping("/areacontent_view")
+	public String rest_area_view(AreaVO areaVO,Model model){
 		log.info("rest_area_view()...");
 		
-		return areaService.areaRead(areaVO.getArea_name());
+		String area_name = areaVO.getArea_name();
+		model.addAttribute("name", areaService.areaRead(area_name));
+		
+		return "area/rest_area_content_view";
 	}
 	
-	@PostMapping("/")
-	public ResponseEntity<String> rest_area_write(@RequestBody AreaVO areaVO){
-		log.info("rest_area_write() .." + areaVO);
-	
-		ResponseEntity<String> entity = null;
+	@GetMapping("/areamodify")
+	public String areamodify(Model model, AreaVO areaVO) {
 		
-		try {
-			areaService.areaRegister(areaVO);
-			entity = new ResponseEntity<String>("SUCCESS",HttpStatus.OK);			
+		log.info("list()...");
 		
-		} catch (Exception e) {
-		e.printStackTrace();
-		entity = new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
-		}
-	
-	return entity;	
+		String area_name = areaVO.getArea_name();
+		model.addAttribute("name", areaService.areaRead(area_name));
+		
+		
+		return "area/area_modify_view";
 	}
 	
-	@PutMapping("/{area_name}")
-	public int rest_area_modify(AreaVO areaVO) {
-		log.info("rest_area_modify()...");
-		
-		return areaService.areaModify(areaVO);
-	}
 	
-	@DeleteMapping("/{area_name}")
-	public int rest_area_remove(AreaVO areaVO) {
-		log.info("rest_area_remove()...");
-		
-		return areaService.areaRemove(areaVO);
-	}
 	
 	
 

@@ -21,7 +21,8 @@ function list(result) {
        html : "<td>" + "지역명소 이름" + "</td>"+  // 컬럼명들
              "<td>" + "지역명소 주소" + "</td>"+
              "<td>" + "이용시간" + "</td>"+
-             "<td>" + "전화번호" + "</td>"
+             "<td>" + "전화번호" + "</td>"+
+             "<td>" + "삭제" + "</td>"
     }).appendTo("#list-table") // 이것을 테이블에 붙임
     
     	
@@ -31,7 +32,7 @@ function list(result) {
        
        $(result).each(function() {
           htmls += '<tr>';
-          htmls += '<a href="/rest_content_view.html?area_name=' + this.area_name + '">' + this.area_name + '</a></td>';
+          htmls += '<td>' + '<a href="/areacontent_view?area_name=' + this.area_name + '">' + this.area_name + '</a></td>'
           htmls += '<td>' + this.area_loc +'</td>'; 
           htmls += '<td>' + this.area_time +'</td>'; 
           htmls += '<td>'+ this.area_tel + '</td>';
@@ -71,6 +72,8 @@ $(document).ready(function() {
 
 
 </script>
+
+
 
 </head>
 <body>
