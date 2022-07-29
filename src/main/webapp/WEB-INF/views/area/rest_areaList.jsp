@@ -42,7 +42,7 @@ function list(result) {
        });
        
          htmls+='<tr>';
-         htmls+='<td colspan="4"> <a href="/write_view">글작성</a> </td>';                         
+         htmls+='<td colspan="4"> <a href="/areawrite">글작성</a> </td>';                         
          htmls+='</tr>';         
     }
     

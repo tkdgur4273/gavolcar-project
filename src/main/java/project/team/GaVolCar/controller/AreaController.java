@@ -47,6 +47,17 @@ public class AreaController {
 		return "area/rest_area_content_view";
 	}
 	
+	@GetMapping("/areawrite")
+	public String areawrite() {
+		
+		log.info("write view()...");
+		
+		
+		
+		
+		return "area/area_write_view";
+	}
+	
 	@GetMapping("/areamodify")
 	public String areamodify(Model model, AreaVO areaVO) {
 		
@@ -59,6 +70,14 @@ public class AreaController {
 		return "area/area_modify_view";
 	}
 	
+	@GetMapping("/areadelete")
+	public String areadelete(Model model, AreaVO areaVO) {
+		
+		log.info("list()...");
+		
+		
+		return "area/rest_areaList";
+	}
 	
 	
 	

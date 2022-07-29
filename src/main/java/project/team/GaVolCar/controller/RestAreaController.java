@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import lombok.extern.slf4j.Slf4j;
 import project.team.GaVolCar.service.AreaService;
@@ -63,11 +62,32 @@ public class RestAreaController {
 	}
 	
 	@PutMapping("/{area_name}")
-	public int rest_area_modify(AreaVO areaVO) {
-		log.info("rest_area_modify()...");
+	public ResponseEntity<String> rest_update(@RequestBody AreaVO areaVO){
 		
-		return areaService.areaModify(areaVO);
+		log.info("rest_update() ..");
+		ResponseEntity<String> entity = null;
+		System.out.println(areaVO);
+		try {
+			int rn = areaService.areaModify(areaVO);
+			log.info("Update 넘어온 숫자:::" + rn );
+			
+			entity = new ResponseEntity<String>("SUCCESS",HttpStatus.OK);			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;		
 	}
+//	public int rest_area_modify(AreaVO areaVO) {
+//		log.info("rest_area_modify()...");
+//		
+//		return areaService.areaModify(areaVO);
+//	}
+	
+	
+	
 	
 	@DeleteMapping("/{area_name}")
 	public int rest_area_remove(AreaVO areaVO) {

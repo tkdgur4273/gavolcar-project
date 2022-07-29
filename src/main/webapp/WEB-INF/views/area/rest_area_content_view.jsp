@@ -67,8 +67,8 @@ $(document).ready(function() {
             <td colspan="2"> 
             <a href="areamodify?area_name=${name.area_name}">수정하기</a> 
             &nbsp;&nbsp; <a href="arealist">목록보기</a> 
-            &nbsp;&nbsp; <a href="delete?bid=${content_view.bid}">삭제</a> 
-            &nbsp;&nbsp; <a href="reply_view?bid=${content_view.bid}">답변</a></td>
+            &nbsp;&nbsp; <a href="areadelete?area_name=${name.area_name}">삭제</a> 
+           </td>
          </tr>
       </form>
    </table>

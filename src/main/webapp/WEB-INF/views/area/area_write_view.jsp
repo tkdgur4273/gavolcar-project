@@ -4,7 +4,7 @@
 
 <html>
 <head>
-	<title>list</title>
+	<title>write_view</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function (){
@@ -14,7 +14,7 @@
 			//단순히 click에 대한 처리를 하도록 해준다.
 			event.preventDefault();
 			
-			let area_name = $("#area_name").html();
+			let area_name = $("#area_name").val();
 			let area_loc = $("#area_loc").val();
 			let area_contents = $("#area_contents").val();
 			let area_time = $("#area_time").val();
@@ -47,8 +47,8 @@
 			console.log(JSON.stringify(form));
 			
 			$.ajax({
-			    type : "PUT",
-			    url : "/areas/" + area_name, 
+			    type : "POST",
+			    url : "/areas/",
 			    cashe:false,
 			    contentType:'application/json; charset=utf-8',
 			    data: JSON.stringify(form), 
@@ -70,13 +70,15 @@
 	
 	});
 </script>
+	
+	
 </head>
 <body>
-  <table width="700" cellpadding="0" cellspacing="0" border="1">
+	  <table width="500" cellpadding="0" cellspacing="0" border="1">
       <form id="updateForm" action="arealist" method="post">
          <tr>
             <td>명소이름</td>
-            <td id="area_name">${name.area_name}</td>
+            <td><input id="area_name" type="text" name="name" value="${name.area_name} "></td>
          </tr>
          <tr>
             <td> 명소주소 </td>
@@ -99,11 +101,10 @@
             <td> <textarea id="area_tel" rows="10" name="tel" >${name.area_tel}</textarea></td>
          </tr>
          <tr >
-            <td colspan="2"> <input type="submit" value="수정"> 
+            <td colspan="2"> <input type="submit" value="작성"> 
             &nbsp;&nbsp; <a href="arealist">목록보기</a> 
          </tr>
       </form>
-   </table>
-
+   	  </table>
 </body>
 </html>

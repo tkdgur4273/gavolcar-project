@@ -13,22 +13,22 @@
 			select * from "areas" where "area_name" = #{area_name} 
 		]]>
 	</select>
-	<select id="areaInsert">
+	<insert id="areaInsert">
 		<![CDATA[
 			insert into "areas" ("area_name", "area_loc", "area_time", "area_contents", "area_img", "area_tel")
 			values (#{area_name}, #{area_loc}, #{area_time}, #{area_contents}, #{area_img}, #{area_tel})
 		]]>
-	</select>
-	<select id="areaUpdate">
+	</insert>
+	<update id="areaUpdate">
 		<![CDATA[
 			update "areas" set "area_loc"=#{area_loc}, "area_time"=#{area_time}, "area_contents"=#{area_contents}, "area_img"=#{area_img}, "area_tel"=#{area_tel} where "area_name" = #{area_name}
 			
 		]]>
-	</select>
-	<select id="areaDelete">
+	</update>
+	<delete id="areaDelete">
 		<![CDATA[
 			delete from "areas" where "area_name" = #{area_name}
 		]]>
-	</select>
+	</delete>
 
 </mapper>
