@@ -70,8 +70,8 @@
          
             <td colspan="2"> 
             <a href="areamodify?area_name=${name.area_name}">수정하기</a> 
-            &nbsp;&nbsp; <a href="arealist">목록보기</a> 
-            &nbsp;&nbsp; <a id="area_delete" href="arealist">삭제</a> 
+            &nbsp;&nbsp; <a href="admin/arealist">목록보기</a> 
+            &nbsp;&nbsp; <a id="area_delete" href="admin/arealist">삭제</a> 
            </td>
          </tr>
       </form>

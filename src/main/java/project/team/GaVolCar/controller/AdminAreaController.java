@@ -22,18 +22,18 @@ import project.team.GaVolCar.vo.AreaVO;
 
 @Slf4j
 @Controller
-public class AreaController {
+public class AdminAreaController {
 	
 	@Autowired
 	private AreaService areaService;
 	
 
-	@GetMapping("/arealist")
+	@GetMapping("admin/arealist")
 	public String list(Model model) {
 		
 		log.info("list()...");
 		
-		return "area/rest_areaList";
+		return "area/admin/rest_areaList";
 	}
 	
 	
@@ -44,7 +44,7 @@ public class AreaController {
 		String area_name = areaVO.getArea_name();
 		model.addAttribute("name", areaService.areaRead(area_name));
 		
-		return "area/rest_area_content_view";
+		return "area/admin/rest_area_content_view";
 	}
 	
 	@GetMapping("/areawrite")
@@ -55,7 +55,7 @@ public class AreaController {
 		
 		
 		
-		return "area/area_write_view";
+		return "area/admin/area_write_view";
 	}
 	
 	@GetMapping("/areamodify")
@@ -67,7 +67,7 @@ public class AreaController {
 		model.addAttribute("name", areaService.areaRead(area_name));
 		
 		
-		return "area/area_modify_view";
+		return "area/admin/area_modify_view";
 	}
 	
 	@GetMapping("/areadelete")
@@ -76,7 +76,7 @@ public class AreaController {
 		log.info("list()...");
 		
 		
-		return "area/rest_areaList";
+		return "area/admin/rest_areaList";
 	}
 	
 	
