@@ -17,11 +17,12 @@
 			
 				
 			let area_name = $("#name").html();
+			let area_img = $("#img").val();
 		
 			
 			$.ajax({ 
                 type: "DELETE",
-                url : "/areas/"+area_name, //http://localhost:8282/boards/list
+                url : "/areas/"+area_name+"/"+area_img, //http://localhost:8282/boards/list
                 success : function(result) {
            	           console.log(result);               	
            	             
@@ -41,7 +42,7 @@
 <body>
   <table width="700" cellpadding="0" cellspacing="0" border="1">
      
-  
+  	
          <tr>
             <td> 명소이름 </td>
             <td id="name">${name.area_name} </td>
@@ -59,8 +60,9 @@
             <td id="contents">${name.area_contents}</td>
          </tr>
            <tr>
-            <td> 이미지 주소 </td>
-            <td id="img">${name.area_img} </td>
+            <td> 이미지</td>
+            <td><img src="${name.area_img}"></td>
+            <input type="hidden" id="img" value="${name.area_img}">
          </tr>
            <tr>
             <td> 전화번호 </td>

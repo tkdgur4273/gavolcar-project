@@ -59,8 +59,8 @@
             <td id="contents">${name.area_contents}</td>
          </tr>
            <tr>
-            <td> 이미지 주소 </td>
-            <td id="img">${name.area_img} </td>
+            <td> 이미지</td>
+            <td><img src="${name.area_img}"></td>
          </tr>
            <tr>
             <td> 전화번호 </td>
@@ -69,9 +69,7 @@
          <tr >
          
             <td colspan="2"> 
-            <a href="areamodify?area_name=${name.area_name}">수정하기</a> 
-            &nbsp;&nbsp; <a href="arealist">목록보기</a> 
-            &nbsp;&nbsp; <a id="area_delete" href="arealist">삭제</a> 
+            &nbsp;&nbsp; <a href="arealist_user">목록보기</a> 
            </td>
          </tr>
       </form>
