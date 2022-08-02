@@ -39,7 +39,7 @@ public class RestAreaController {
 	public AreaVO rest_area_view(AreaVO areaVO,Model model){
 		log.info("rest_area_view()...");
 		
-		return areaService.getAreaInfo(areaVO.getArea_name());
+		return areaService.areaRead(areaVO.getArea_name());
 	}
 	
 	
@@ -50,7 +50,7 @@ public class RestAreaController {
 		ResponseEntity<String> entity = null;
 		
 		try {
-			areaService.setAreaInfo(areaVO);
+			areaService.areaRegister(areaVO);
 			entity = new ResponseEntity<String>("SUCCESS",HttpStatus.OK);			
 		
 		} catch (Exception e) {
@@ -68,7 +68,7 @@ public class RestAreaController {
 		ResponseEntity<String> entity = null;
 		System.out.println(areaVO);
 		try {
-			int rn = areaService.updateAreaInfo(areaVO);
+			int rn = areaService.areaModify(areaVO);
 			log.info("Update 넘어온 숫자:::" + rn );
 			
 			entity = new ResponseEntity<String>("SUCCESS",HttpStatus.OK);			
@@ -93,7 +93,7 @@ public class RestAreaController {
 	public int rest_area_remove(AreaVO areaVO) {
 		log.info("rest_area_remove()...");
 		
-		return areaService.deleteAreaInfo(areaVO);
+		return areaService.areaRemove(areaVO);
 	}
 	
 	

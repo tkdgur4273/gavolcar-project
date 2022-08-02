@@ -42,7 +42,7 @@ public class AdminAreaController {
 		log.info("rest_area_view()...");
 		
 		String area_name = areaVO.getArea_name();
-		model.addAttribute("name", areaService.getAreaInfo(area_name));
+		model.addAttribute("name", areaService.areaRead(area_name));
 		
 		return "area/admin/rest_area_content_view";
 	}
@@ -64,7 +64,7 @@ public class AdminAreaController {
 		log.info("list()...");
 		
 		String area_name = areaVO.getArea_name();
-		model.addAttribute("name", areaService.getAreaInfo(area_name));
+		model.addAttribute("name", areaService.areaRead(area_name));
 		
 		
 		return "area/admin/area_modify_view";

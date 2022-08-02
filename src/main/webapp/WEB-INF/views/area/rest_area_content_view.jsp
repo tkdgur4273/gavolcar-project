@@ -6,7 +6,36 @@
 <head>
 	<title>list</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
 
+	
+
+	//삭제 버튼 처리
+		$(document).on("click","#area_delete",function(){
+			
+			
+			
+				
+			let area_name = $("#name").html();
+		
+			
+			$.ajax({ 
+                type: "DELETE",
+                url : "/areas/"+area_name, //http://localhost:8282/boards/list
+                success : function(result) {
+           	           console.log(result);               	
+           	             
+                }, 
+                error : function(xhr, textStatus, errorThrown){ 
+                        alert(xhr);
+                        alert(textStatus);  
+                        alert(errorThrown);
+                    }
+                });		
+		
+	});		
+		
+</script>
 
 </head>
 <body>
@@ -40,9 +69,9 @@
          <tr >
          
             <td colspan="2"> 
-       
-            &nbsp;&nbsp; <a href="arealistAll">목록보기</a> 
-      
+            <a href="areamodify?area_name=${name.area_name}">수정하기</a> 
+            &nbsp;&nbsp; <a href="arealist">목록보기</a> 
+            &nbsp;&nbsp; <a id="area_delete" href="arealist">삭제</a> 
            </td>
          </tr>
       </form>

@@ -24,25 +24,25 @@ public class AreaServiceImpl implements AreaService {
 	}
 	
 	@Override
-	public AreaVO getAreaInfo(String area_name) {
+	public AreaVO areaRead(String area_name) {
 		log.info("getRead is working....");
 		return areaMapper.areaRead(area_name);
 	}
 	
 	@Override
-	public void setAreaInfo(AreaVO area) {
+	public void areaRegister(AreaVO area) {
 		log.info("areaRegister is working....");
 		areaMapper.areaInsert(area);	
 	}
 	
 	@Override
-	public int updateAreaInfo(AreaVO area) {
+	public int areaModify(AreaVO area) {
 		log.info("areaModify is working .....");
 		return areaMapper.areaUpdate(area);
 	}
 	
 	@Override
-	public int deleteAreaInfo(AreaVO area) {
+	public int areaRemove(AreaVO area) {
 		log.info("areaRemove is working .....");
 		return areaMapper.areaDelete(area);
 	}

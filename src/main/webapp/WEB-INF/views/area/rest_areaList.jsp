@@ -31,7 +31,7 @@ function list(result) {
        
        $(result).each(function() {
           htmls += '<tr>';
-          htmls += '<td>' + '<a href="/areacontent_viewAll?area_name=' + this.area_name + '">' + this.area_name + '</a></td>'
+          htmls += '<td>' + '<a href="/areacontent_view?area_name=' + this.area_name + '">' + this.area_name + '</a></td>'
           htmls += '<td>' + this.area_loc +'</td>'; 
           htmls += '<td>' + this.area_time +'</td>'; 
           htmls += '<td>'+ this.area_tel + '</td>';
@@ -39,7 +39,9 @@ function list(result) {
           
        });
        
-        
+         htmls+='<tr>';
+         htmls+='<td colspan="4"> <a href="/areawrite">글작성</a> </td>';                         
+         htmls+='</tr>';         
     }
     
     $("#list-table").append(htmls);      
