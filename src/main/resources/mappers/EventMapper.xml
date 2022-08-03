@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.team.GaVolCar.mapper.EventMapper">
+	
+	<resultMap id="rentmap" type="RentsVO">
+		<id property="rez_no" column="'rez_no'"/>
+		<result property="rent_start_date" column="'rent_start_date'"/>
+		<result property="rent_end_date" column="'rent_end_date'"/>
+		<result property="final_coast" column="'final_coast'"/>
+		<result property="hipass" column="'hipass'"/>
+		<result property="baby_car_seat" column="'baby_car_seat'"/>
+		<result property="user_id" column="'user_id'"/>
+		<result property="car_no" column="'car_no'"/>
+		
+	</resultMap>
+	
+	
+	<resultMap id="peventrentmap" type="PeventsRentsVO">
+		<result property="point_no" column="'point_no'"/>
+		<result property="points" column="'points'"/>
+		<result property="point_date" column="'point_date'"/>
+		<result property="rez_no" column="'rez_no'"/>
+		<collection property="rentsList" resultMap="rentmap"></collection>
+		
+	</resultMap>
+	
+	<select id="getPeventsRentsList" resultMap="peventrentmap">
+		<![CDATA[
+			select * from "rents","pevents" where "rents"."rez_no" = "pevents"."rez_no"
+		]]>
+	</select>
+	
+</mapper>

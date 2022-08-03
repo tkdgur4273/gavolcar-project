@@ -13,12 +13,12 @@ import lombok.ToString;
 @ToString
 public class AreaVO {
 
-	String area_name;
-	String area_loc;
-	String area_time;
-	String area_contents;
-	String area_img;
-	int area_tel;
+	private String area_name;
+	private String area_loc;
+	private String area_time;
+	private String area_contents;
+	private String area_img;
+	private int area_tel;
 	
 	
 }

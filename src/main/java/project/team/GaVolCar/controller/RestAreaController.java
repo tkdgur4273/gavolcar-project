@@ -62,6 +62,7 @@ public class RestAreaController {
 	
 		ResponseEntity<String> entity = null;
 		
+			log.info(file.getOriginalFilename());
 		Path directory = Paths.get("C:\\Users\\skype\\git\\GaVolCarProject\\src\\main\\resources\\static").toAbsolutePath().normalize();
 
 		// directory 해당 경로까지 디렉토리를 모두 만든다.
@@ -77,7 +78,8 @@ public class RestAreaController {
 		Path targetPath = directory.resolve(fileName).normalize();
 
 		// 파일이 이미 존재하는지 확인하여 존재한다면 오류를 발생하고 없다면 저장한다.
-		Assert.state(!Files.exists(targetPath), fileName + " File alerdy exists.");
+		
+		Assert.state(!Files.exists(targetPath), fileName + " File already exists.");
 		file.transferTo(targetPath);
 	
 		area.setArea_img(file.getOriginalFilename());
