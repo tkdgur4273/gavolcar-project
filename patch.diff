@@ -1,0 +1,641 @@
+From ff0e30d3cea75c404b432f64fca3d12a657c65d6 Mon Sep 17 00:00:00 2001
+From: "DESKTOP-D4P20FS\\skype" <sprkahxhalcl@naver.com>
+Date: Wed, 3 Aug 2022 12:20:05 +0900
+Subject: [PATCH] work on event 8.3
+
+---
+ .../team/GaVolCar/config/SecurityConfig.java  |  5 +-
+ .../GaVolCar/controller/EventsController.java | 29 +++++++
+ .../GaVolCar/controller/HomeController.java   |  4 +
+ .../controller/RestAreaController.java        |  4 +-
+ .../controller/RestEventsController.java      | 51 ++++++++++++
+ .../controller/UserAreaController.java        |  2 +-
+ .../team/GaVolCar/mapper/EventMapper.java     | 14 ++++
+ .../team/GaVolCar/service/EventService.java   | 11 +++
+ .../GaVolCar/service/EventServiceImpl.java    | 26 ++++++
+ .../java/project/team/GaVolCar/vo/AreaVO.java | 12 +--
+ .../project/team/GaVolCar/vo/CeventsVO.java   | 19 +++++
+ .../team/GaVolCar/vo/PeventsRentsVO.java      | 23 ++++++
+ .../project/team/GaVolCar/vo/PeventsVO.java   | 19 +++++
+ .../project/team/GaVolCar/vo/RentsVO.java     | 23 ++++++
+ src/main/resources/mappers/EventMapper.xml    | 35 ++++++++
+ .../WEB-INF/views/pevent/member/eventList.jsp | 29 +++++++
+ .../views/pevent/member/peventPage.jsp        | 79 +++++++++++++++++++
+ .../WEB-INF/views/pevent/member/userHome.jsp  | 32 ++++++++
+ .../team/GaVolCar/mapper/EventMapperTest.java | 30 +++++++
+ 19 files changed, 437 insertions(+), 10 deletions(-)
+ create mode 100644 src/main/java/project/team/GaVolCar/controller/EventsController.java
+ create mode 100644 src/main/java/project/team/GaVolCar/controller/RestEventsController.java
+ create mode 100644 src/main/java/project/team/GaVolCar/mapper/EventMapper.java
+ create mode 100644 src/main/java/project/team/GaVolCar/service/EventService.java
+ create mode 100644 src/main/java/project/team/GaVolCar/service/EventServiceImpl.java
+ create mode 100644 src/main/java/project/team/GaVolCar/vo/CeventsVO.java
+ create mode 100644 src/main/java/project/team/GaVolCar/vo/PeventsRentsVO.java
+ create mode 100644 src/main/java/project/team/GaVolCar/vo/PeventsVO.java
+ create mode 100644 src/main/java/project/team/GaVolCar/vo/RentsVO.java
+ create mode 100644 src/main/resources/mappers/EventMapper.xml
+ create mode 100644 src/main/webapp/WEB-INF/views/pevent/member/eventList.jsp
+ create mode 100644 src/main/webapp/WEB-INF/views/pevent/member/peventPage.jsp
+ create mode 100644 src/main/webapp/WEB-INF/views/pevent/member/userHome.jsp
+ create mode 100644 src/test/java/project/team/GaVolCar/mapper/EventMapperTest.java
+
+diff --git a/src/main/java/project/team/GaVolCar/config/SecurityConfig.java b/src/main/java/project/team/GaVolCar/config/SecurityConfig.java
+index e3e7d77..7040d78 100644
+--- a/src/main/java/project/team/GaVolCar/config/SecurityConfig.java
++++ b/src/main/java/project/team/GaVolCar/config/SecurityConfig.java
+@@ -50,8 +50,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
+ 	               .and()
+ 	               .withUser("admin").password("{noop}admin").roles("ADMIN","USER","MEMBER")
+ 	       			.and()
+-	       			.withUser("member").password("{noop}member").roles("MEMBER");
+-	       			
++	       			.withUser("member").password("{noop}member").roles("MEMBER")
++	       			.and()
++	       			.withUser("dong").password("{noop}dong").roles("MEMBER");
+ 		 //  auth.userDetailsService(customUserDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+ 	   }
+ 	   
+diff --git a/src/main/java/project/team/GaVolCar/controller/EventsController.java b/src/main/java/project/team/GaVolCar/controller/EventsController.java
+new file mode 100644
+index 0000000..1603a5e
+--- /dev/null
++++ b/src/main/java/project/team/GaVolCar/controller/EventsController.java
+@@ -0,0 +1,29 @@
++package project.team.GaVolCar.controller;
++
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.stereotype.Controller;
++import org.springframework.ui.Model;
++import org.springframework.web.bind.annotation.GetMapping;
++
++import lombok.extern.slf4j.Slf4j;
++import project.team.GaVolCar.service.EventService;
++
++@Slf4j
++@Controller
++public class EventsController {
++	
++	@Autowired
++	private EventService eventService;
++	
++	@GetMapping("/admin/peventlist")
++	public String list(Model model) {
++		log.info("list()...");
++		
++		return "event/admin/eventList";
++	}
++	
++
++	
++
++}
++ 
+\ No newline at end of file
+diff --git a/src/main/java/project/team/GaVolCar/controller/HomeController.java b/src/main/java/project/team/GaVolCar/controller/HomeController.java
+index f49d44e..7da2d9d 100644
+--- a/src/main/java/project/team/GaVolCar/controller/HomeController.java
++++ b/src/main/java/project/team/GaVolCar/controller/HomeController.java
+@@ -40,5 +40,9 @@ public class HomeController {
+ //		return mav;
+ //	}
+ 	
++	@GetMapping("/member")
++	public String member() {
++		return "pevent/member/eventList";
++	}
+ 
+ }
+diff --git a/src/main/java/project/team/GaVolCar/controller/RestAreaController.java b/src/main/java/project/team/GaVolCar/controller/RestAreaController.java
+index 8b09b08..b606a96 100644
+--- a/src/main/java/project/team/GaVolCar/controller/RestAreaController.java
++++ b/src/main/java/project/team/GaVolCar/controller/RestAreaController.java
+@@ -62,6 +62,7 @@ public class RestAreaController {
+ 	
+ 		ResponseEntity<String> entity = null;
+ 		
++			log.info(file.getOriginalFilename());
+ 		Path directory = Paths.get("C:\\Users\\skype\\git\\GaVolCarProject\\src\\main\\resources\\static").toAbsolutePath().normalize();
+ 
+ 		// directory 해당 경로까지 디렉토리를 모두 만든다.
+@@ -77,7 +78,8 @@ public class RestAreaController {
+ 		Path targetPath = directory.resolve(fileName).normalize();
+ 
+ 		// 파일이 이미 존재하는지 확인하여 존재한다면 오류를 발생하고 없다면 저장한다.
+-		Assert.state(!Files.exists(targetPath), fileName + " File alerdy exists.");
++		
++		Assert.state(!Files.exists(targetPath), fileName + " File already exists.");
+ 		file.transferTo(targetPath);
+ 	
+ 		area.setArea_img(file.getOriginalFilename());
+diff --git a/src/main/java/project/team/GaVolCar/controller/RestEventsController.java b/src/main/java/project/team/GaVolCar/controller/RestEventsController.java
+new file mode 100644
+index 0000000..d9cf6c5
+--- /dev/null
++++ b/src/main/java/project/team/GaVolCar/controller/RestEventsController.java
+@@ -0,0 +1,51 @@
++package project.team.GaVolCar.controller;
++
++import java.io.File;
++import java.nio.file.Files;
++import java.nio.file.Path;
++import java.nio.file.Paths;
++import java.util.List;
++
++import javax.servlet.ServletContext;
++
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.http.HttpStatus;
++import org.springframework.http.ResponseEntity;
++import org.springframework.ui.Model;
++import org.springframework.util.Assert;
++import org.springframework.util.StringUtils;
++import org.springframework.web.bind.annotation.DeleteMapping;
++import org.springframework.web.bind.annotation.GetMapping;
++import org.springframework.web.bind.annotation.PathVariable;
++import org.springframework.web.bind.annotation.PostMapping;
++import org.springframework.web.bind.annotation.PutMapping;
++import org.springframework.web.bind.annotation.RequestBody;
++import org.springframework.web.bind.annotation.RequestMapping;
++import org.springframework.web.bind.annotation.RequestPart;
++import org.springframework.web.bind.annotation.RestController;
++import org.springframework.web.multipart.MultipartFile;
++
++import lombok.extern.slf4j.Slf4j;
++import project.team.GaVolCar.service.AreaService;
++import project.team.GaVolCar.service.EventService;
++import project.team.GaVolCar.vo.AreaVO;
++import project.team.GaVolCar.vo.PeventsRentsVO;
++
++@Slf4j
++@RequestMapping("/pevent")
++@RestController
++public class RestEventsController {
++	
++	@Autowired
++	private EventService eventService;
++	
++	@GetMapping("/eventpage")
++	public List<PeventsRentsVO> peventList(Model model){
++		log.info("areaList()...");
++		
++		return eventService.getPeventsRentsList();
++	}
++	
++
++}
++ 
+\ No newline at end of file
+diff --git a/src/main/java/project/team/GaVolCar/controller/UserAreaController.java b/src/main/java/project/team/GaVolCar/controller/UserAreaController.java
+index 0d82a2f..97810c6 100644
+--- a/src/main/java/project/team/GaVolCar/controller/UserAreaController.java
++++ b/src/main/java/project/team/GaVolCar/controller/UserAreaController.java
+@@ -28,7 +28,7 @@ public class UserAreaController {
+ 	private AreaService areaService;
+ 	
+ 
+-	@GetMapping("arealist_user")
++	@GetMapping("/arealist_user")
+ 	public String list(Model model) {
+ 		
+ 		log.info("list()...");
+diff --git a/src/main/java/project/team/GaVolCar/mapper/EventMapper.java b/src/main/java/project/team/GaVolCar/mapper/EventMapper.java
+new file mode 100644
+index 0000000..a2616eb
+--- /dev/null
++++ b/src/main/java/project/team/GaVolCar/mapper/EventMapper.java
+@@ -0,0 +1,14 @@
++package project.team.GaVolCar.mapper;
++
++import java.util.List;
++
++import org.apache.ibatis.annotations.Mapper;
++
++import project.team.GaVolCar.vo.PeventsRentsVO;
++
++@Mapper
++public interface EventMapper {
++	public List<PeventsRentsVO> getPeventsRentsList();
++
++
++}
+diff --git a/src/main/java/project/team/GaVolCar/service/EventService.java b/src/main/java/project/team/GaVolCar/service/EventService.java
+new file mode 100644
+index 0000000..0d4f383
+--- /dev/null
++++ b/src/main/java/project/team/GaVolCar/service/EventService.java
+@@ -0,0 +1,11 @@
++package project.team.GaVolCar.service;
++
++import java.util.List;
++
++import project.team.GaVolCar.vo.PeventsRentsVO;
++
++public interface EventService {
++	public List<PeventsRentsVO> getPeventsRentsList();
++	
++	
++}
+diff --git a/src/main/java/project/team/GaVolCar/service/EventServiceImpl.java b/src/main/java/project/team/GaVolCar/service/EventServiceImpl.java
+new file mode 100644
+index 0000000..fdd524a
+--- /dev/null
++++ b/src/main/java/project/team/GaVolCar/service/EventServiceImpl.java
+@@ -0,0 +1,26 @@
++package project.team.GaVolCar.service;
++
++import java.util.List;
++
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.stereotype.Service;
++
++import lombok.extern.slf4j.Slf4j;
++import project.team.GaVolCar.mapper.EventMapper;
++import project.team.GaVolCar.vo.PeventsRentsVO;
++
++@Slf4j
++@Service
++public class EventServiceImpl implements EventService{
++	
++	@Autowired
++	private EventMapper eventMapper;
++	
++	@Override
++	public List<PeventsRentsVO> getPeventsRentsList(){
++		log.info("getPeventsRentsList() is working.....");
++		return eventMapper.getPeventsRentsList();
++	};
++	
++	
++}
+diff --git a/src/main/java/project/team/GaVolCar/vo/AreaVO.java b/src/main/java/project/team/GaVolCar/vo/AreaVO.java
+index a7272d5..e154ba6 100644
+--- a/src/main/java/project/team/GaVolCar/vo/AreaVO.java
++++ b/src/main/java/project/team/GaVolCar/vo/AreaVO.java
+@@ -13,12 +13,12 @@ import lombok.ToString;
+ @ToString
+ public class AreaVO {
+ 
+-	String area_name;
+-	String area_loc;
+-	String area_time;
+-	String area_contents;
+-	String area_img;
+-	int area_tel;
++	private String area_name;
++	private String area_loc;
++	private String area_time;
++	private String area_contents;
++	private String area_img;
++	private int area_tel;
+ 	
+ 	
+ }
+diff --git a/src/main/java/project/team/GaVolCar/vo/CeventsVO.java b/src/main/java/project/team/GaVolCar/vo/CeventsVO.java
+new file mode 100644
+index 0000000..244367b
+--- /dev/null
++++ b/src/main/java/project/team/GaVolCar/vo/CeventsVO.java
+@@ -0,0 +1,19 @@
++package project.team.GaVolCar.vo;
++
++import lombok.AllArgsConstructor;
++import lombok.Getter;
++import lombok.NoArgsConstructor;
++import lombok.Setter;
++import lombok.ToString;
++
++@Getter
++@Setter
++@NoArgsConstructor
++@AllArgsConstructor
++@ToString
++public class CeventsVO {
++
++	String i;
++	
++	
++}
+diff --git a/src/main/java/project/team/GaVolCar/vo/PeventsRentsVO.java b/src/main/java/project/team/GaVolCar/vo/PeventsRentsVO.java
+new file mode 100644
+index 0000000..18a57af
+--- /dev/null
++++ b/src/main/java/project/team/GaVolCar/vo/PeventsRentsVO.java
+@@ -0,0 +1,23 @@
++package project.team.GaVolCar.vo;
++
++import java.util.List;
++
++import lombok.AllArgsConstructor;
++import lombok.Getter;
++import lombok.NoArgsConstructor;
++import lombok.Setter;
++import lombok.ToString;
++
++@Getter
++@Setter
++@NoArgsConstructor
++@AllArgsConstructor
++@ToString
++public class PeventsRentsVO {
++	private int point_no;
++	private int points;
++	private String point_date;
++	private int rez_no;
++	
++	List<RentsVO> rentsList;
++}
+diff --git a/src/main/java/project/team/GaVolCar/vo/PeventsVO.java b/src/main/java/project/team/GaVolCar/vo/PeventsVO.java
+new file mode 100644
+index 0000000..a05e6dd
+--- /dev/null
++++ b/src/main/java/project/team/GaVolCar/vo/PeventsVO.java
+@@ -0,0 +1,19 @@
++package project.team.GaVolCar.vo;
++
++import lombok.AllArgsConstructor;
++import lombok.Getter;
++import lombok.NoArgsConstructor;
++import lombok.Setter;
++import lombok.ToString;
++
++@Getter
++@Setter
++@NoArgsConstructor
++@AllArgsConstructor
++@ToString
++public class PeventsVO {
++	private int point_no;
++	private int points;
++	private String point_date;
++	private int rez_no;
++}
+diff --git a/src/main/java/project/team/GaVolCar/vo/RentsVO.java b/src/main/java/project/team/GaVolCar/vo/RentsVO.java
+new file mode 100644
+index 0000000..3036cfd
+--- /dev/null
++++ b/src/main/java/project/team/GaVolCar/vo/RentsVO.java
+@@ -0,0 +1,23 @@
++package project.team.GaVolCar.vo;
++
++import lombok.AllArgsConstructor;
++import lombok.Getter;
++import lombok.NoArgsConstructor;
++import lombok.Setter;
++import lombok.ToString;
++
++@Getter
++@Setter
++@NoArgsConstructor
++@AllArgsConstructor
++@ToString
++public class RentsVO {
++	private int rez_no;
++	private String rent_start_date;
++	private String rent_end_date;
++	private String final_coast;
++	private int hipass;
++	private int baby_car_seat;
++	private String user_id;
++	private int	car_no;
++}
+diff --git a/src/main/resources/mappers/EventMapper.xml b/src/main/resources/mappers/EventMapper.xml
+new file mode 100644
+index 0000000..62b4dd6
+--- /dev/null
++++ b/src/main/resources/mappers/EventMapper.xml
+@@ -0,0 +1,35 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
++        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
++<mapper namespace="project.team.GaVolCar.mapper.EventMapper">
++	
++	<resultMap id="rentmap" type="RentsVO">
++		<id property="rez_no" column="'rez_no'"/>
++		<result property="rent_start_date" column="'rent_start_date'"/>
++		<result property="rent_end_date" column="'rent_end_date'"/>
++		<result property="final_coast" column="'final_coast'"/>
++		<result property="hipass" column="'hipass'"/>
++		<result property="baby_car_seat" column="'baby_car_seat'"/>
++		<result property="user_id" column="'user_id'"/>
++		<result property="car_no" column="'car_no'"/>
++		
++	</resultMap>
++	
++	
++	<resultMap id="peventrentmap" type="PeventsRentsVO">
++		<result property="point_no" column="'point_no'"/>
++		<result property="points" column="'points'"/>
++		<result property="point_date" column="'point_date'"/>
++		<result property="rez_no" column="'rez_no'"/>
++		<collection property="rentsList" resultMap="rentmap"></collection>
++		
++	</resultMap>
++	
++	<select id="getPeventsRentsList" resultMap="peventrentmap">
++		<![CDATA[
++			select * from "rents","pevents" where "rents"."rez_no" = "pevents"."rez_no"
++		]]>
++	</select>
++	
++</mapper>
+\ No newline at end of file
+diff --git a/src/main/webapp/WEB-INF/views/pevent/member/eventList.jsp b/src/main/webapp/WEB-INF/views/pevent/member/eventList.jsp
+new file mode 100644
+index 0000000..0901110
+--- /dev/null
++++ b/src/main/webapp/WEB-INF/views/pevent/member/eventList.jsp
+@@ -0,0 +1,29 @@
++<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
++<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
++<!-- C태그 쓰기 위해 넣은 taglib므로 반드시 확인 --> 
++  
++    
++<!DOCTYPE html>
++<html>
++<head>
++<meta charset="UTF-8">
++<title>Insert title here</title>
++<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
++<script type="text/javascript">
++	$(document).ready(function() {
++		var memberName = "<sec:authentication property='principal.username'/>";
++		
++		$("#go").html("<a href='/pevent_view_user?user_id=memberName'> 포인트 이벤트</a>");
++	});
++</script>
++
++
++
++</head>
++<body>
++<h1>일단 리스트</h1>
++	
++	<div id="go"></div>
++	
++</body>
++</html>
+\ No newline at end of file
+diff --git a/src/main/webapp/WEB-INF/views/pevent/member/peventPage.jsp b/src/main/webapp/WEB-INF/views/pevent/member/peventPage.jsp
+new file mode 100644
+index 0000000..fc7d178
+--- /dev/null
++++ b/src/main/webapp/WEB-INF/views/pevent/member/peventPage.jsp
+@@ -0,0 +1,79 @@
++<%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
++<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
++<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
++
++<html>
++<head>
++	<title>list</title>
++<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
++<script type="text/javascript">
++
++	
++
++	//삭제 버튼 처리
++		$(document).on("click","#area_delete",function(){
++			
++			
++			
++				
++			let area_name = $("#name").html();
++		
++			
++			$.ajax({ 
++                type: "DELETE",
++                url : "/areas/"+area_name, //http://localhost:8282/boards/list
++                success : function(result) {
++           	           console.log(result);               	
++           	             
++                }, 
++                error : function(xhr, textStatus, errorThrown){ 
++                        alert(xhr);
++                        alert(textStatus);  
++                        alert(errorThrown);
++                    }
++                });		
++		
++	});		
++		
++</script>
++
++</head>
++<body>
++  <table width="700" cellpadding="0" cellspacing="0" border="1">
++     
++  
++         <tr>
++            <td> 명소이름 </td>
++            <td id="name">${name.area_name} </td>
++         </tr>
++         <tr>
++            <td> 명소주소 </td>
++            <td  id="loc">${name.area_loc} </td>
++         </tr>
++         <tr>
++            <td> 이용시간 </td>
++            <td id="time">${name.area_time} </td>
++         </tr>
++           <tr>
++            <td> 내용 </td>
++            <td id="contents">${name.area_contents}</td>
++         </tr>
++           <tr>
++            <td> 이미지</td>
++            <td><img src="${name.area_img}"></td>
++         </tr>
++           <tr>
++            <td> 전화번호 </td>
++            <td id="tel">${name.area_tel}</td>
++         </tr>
++         <tr >
++         
++            <td colspan="2"> 
++            &nbsp;&nbsp; <a href="arealist_user">목록보기</a> 
++           </td>
++         </tr>
++      </form>
++   </table>
++
++</body>
++</html>
+\ No newline at end of file
+diff --git a/src/main/webapp/WEB-INF/views/pevent/member/userHome.jsp b/src/main/webapp/WEB-INF/views/pevent/member/userHome.jsp
+new file mode 100644
+index 0000000..ae8a1a6
+--- /dev/null
++++ b/src/main/webapp/WEB-INF/views/pevent/member/userHome.jsp
+@@ -0,0 +1,32 @@
++<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
++<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
++<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
++<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
++<!DOCTYPE html>
++<html lang="ko">
++<head>
++    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
++	<title>유저 페이지</title>
++	
++	<script type="text/javascript">
++		console.log("<sec:authentication property='principal.username'/>")
++	</script>
++	
++</head>
++
++<body>
++
++<h1>유저 페이지 입니다.</h1>
++
++<p>principal: <sec:authentication property="principal"/></p>
++<p>principal: <sec:authentication property="principal.username"/>님 환영합니다.</p>
++
++
++
++<sec:authentication property="principal.username"/>
++
++
++<p><a href="<c:url value="/" />">홈</a></p>
++
++</body>
++</html>
+diff --git a/src/test/java/project/team/GaVolCar/mapper/EventMapperTest.java b/src/test/java/project/team/GaVolCar/mapper/EventMapperTest.java
+new file mode 100644
+index 0000000..6b742a2
+--- /dev/null
++++ b/src/test/java/project/team/GaVolCar/mapper/EventMapperTest.java
+@@ -0,0 +1,30 @@
++package project.team.GaVolCar.mapper;
++
++import static org.junit.jupiter.api.Assertions.*;
++
++import org.junit.jupiter.api.Test;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.boot.test.context.SpringBootTest;
++
++import lombok.extern.slf4j.Slf4j;
++
++@Slf4j
++@SpringBootTest
++class EventMapperTest {
++	
++	@Autowired
++	private EventMapper eventMapper;
++	
++	
++	@Test
++	void testPeventsRentsJoin() {
++		
++		
++		System.out.println(eventMapper);
++		System.out.println(eventMapper.getPeventsRentsList().size());
++		
++		
++		
++	}
++
++}
+-- 
+2.36.0.windows.1
+
