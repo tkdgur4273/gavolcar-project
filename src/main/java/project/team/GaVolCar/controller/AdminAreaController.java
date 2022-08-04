@@ -27,7 +27,7 @@ public class AdminAreaController {
 	@Autowired
 	private AreaService areaService;
 	
-
+	//list로 이동
 	@GetMapping("admin/arealist")
 	public String list(Model model) {
 		
@@ -36,7 +36,7 @@ public class AdminAreaController {
 		return "area/admin/rest_areaList";
 	}
 	
-	
+	//contents_view로 이동
 	@GetMapping("/areacontent_view")
 	public String rest_area_view(AreaVO areaVO,Model model){
 		log.info("rest_area_view()...");
@@ -47,6 +47,7 @@ public class AdminAreaController {
 		return "area/admin/rest_area_content_view";
 	}
 	
+	//작성페이지로 이동
 	@GetMapping("/areawrite")
 	public String areawrite() {
 		
@@ -58,6 +59,7 @@ public class AdminAreaController {
 		return "area/admin/area_write_view";
 	}
 	
+	//수정페이지로 이동
 	@GetMapping("/areamodify")
 	public String areamodify(Model model, AreaVO areaVO) {
 		
@@ -70,6 +72,7 @@ public class AdminAreaController {
 		return "area/admin/area_modify_view";
 	}
 	
+	//삭제시 리스트로 이동
 	@GetMapping("/areadelete")
 	public String areadelete(Model model, AreaVO areaVO) {
 		

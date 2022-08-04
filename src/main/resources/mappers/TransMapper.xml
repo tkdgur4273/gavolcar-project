@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.team.GaVolCar.mapper.TransMapper">
+	
+	<select id="getTransList" resultType="project.team.GaVolCar.vo.TransVO">
+		<![CDATA[
+			select "trans_no",to_Number("trans_sales") as "trans_sales", "trans_type", "trans_date" from "trans"
+		]]>
+	</select>
+	
+	<select id="getMonth" resultType="project.team.GaVolCar.vo.TransCountMonthVO">
+		<![CDATA[
+			select to_Number(substr ("trans_date", 1, 2)) as month ,count(to_Number(substr ("trans_date", 1, 2))) as amount from "trans" group by to_Number(substr ("trans_date", 1, 2))
+		]]>
+	</select>
+	
+	<select id="getType" resultType="project.team.GaVolCar.vo.TransCountTypeVO">
+		<![CDATA[
+			select "trans_type" as company,sum(to_Number("trans_sales")) as totalcost  from "trans" group by "trans_type"
+		]]>
+	</select>
+		
+</mapper>

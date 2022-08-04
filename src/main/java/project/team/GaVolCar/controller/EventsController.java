@@ -15,12 +15,15 @@ public class EventsController {
 	@Autowired
 	private EventService eventService;
 	
+	//이벤트 리스트로 이동
 	@GetMapping("/member/eventlist")
 	public String member() {
 		log.info("eventList()...");
 		return "pevent/member/eventList";
 	}
-
+	
+	
+	//이벤트 페이지로 이동
 	@GetMapping("/pevent_view_user")
 	public String pevent_view() {
 		log.info("pevent_view_user()...");

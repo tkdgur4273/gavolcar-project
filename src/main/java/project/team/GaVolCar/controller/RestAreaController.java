@@ -37,6 +37,7 @@ public class RestAreaController {
 	@Autowired
 	private AreaService areaService;
 	
+	//리스트 데이터 올리기
 	@GetMapping("/areaList")
 	public List<AreaVO> areaList(Model model){
 		log.info("areaList()...");
@@ -45,7 +46,7 @@ public class RestAreaController {
 	}
 	
 	
-	
+	//지역정보 데이터 올리기
 	@GetMapping("/{area_name}")
 	public AreaVO rest_area_view(AreaVO areaVO,Model model){
 		log.info("rest_area_view()...");
@@ -53,7 +54,7 @@ public class RestAreaController {
 		return areaService.areaRead(areaVO.getArea_name());
 	}
 	
-	
+	//지역정보 작성
 	@PostMapping("/{area_name}")
 	public void rest_area_write(@PathVariable String area_name,
 			@RequestPart(value = "key") AreaVO area,
@@ -64,7 +65,7 @@ public class RestAreaController {
 		areaService.fileSave(file);		
 		areaService.areaRegister(area);
 	}
-	
+	//지역정보 수정
 	@PutMapping("/{area_name}")
 	public void rest_update(@PathVariable String area_name,
 			@RequestPart(value = "key") AreaVO area,
@@ -76,15 +77,8 @@ public class RestAreaController {
 		areaService.fileSave(file);	
 		areaService.areaModify(area);
 	}
-//	public int rest_area_modify(AreaVO areaVO) {
-//		log.info("rest_area_modify()...");
-//		
-//		return areaService.areaModify(areaVO);
-//	}
 	
-	
-	
-	
+	//지역정보 삭제
 	@DeleteMapping("/{area_name} /{area_img}")
 	public int rest_area_remove(AreaVO areaVO) {
 		log.info("rest_area_remove()...");

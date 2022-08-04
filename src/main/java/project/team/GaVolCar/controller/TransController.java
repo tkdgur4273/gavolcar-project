@@ -18,33 +18,28 @@ import org.springframework.web.servlet.ModelAndView;
 
 import lombok.extern.slf4j.Slf4j;
 import project.team.GaVolCar.service.AreaService;
+import project.team.GaVolCar.service.TransService;
 import project.team.GaVolCar.vo.AreaVO;
+import project.team.GaVolCar.vo.TransVO;
 
 @Slf4j
 @Controller
-//고객용
-public class UserAreaController {
+public class TransController {
 	
 	@Autowired
-	private AreaService areaService;
+	private TransService transService;
 	
-	//지역정보 리스트이동
-	@GetMapping("/arealist_user")
-	public String list(Model model) {
+	@GetMapping("/trans")
+	public String getTransList(Model model){
+		log.info("getTransList().....");
+		model.addAttribute("transList", transService.getTransList());
+		model.addAttribute("month", transService.getMonth());
+		model.addAttribute("company", transService.getType());
 		
-		log.info("list()...");
 		
-		return "area/rest_areaList";
+		return "trans/translist";
 	}
-	
-	//지역정보 contents_view이동
-	@GetMapping("/areacontent_view_user")
-	public String rest_area_view(AreaVO areaVO,Model model){
-		log.info("rest_area_view()...");
 		
-		String area_name = areaVO.getArea_name();
-		model.addAttribute("name", areaService.areaRead(area_name));
 		
-		return "area/rest_area_content_view";
-	}
 }
+ 

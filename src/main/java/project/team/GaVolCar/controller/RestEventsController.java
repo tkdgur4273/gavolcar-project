@@ -40,6 +40,7 @@ public class RestEventsController {
 	@Autowired
 	private EventService eventService;
 	
+	//전체 포인트 이벤트 리스트 호출
 	@GetMapping("/eventpage")
 	public List<PeventsRentsVO> peventList(Model model){
 		log.info("areaList()...");
@@ -47,6 +48,8 @@ public class RestEventsController {
 		return eventService.getPeventsRentsList();
 	};
 	
+	
+	//특정 유저 이벤트 리스트 호출
 	@GetMapping("/{user_id}")
 	public List<PeventsRentsVO> getPointsInfo(RentsVO rentsVO, Model model) {
 		log.info("getPointsInfo()....");
