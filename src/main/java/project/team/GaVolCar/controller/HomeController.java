@@ -40,9 +40,6 @@ public class HomeController {
 //		return mav;
 //	}
 	
-	@GetMapping("/member")
-	public String member() {
-		return "pevent/member/eventList";
-	}
+	
 
 }

@@ -19,5 +19,10 @@ public class PeventsRentsVO {
 	private String point_date;
 	private int rez_no;
 	
+	
 	List<RentsVO> rentsList;
+	
+	
+	
+	
 }

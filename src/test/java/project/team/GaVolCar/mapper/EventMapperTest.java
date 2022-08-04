@@ -22,6 +22,8 @@ class EventMapperTest {
 		
 		System.out.println(eventMapper);
 		System.out.println(eventMapper.getPeventsRentsList().size());
+		System.out.println(eventMapper.getPointData("dong"));
+		
 		
 		
 		

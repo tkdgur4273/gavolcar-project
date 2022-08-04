@@ -30,6 +30,7 @@ import project.team.GaVolCar.service.AreaService;
 import project.team.GaVolCar.service.EventService;
 import project.team.GaVolCar.vo.AreaVO;
 import project.team.GaVolCar.vo.PeventsRentsVO;
+import project.team.GaVolCar.vo.RentsVO;
 
 @Slf4j
 @RequestMapping("/pevent")
@@ -44,8 +45,17 @@ public class RestEventsController {
 		log.info("areaList()...");
 		
 		return eventService.getPeventsRentsList();
-	}
+	};
 	
+	@GetMapping("/{user_id}")
+	public List<PeventsRentsVO> getPointsInfo(RentsVO rentsVO, Model model) {
+		log.info("getPointsInfo()....");
+		log.info(rentsVO.getUser_id());
+		
+		
+		return eventService.getPointsInfo(rentsVO.getUser_id());
+		
+	}
 
 }
  

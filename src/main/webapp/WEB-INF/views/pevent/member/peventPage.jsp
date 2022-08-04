@@ -1,79 +1,110 @@
 <%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
-	<title>list</title>
+
+<style type="text/css">
+	
+</style>
+
+
+
+
+
+
+
+
+<title>peventpage</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 
 	
 
-	//삭제 버튼 처리
-		$(document).on("click","#area_delete",function(){
-			
-			
-			
-				
-			let area_name = $("#name").html();
+$(document).ready(function() {
+	$(document).ready(function() {
+		var memberName = "<sec:authentication property='principal.username'/>";
+		console.log(memberName);
 		
+		
+		$.ajax({
+			type:"GET",
+			url:"/pevent/"+"<sec:authentication property='principal.username'/>",
+			success:function(result){
+				console.log(result);
 			
-			$.ajax({ 
-                type: "DELETE",
-                url : "/areas/"+area_name, //http://localhost:8282/boards/list
-                success : function(result) {
-           	           console.log(result);               	
-           	             
-                }, 
-                error : function(xhr, textStatus, errorThrown){ 
-                        alert(xhr);
-                        alert(textStatus);  
-                        alert(errorThrown);
-                    }
-                });		
-		
-	});		
-		
+				list(result);
+			}
+		});
+	});
+	
+	
+	function list(result) {
+	    var htmls="";
+	    
+	    	
+	    if(result.length < 1){
+	       htmls.push("등록된 장소가 없습니다.");
+	    }else{         
+	       var totalPoint=0;
+	    	$(result).each(function() { 
+	    		htmls += '<tr>';
+	    	   	htmls += '<td>' + this.point_no + '</td>';
+		        htmls += '<td>' + this.points +'</td>'; 
+		        htmls += '<td>' + this.point_date +'</td>';  
+		        totalPoint +=  this.points;
+	     		$(this.rentsList).each(function(){
+		          
+		        	htmls += '<td>' + this.rez_no + '</td>';
+		        	htmls += '<td>' + this.rent_start_date +'</td>'; 
+		        	htmls += '<td>' + this.rent_end_date +'</td>'; 
+		        	htmls += '<td>' + this.final_cost + '</td>';
+		        	htmls += '<td>' + this.hipass + '</td>';
+		   	    	htmls += '<td>' + this.baby_car_seat +'</td>'; 
+		   	    	htmls += '<td>' + this.car_no + '</td>';
+		        	htmls += '</tr>';   
+	    	  	});
+	     	
+	       	});
+	    	htmls += '<tr>';
+    	   	htmls += '<td colspan="11">' + "총 포인트" + '</td>';
+    	   	htmls += '<tr>';
+	    	htmls += '<tr>';
+    	   	htmls += '<td colspan="11">' + totalPoint + '</td>';
+    	   	htmls += '<tr>';
+    	   	$("#totalPointBanner").append(totalPoint);
+	    }
+	    $("#list-table").append(htmls);
+	}
+	
+	
+});	
 </script>
 
 </head>
 <body>
-  <table width="700" cellpadding="0" cellspacing="0" border="1">
-     
-  
-         <tr>
-            <td> 명소이름 </td>
-            <td id="name">${name.area_name} </td>
-         </tr>
-         <tr>
-            <td> 명소주소 </td>
-            <td  id="loc">${name.area_loc} </td>
-         </tr>
-         <tr>
-            <td> 이용시간 </td>
-            <td id="time">${name.area_time} </td>
-         </tr>
-           <tr>
-            <td> 내용 </td>
-            <td id="contents">${name.area_contents}</td>
-         </tr>
-           <tr>
-            <td> 이미지</td>
-            <td><img src="${name.area_img}"></td>
-         </tr>
-           <tr>
-            <td> 전화번호 </td>
-            <td id="tel">${name.area_tel}</td>
-         </tr>
-         <tr >
-         
-            <td colspan="2"> 
-            &nbsp;&nbsp; <a href="arealist_user">목록보기</a> 
-           </td>
-         </tr>
-      </form>
-   </table>
-
+	<h1>포인트 리스트</h1>
+	
+	<div id="totalPointBannerTitle">나의 포인트</div>
+	<div id="totalPointBanner"></div>
+	
+	
+	
+	<table id="list-table"  border="1">
+		<tr>
+			<td>포인트 번호 </td> 
+	        <td>포인트</td>
+	        <td>포인트 만료일</td>
+	        <td>예약번호</td>
+	        <td>대여 시작일</td>
+	        <td>대여 종료일</td>
+	        <td>최종 비용</td>
+	       	<td>하이패스</td>
+	        <td>카시트</td>
+	        <td>차량 번호</td>
+		</tr>
+	</table>
+	<a href="member/eventlist">리스트로</a>
 </body>
 </html>

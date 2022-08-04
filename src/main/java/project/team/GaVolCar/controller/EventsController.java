@@ -15,15 +15,17 @@ public class EventsController {
 	@Autowired
 	private EventService eventService;
 	
-	@GetMapping("/admin/peventlist")
-	public String list(Model model) {
-		log.info("list()...");
-		
-		return "event/admin/eventList";
+	@GetMapping("/member/eventlist")
+	public String member() {
+		log.info("eventList()...");
+		return "pevent/member/eventList";
 	}
-	
 
-	
+	@GetMapping("/pevent_view_user")
+	public String pevent_view() {
+		log.info("pevent_view_user()...");
+		return "pevent/member/peventPage";
+	}
 
 }
  

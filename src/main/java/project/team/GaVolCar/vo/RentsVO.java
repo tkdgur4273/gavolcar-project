@@ -15,7 +15,8 @@ public class RentsVO {
 	private int rez_no;
 	private String rent_start_date;
 	private String rent_end_date;
-	private String final_coast;
+	private String final_cost;
+	
 	private int hipass;
 	private int baby_car_seat;
 	private String user_id;

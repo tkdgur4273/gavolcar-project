@@ -59,34 +59,9 @@ public class RestAreaController {
 			@RequestPart(value = "key") AreaVO area,
 			@RequestPart(value = "file") MultipartFile file)throws Exception {
 		log.info("rest_area_write() .." + area);
-	
-		ResponseEntity<String> entity = null;
 		
-			log.info(file.getOriginalFilename());
-		Path directory = Paths.get("C:\\Users\\skype\\git\\GaVolCarProject\\src\\main\\resources\\static").toAbsolutePath().normalize();
-
-		// directory 해당 경로까지 디렉토리를 모두 만든다.
-		Files.createDirectories(directory);
-	    
-		// 파일명을 바르게 수정한다.
-		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-
-		// 파일명에 '..' 문자가 들어 있다면 오류를 발생하고 아니라면 진행(해킹및 오류방지)
-		Assert.state(!fileName.contains(".."), "Name of file cannot contain '..'");
-		
-		// 파일을 저장할 경로를 Path 객체로 받는다.
-		Path targetPath = directory.resolve(fileName).normalize();
-
-		// 파일이 이미 존재하는지 확인하여 존재한다면 오류를 발생하고 없다면 저장한다.
-		
-		Assert.state(!Files.exists(targetPath), fileName + " File already exists.");
-		file.transferTo(targetPath);
-	
 		area.setArea_img(file.getOriginalFilename());
-		
-		
-		
-		
+		areaService.fileSave(file);		
 		areaService.areaRegister(area);
 	}
 	
@@ -96,30 +71,9 @@ public class RestAreaController {
 			@RequestPart(value = "file") MultipartFile file)throws Exception {
 		log.info("rest_area_modify() .." + area);
 	
-		ResponseEntity<String> entity = null;
 		
-		Path directory = Paths.get("C:\\Users\\skype\\git\\GaVolCarProject\\src\\main\\resources\\static").toAbsolutePath().normalize();
-
-		// directory 해당 경로까지 디렉토리를 모두 만든다.
-		Files.createDirectories(directory);
-	    
-		// 파일명을 바르게 수정한다.
-		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-
-		// 파일명에 '..' 문자가 들어 있다면 오류를 발생하고 아니라면 진행(해킹및 오류방지)
-		Assert.state(!fileName.contains(".."), "Name of file cannot contain '..'");
-		
-		// 파일을 저장할 경로를 Path 객체로 받는다.
-		Path targetPath = directory.resolve(fileName).normalize();
-
-		// 파일이 이미 존재하는지 확인하여 존재한다면 오류를 발생하고 없다면 저장한다.
-		Assert.state(!Files.exists(targetPath), fileName + " File alerdy exists.");
-		file.transferTo(targetPath);
-	
 		area.setArea_img(file.getOriginalFilename());
-		
-		
-		
+		areaService.fileSave(file);	
 		areaService.areaModify(area);
 	}
 //	public int rest_area_modify(AreaVO areaVO) {
@@ -136,16 +90,7 @@ public class RestAreaController {
 		log.info("rest_area_remove()...");
 		
 		
-		//현재 게시판에 존재하는 파일객체를 만듬
-		File file = new File("C:\\Users\\skype\\git\\GaVolCarProject\\src\\main\\resources\\static\\" + areaVO.getArea_img());
-		log.info("C:\\Users\\skype\\git\\GaVolCarProject\\src\\main\\resources\\static\\" + areaVO.getArea_img());
-		if(file.exists()) { // 파일이 존재하면
-			file.delete(); // 파일 삭제	
-		}
-
-		
-		
-		
+		areaService.fileDelete(areaVO);
 		return areaService.areaRemove(areaVO);
 	}
 	
