@@ -14,6 +14,6 @@ import lombok.ToString;
 public class TransCountTypeVO {
 	private String company;
 	private int totalCost;
-	
+	private int companyCount;
 	
 }

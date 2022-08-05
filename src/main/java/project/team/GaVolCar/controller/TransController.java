@@ -39,7 +39,46 @@ public class TransController {
 		
 		return "trans/translist";
 	}
+	
+	
+	@GetMapping("/admin/transEdit")
+	public String getTransEdit(Model model){
+		log.info("getTransList().....");
+		model.addAttribute("transList", transService.getTransList());
 		
+		return "trans/admin/transEdit";
+	}
+	
+	@PostMapping("/transWrite")
+	public String transWrite(TransVO transVO, Model model) {
+		log.info("write Trans...");
+		
+		transService.insertTrans(transVO);
+		
+		model.addAttribute("transList", transService.getTransList());
+		return "trans/admin/transEdit";
+	}
+	
+	@PostMapping("/transUpdate")
+	public String transUpdate(TransVO transVO, Model model) {
+		log.info("update Trans...");
+		
+		transService.updateTrans(transVO);
+		
+		model.addAttribute("transList", transService.getTransList());
+		return "trans/admin/transEdit";
+	}
+	
+	
+	@GetMapping("/transDelete")
+	public String transDelete(TransVO transVO, Model model) {
+		log.info("delete Trans...");
+		
+		transService.deleteTrans(transVO);
+		model.addAttribute("transList", transService.getTransList());
+		return "trans/admin/transEdit";
+		
+	}
 		
 }
  

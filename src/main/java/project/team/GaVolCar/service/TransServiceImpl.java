@@ -40,6 +40,27 @@ public class TransServiceImpl implements TransService{
 		
 		return transMapper.getType();
 	}
+
+	@Override
+	public void insertTrans(TransVO transVO) {
+		log.info("insertTrans()...");
+		
+		transMapper.insertTrans(transVO);
+	}
+
+	@Override
+	public void updateTrans(TransVO transVO) {
+		log.info("updateTrans()...");
+		
+		transMapper.updateTrans(transVO);
+	}
+
+	@Override
+	public void deleteTrans(TransVO transVO) {
+		log.info("deleteTrans()...");
+		
+		transMapper.deleteTrans(transVO);
+	}
 	
 	
 	

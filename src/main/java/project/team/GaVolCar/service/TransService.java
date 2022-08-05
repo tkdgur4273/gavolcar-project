@@ -14,5 +14,7 @@ public interface TransService {
 	public List<TransCountMonthVO> getMonth();
 	public List<TransCountTypeVO> getType();
 	
-	
+	public void insertTrans(TransVO transVO);
+	public void updateTrans(TransVO transVO);
+	public void deleteTrans(TransVO transVO);
 }

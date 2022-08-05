@@ -14,7 +14,7 @@ import lombok.ToString;
 public class TransCountMonthVO {
 	private int month;
 	private int amount;
-	
+	private int earn;
 	
 	
 }
