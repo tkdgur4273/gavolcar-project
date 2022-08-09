@@ -6,38 +6,38 @@
 	
 	<select id="getTransList" resultType="project.team.GaVolCar.vo.TransVO">
 		<![CDATA[
-			select "trans_no",to_Number("trans_sales") as "trans_sales", "trans_type", "trans_date" from "trans" order by "trans_no" asc
+			select trans_no,to_Number(trans_sales) as trans_sales, trans_type, trans_date from trans order by trans_no asc
 		]]>
 	</select>
 	
 	<select id="getMonth" resultType="project.team.GaVolCar.vo.TransCountMonthVO">
 		<![CDATA[
-			select to_Number(substr ("trans_date", 1, 2)) as month ,count(to_Number(substr ("trans_date", 1, 2))) as amount ,sum("trans_sales") as earn from "trans" group by to_Number(substr ("trans_date", 1, 2))
+			select to_Number(substr (trans_date, 1, 2)) as month ,count(to_Number(substr (trans_date, 1, 2))) as amount ,sum(trans_sales) as earn from trans group by to_Number(substr (trans_date, 1, 2))
 
 		]]>
 	</select>
 	
 	<select id="getType" resultType="project.team.GaVolCar.vo.TransCountTypeVO">
 		<![CDATA[
-			select "trans_type" as company,sum(to_Number("trans_sales")) as totalcost ,count("trans_type") as companyCount  from "trans" group by "trans_type"
+			select trans_type as company,sum(to_Number(trans_sales)) as totalcost ,count(trans_type) as companyCount  from trans group by trans_type
 		]]>
 	</select>
 		
 	<insert id="insertTrans">
 		<![CDATA[
-			insert into "trans"("trans_no","trans_sales","trans_type","trans_date") values (trans_no_sequence.nextval,#{trans_sales},#{trans_type},#{trans_date})
+			insert into trans(trans_no,trans_sales,trans_type,trans_date) values (trans_no_sequence.nextval,#{trans_sales},#{trans_type},#{trans_date})
 		]]>
 	</insert>	
 		
 	<update id="updateTrans">
 		<![CDATA[
-			update "trans" set "trans_sales"=#{trans_sales}, "trans_type"=#{trans_type},"trans_date"=#{trans_date} where "trans_no"=#{trans_no}
+			update trans set trans_sales=#{trans_sales}, trans_type=#{trans_type},trans_date=#{trans_date} where trans_no=#{trans_no}
 		]]>
 	</update>
 	
 	<delete id="deleteTrans">
 		<![CDATA[
-			delete from "trans" where "trans_no"=#{trans_no}
+			delete from trans where trans_no=#{trans_no}
 		]]>
 	</delete>
 	

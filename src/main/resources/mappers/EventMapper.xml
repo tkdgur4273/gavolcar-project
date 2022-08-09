@@ -28,13 +28,13 @@
 	
 	<select id="getPeventsRentsList" resultMap="peventrentmap">
 		<![CDATA[
-			select * from "rents","pevents" where "rents"."rez_no" = "pevents"."rez_no"
+			select * from rents,pevents where rents.rez_no = pevents.rez_no
 		]]>
 	</select>
 	
 	<select id="getPointData" resultMap="peventrentmap">
 		<![CDATA[
-			select * from "pevents","rents" where "pevents"."rez_no" = "rents"."rez_no" and  "rents"."user_id" = #{user_id}
+			select * from pevents,rents where pevents.rez_no = rents.rez_no and  rents.user_id = #{user_id}
 		]]>
 	</select>
 	

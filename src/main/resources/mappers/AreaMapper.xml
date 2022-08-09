@@ -5,29 +5,29 @@
 <mapper namespace="project.team.GaVolCar.mapper.AreaMapper">
 	<select id="getAreaList" resultType="project.team.GaVolCar.vo.AreaVO">
 		<![CDATA[
-			select * from "areas" order by "area_name" desc
+			select * from areas order by area_name desc
 		]]>
 	</select>
 	<select id="areaRead" resultType="project.team.GaVolCar.vo.AreaVO">
 		<![CDATA[
-			select * from "areas" where "area_name" = #{area_name} 
+			select * from areas where area_name = #{area_name} 
 		]]>
 	</select>
 	<insert id="areaInsert">
 		<![CDATA[
-			insert into "areas" ("area_name", "area_loc", "area_time", "area_contents", "area_img", "area_tel")
+			insert into areas (area_name, area_loc, area_time, area_contents, area_img, area_tel)
 			values (#{area_name}, #{area_loc}, #{area_time}, #{area_contents}, #{area_img}, #{area_tel})
 		]]>
 	</insert>
 	<update id="areaUpdate">
 		<![CDATA[
-			update "areas" set "area_loc"=#{area_loc}, "area_time"=#{area_time}, "area_contents"=#{area_contents}, "area_img"=#{area_img}, "area_tel"=#{area_tel} where "area_name" = #{area_name}
+			update areas set area_loc=#{area_loc}, area_time=#{area_time}, area_contents=#{area_contents}, area_img=#{area_img}, area_tel=#{area_tel} where area_name = #{area_name}
 			
 		]]>
 	</update>
 	<delete id="areaDelete">
 		<![CDATA[
-			delete from "areas" where "area_name" = #{area_name}
+			delete from areas where area_name = #{area_name}
 		]]>
 	</delete>
 
