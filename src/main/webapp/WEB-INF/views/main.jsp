@@ -96,22 +96,22 @@
 				<div class="col-sm-12">
 					<div id="slider-carousel" class="carousel slide" data-ride="carousel">
 						<ol class="carousel-indicators">
-							<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-							<li data-target="#slider-carousel" data-slide-to="1"></li>
-							<li data-target="#slider-carousel" data-slide-to="2"></li>
+							<li data-target="#slider-carousel" data-slide-to="0" class="active" style="background-color: deepskyblue;"></li>
+							<li data-target="#slider-carousel" data-slide-to="1" style="background-color: deepskyblue;"></li>
+							<li data-target="#slider-carousel" data-slide-to="2" style="background-color: deepskyblue;"></li>
 						</ol>
 						
 						<div class="carousel-inner" style="border: 1px solid black;">
 						
 							<div class="item active">
-								<div class="col-sm-6">
+								<div class="col-sm-6" >
 									<h1><span>(이벤트)</span>여름에는 놀러가자! 포인트 대 축제</h1>
 									<h2>예약에 따른 포인트 적립 이벤트!</h2>
 									<p>(이벤트 기간 2022.06.01 ~2022.08.31 까지)</p>
-									<button type="button" class="btn btn-default get">Get it now</button>
+									<a href="/member/eventlist"><button type="button" class="btn btn-default get" style="background-color: deepskyblue;">진행중인 이벤트 확인</button></a>
 								</div>
 								<div class="col-sm-6">
-									<img src="아스라다.jpg" class="girl img-responsive" alt="" />
+									<img src="frameimage/자동차1.jpg" class="girl img-responsive" alt="" width="800em" height="800em"/>
 								</div>
 							</div>
 							

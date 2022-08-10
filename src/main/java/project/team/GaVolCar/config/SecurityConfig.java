@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	   // 이제 더이상 리소스파일들은 스프링 시큐리티에서 관리를 하지 않는다.   
 	   @Override
 	   public void configure(WebSecurity web) throws Exception {
-	      web.ignoring().antMatchers("/resources/**","/css/**", "/fonts/**", "/images/**", "/js/**");
+	      web.ignoring().antMatchers("/frameimage/**","/areaimage/**","/resources/**","/css/**", "/fonts/**", "/images/**", "/js/**");
 	   }
 	   
 	   @Override
