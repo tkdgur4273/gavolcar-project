@@ -27,6 +27,10 @@ class EventMapperTest {
 		
 		
 		
+		System.out.println(eventMapper.getCeventsList());
+		System.out.println(eventMapper.getCeventBoardList());
+		
+		
 	}
 
 }

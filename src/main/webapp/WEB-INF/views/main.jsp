@@ -163,7 +163,7 @@
 				</div>
 				<div class="row">
 					<div id="upperbar5" class="col-6" style="background: ;"><a href="#"><img src="투명로고.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;"></a></div>
-					<div id="upperbar6" class="col-6" style="background: ;"><a href="#"><img src="투명로고.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;"></a></div>
+					<div id="upperbar6" class="col-6" style="background: ;"><a href="/arealist_user"><img src="투명로고.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;">지역정보</a></div>
 				</div>
 			</div>
 			<div id="upperbar7" class="col-4" style="background: ;" ><h1 style="border: 0.5em solid red; margin: 1em;">공지사항</h1></div>

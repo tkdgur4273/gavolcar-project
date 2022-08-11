@@ -29,6 +29,8 @@ public class EventsController {
 		log.info("pevent_view_user()...");
 		return "pevent/member/peventPage";
 	}
+	
+	
 
 }
  

@@ -39,4 +39,53 @@
 	</select>
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	<select id="getCeventsList" resultType="project.team.GaVolCar.vo.CeventsVO">
+		<![CDATA[
+			select * from cevents order by event_no
+		]]>
+	</select>
+	
+	
+	
+	<resultMap id="boardmap" type="BoardsVO">
+		<id property="b_no" column="b_no"/>
+		<result property="b_title" column="b_title"/>
+		<result property="b_contents" column="b_contents"/>
+		<result property="b_date" column="b_date"/>
+		<result property="b_answer" column="b_answer"/>
+		<result property="member_id" column="member_id"/>
+		<result property="car_type" column="car_type"/>
+		<result property="b_hit" column="b_hit"/>
+		<result property="b_img" column="b_img"/>
+		<result property="user_id" column="user_id"/>
+		<result property="b_code" column="b_code"/>
+	</resultMap>
+	
+	
+	<resultMap id="ceventboardmap" type="CeventsBoardsVO">
+		<result property="event_no" column="event_no"/>
+		<result property="coupon_name" column="coupon_name"/>
+		<result property="COUPON_CONTENTS" column="COUPON_CONTENTS"/>
+		<result property="MEMBER_ID" column="MEMBER_ID"/>
+		<result property="B_NO" column="B_NO"/>
+		<collection property="boardsList" resultMap="boardmap"></collection>
+		
+	</resultMap>
+	
+	<select id="getCeventBoardList" resultMap="ceventboardmap">
+		<![CDATA[
+			select * from cevents, boards where cevents.b_no = boards.b_no
+		]]>
+	</select>
+	
+	
+	
 </mapper>

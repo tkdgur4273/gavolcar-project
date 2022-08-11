@@ -29,38 +29,35 @@ import lombok.extern.slf4j.Slf4j;
 import project.team.GaVolCar.service.AreaService;
 import project.team.GaVolCar.service.EventService;
 import project.team.GaVolCar.vo.AreaVO;
+import project.team.GaVolCar.vo.CeventsBoardsVO;
 import project.team.GaVolCar.vo.CeventsVO;
 import project.team.GaVolCar.vo.PeventsRentsVO;
 import project.team.GaVolCar.vo.RentsVO;
 
 @Slf4j
-@RequestMapping("/pevent")
+@RequestMapping("/cevent")
 @RestController
-public class RestEventsController {
+public class RestCeventsController {
 	
 	@Autowired
 	private EventService eventService;
 	
-	//전체 포인트 이벤트 리스트 호출
 	@GetMapping("/eventpage")
-	public List<PeventsRentsVO> peventList(Model model){
-		log.info("areaList()...");
-		
-		return eventService.getPeventsRentsList();
-	};
-	
-	
-	//특정 유저 이벤트 리스트 호출
-	@GetMapping("/{user_id}")
-	public List<PeventsRentsVO> getPointsInfo(RentsVO rentsVO, Model model) {
-		log.info("getPointsInfo()....");
-		log.info(rentsVO.getUser_id());
+	public List<CeventsVO> ceventList(Model model) {
+		log.info("CeventInfo()....");
 		
 		
-		return eventService.getPointsInfo(rentsVO.getUser_id());
+		return eventService.getCeventsList();
 		
 	}
-	
-	
+	@GetMapping("/allinforms")
+	public List<CeventsBoardsVO> allinforms(Model model) {
+		log.info("allinforms()....");
+		
+		
+		return eventService.getCeventBoardList();
+		
+	}
+
 }
  
