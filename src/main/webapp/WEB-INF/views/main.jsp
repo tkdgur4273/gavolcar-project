@@ -117,13 +117,13 @@
 							
 							<div class="item">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>100% Responsive Design</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
+									<h1><span>(이벤트)</span>후기 작성하고 할인쿠폰 받자!</h1>
+									<h2>후기만 작성해도 할인 쿠폰이!</h2>
+									<p>(이벤트 기간 2022.07.01 ~2022.09.21 까지)</p>
+									<a href="/member/eventlist"><button type="button" class="btn btn-default get" style="background-color: deepskyblue;">진행중인 이벤트 확인</button></a>
 								</div>
 								<div class="col-sm-6">
-									<img src="회색로고.png" class="girl img-responsive" alt="" />
+									<img src="frameimage/자동차1.jpg" class="girl img-responsive" alt="" />
 								</div>
 							</div>
 							
@@ -166,7 +166,17 @@
 					<div id="upperbar6" class="col-6" style="background: ;"><a href="/arealist_user"><img src="투명로고.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;">지역정보</a></div>
 				</div>
 			</div>
-			<div id="upperbar7" class="col-4" style="background: ;" ><h1 style="border: 0.5em solid red; margin: 1em;">공지사항</h1></div>
+			<div id="upperbar7" class="col-4" style="background: ;" >
+			<h1 style="border: 0.5em solid red; margin: 1em;">공지사항</h1>
+			
+				<c:forEach var="alert" items="${alertForMainPage}">
+				
+					<a href="#"><h4 style="height: 3em; border: 0.5em solid red">${alert.b_contents}</h4></a>
+				
+				</c:forEach>
+			
+			
+			</div>
 		</div>
 	</div>
 	<footer id="footbar" style="background-color: black;">

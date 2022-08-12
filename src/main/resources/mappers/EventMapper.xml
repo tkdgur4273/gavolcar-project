@@ -85,6 +85,11 @@
 			select * from cevents, boards where cevents.b_no = boards.b_no
 		]]>
 	</select>
+	<select id="getMemberCeventBoardList" resultMap="ceventboardmap">
+		<![CDATA[
+			select * from cevents, boards where cevents.b_no = boards.b_no and boards.user_id = #{user_id}
+		]]>
+	</select>
 	
 	
 	

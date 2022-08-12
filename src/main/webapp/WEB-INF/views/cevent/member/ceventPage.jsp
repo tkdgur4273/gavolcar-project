@@ -62,7 +62,7 @@ $(document).ready(function() {
 		
 		$.ajax({
 			type:"GET",
-			url:"/pevent/"+"<sec:authentication property='principal.username'/>",
+			url:"/cevent/"+"<sec:authentication property='principal.username'/>",
 			success:function(result){
 				console.log(result);
 			
@@ -77,35 +77,33 @@ $(document).ready(function() {
 	    
 	    	
 	    if(result.length < 1){
-	       htmls.push("아직 획득한 쿠폰이 없습니다");
-	    }else{         
-	       var totalPoint=0;
+	       htmls += '<tr><td>아직 획득한 쿠폰이 없습니다</td></tr>';
+	    }else{
 	    	$(result).each(function() { 
 	    		htmls += '<tr>';
-	    	   	htmls += '<td>' + this.point_no + '</td>';
-		        htmls += '<td>' + this.points +'</td>'; 
-		        htmls += '<td>' + this.point_date +'</td>';  
-		        totalPoint +=  this.points;
-	     		$(this.rentsList).each(function(){
+	    	   	htmls += '<td>' + this.event_no + '</td>';
+		        htmls += '<td>' + this.coupon_name +'</td>'; 
+		        htmls += '<td>' + this.COUPON_CONTENTS +'</td>';  
+		        htmls += '<td>' + this.MEMBER_ID +'</td>';  
+		        htmls += '<td>' + this.B_NO +'</td>';  
+			       
+	     		$(this.boardsList).each(function(){
 		          
-		        	htmls += '<td>' + this.rez_no + '</td>';
-		        	htmls += '<td>' + this.rent_start_date +'</td>'; 
-		        	htmls += '<td>' + this.rent_end_date +'</td>'; 
-		        	htmls += '<td>' + this.final_cost + '</td>';
-		        	htmls += '<td>' + this.hipass + '</td>';
-		   	    	htmls += '<td>' + this.baby_car_seat +'</td>'; 
-		   	    	htmls += '<td>' + this.car_no + '</td>';
+		        	htmls += '<td>' + this.b_no + '</td>';
+		        	htmls += '<td>' + this.b_title +'</td>'; 
+		        	htmls += '<td>' + this.b_contents +'</td>'; 
+		        	htmls += '<td>' + this.b_answer + '</td>';
+		        	htmls += '<td>' + this.member_id + '</td>';
+		   	    	htmls += '<td>' + this.car_type +'</td>'; 
+		   	    	htmls += '<td>' + this.b_hit + '</td>';
+		   	    	htmls += '<td>' + this.b_img + '</td>';
+		   	    	htmls += '<td>' + this.user_id + '</td>';
+		   	    	htmls += '<td>' + this.b_code + '</td>';
 		        	htmls += '</tr>';   
 	    	  	});
 	     	
 	       	});
-	    	htmls += '<tr>';
-    	   	htmls += '<td colspan="11">' + "총 포인트" + '</td>';
-    	   	htmls += '<tr>';
-	    	htmls += '<tr>';
-    	   	htmls += '<td colspan="11">' + totalPoint + '</td>';
-    	   	htmls += '<tr>';
-    	   	$("#totalPointBanner").append(totalPoint);
+	    	
 	    }
 	    $("#list-table").append(htmls);
 	}

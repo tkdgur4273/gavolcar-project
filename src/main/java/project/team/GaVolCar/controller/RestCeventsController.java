@@ -38,26 +38,33 @@ import project.team.GaVolCar.vo.RentsVO;
 @RequestMapping("/cevent")
 @RestController
 public class RestCeventsController {
-	
+
 	@Autowired
 	private EventService eventService;
-	
+
 	@GetMapping("/eventpage")
 	public List<CeventsVO> ceventList(Model model) {
 		log.info("CeventInfo()....");
-		
-		
+
 		return eventService.getCeventsList();
-		
+
 	}
+
 	@GetMapping("/allinforms")
 	public List<CeventsBoardsVO> allinforms(Model model) {
 		log.info("allinforms()....");
-		
-		
+
 		return eventService.getCeventBoardList();
-		
+
+	}
+
+	@GetMapping("/{user_id}")
+	public List<CeventsBoardsVO> getPointsInfo(RentsVO rentsVO, Model model) {
+		log.info("getPointsInfo()....");
+		log.info(rentsVO.getUser_id());
+
+		return eventService.getCouponInfo(rentsVO.getUser_id());
+
 	}
 
 }
- 

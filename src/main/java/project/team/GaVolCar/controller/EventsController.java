@@ -23,7 +23,7 @@ public class EventsController {
 	}
 	
 	
-	//이벤트 페이지로 이동
+	//p이벤트 페이지로 이동
 	@GetMapping("/pevent_view_user")
 	public String pevent_view() {
 		log.info("pevent_view_user()...");
@@ -31,6 +31,12 @@ public class EventsController {
 	}
 	
 	
+	//c이벤트 패이지로 이동
+	@GetMapping("/cevent_view_user")
+	public String cevent_view() {
+		log.info("cevent_view_user()...");
+		return "cevent/member/ceventPage";
+	}
 
 }
  

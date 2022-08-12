@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import lombok.extern.slf4j.Slf4j;
 import project.team.GaVolCar.service.AreaService;
+import project.team.GaVolCar.service.BoardsService;
 import project.team.GaVolCar.vo.AreaVO;
 
 @Slf4j
@@ -26,12 +27,15 @@ public class MainController {
 	
 	@Autowired
 	private AreaService areaService;
+	@Autowired
+	private BoardsService boardsService;
 	
 	//list로 이동
 	@GetMapping("main")
 	public String main(Model model) {
 		
 		log.info("main()...");
+		model.addAttribute("alertForMainPage", boardsService.getMainAlert());
 		
 		return "main";
 	}

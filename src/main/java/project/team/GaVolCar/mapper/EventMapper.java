@@ -16,6 +16,7 @@ public interface EventMapper {
 	
 	public List<CeventsVO> getCeventsList();
 	public List<CeventsBoardsVO> getCeventBoardList();
+	public List<CeventsBoardsVO> getMemberCeventBoardList(String user_id);
 
 
 }

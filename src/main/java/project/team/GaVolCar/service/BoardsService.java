@@ -9,4 +9,7 @@ public interface BoardsService {
 	public List<BoardsVO> getBoardsList();
 	public List<BoardsVO> getBoardsCommentsList();
 	
+	public List<BoardsVO> getMainAlert();
+	
+	
 }

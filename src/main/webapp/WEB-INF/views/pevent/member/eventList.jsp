@@ -61,9 +61,12 @@
 		$(document).ready(function() {
 			var memberName = "<sec:authentication property='principal.username'/>";
 			console.log(memberName);
-			$("#go").html("<a class='row' href='/pevent_view_user?user_id=memberName'><span style='width: 50em'><h1>(이벤트)여름에는 놀러가자! 포인트 대 축제</h1></span><img src='../자동차1.jpg' width='500em'></a>");
+			$("#go").html("<a class='row' href='/pevent_view_user?user_id=memberName'><span style='width: 50em;'><h1 style='line-height: 10em;'>(이벤트)여름에는 놀러가자! 포인트 대 축제</h1></span><img src='../자동차1.jpg' width='500em'></a>");
+			$("#go2").html("<a class='row' href='/cevent_view_user?user_id=memberName'><span style='width: 50em;'><h1 style='line-height: 10em;'>(이벤트)후기쓰고 쿠폰받자!</h1></span><img src='../자동차1.jpg' width='500em'></a>");
+			
 		});
 	</script>
+
 
 
 	<sec:authorize access="isAuthenticated()">
@@ -106,6 +109,7 @@
 			<div id="tablebase" class="col-9" style="border: 1px solid black;">
 				<div id="eventtable"  class="col-12">
 							<div id="go"></div>
+							<div id="go2"></div>
 				</div>
 			</div>
 		</div>

@@ -19,4 +19,6 @@ public interface EventService {
 	public List<CeventsVO> getCeventsList();
 	//모든 join 정보 가져오기
 	public List<CeventsBoardsVO> getCeventBoardList();
+	//특정 유저의 join정보가져오기
+	public List<CeventsBoardsVO> getCouponInfo(String user_id);
 }

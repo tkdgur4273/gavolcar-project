@@ -11,5 +11,8 @@ public interface BoardsMapper {
 	public List<BoardsVO> getBoardsList();
 	public List<BoardsVO> getBoardsCommentsList();
 	
+	//main용 공지사항 가져오기
+	public List<BoardsVO> getAlertListForMain();
+	
 
 }

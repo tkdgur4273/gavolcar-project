@@ -20,6 +20,8 @@ class BoardsMapperTest {
 		System.out.println(boardsMapper.getBoardsList());
 		System.out.println(boardsMapper.getBoardsCommentsList());
 		
+		
+		System.out.println(boardsMapper.getAlertListForMain());
 	}
 
 }

@@ -43,6 +43,12 @@ public class EventServiceImpl implements EventService{
 	public List<CeventsBoardsVO> getCeventBoardList() {
 		log.info("getCeventBoardList() is working...");
 		return eventMapper.getCeventBoardList();
+	}
+
+	@Override
+	public List<CeventsBoardsVO> getCouponInfo(String user_id) {
+		log.info("getCeventBoardList() is working...");
+		return eventMapper.getMemberCeventBoardList(user_id);
 	};
 
 	

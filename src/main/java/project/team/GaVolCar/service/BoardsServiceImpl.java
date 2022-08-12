@@ -28,6 +28,17 @@ public class BoardsServiceImpl implements BoardsService{
 		return boardsMapper.getBoardsCommentsList();
 	}
 	
+	//main에서 쓸 함수
+	@Override
+	public List<BoardsVO> getMainAlert() {
+		log.info("getMainAlert()....");
+		return boardsMapper.getAlertListForMain();
+	}
+
+	
+	
+	
+	
 	
 
 	
