@@ -155,15 +155,15 @@
 	</section><!--/slider-->
 	<div class="container col-10">
 		<div id="upperbar" class="row">
-			<div id="upperbar1" class="col-4" style="background: ;"><a href="#"><img src="투명로고.png" height="416em" width="402em" style="border: 1em solid red; margin: 1em;"></a></div>
+			<div id="upperbar1" class="col-4" style="background: ;"><a href="#"><img src="검정예약.png" height="416em" width="402em" style="border: 1em solid red; margin: 1em;"></a></div>
 			<div id="upperbar2" class="col-4" style="background: ;">
 				<div class="row">
-					<div id="upperbar3" class="col-6" style="background: ;"><a href="#"><img src="투명로고.png" height="200em" width="200em" style="margin: 1em; border: 1em solid red;"></a></div>
-					<div id="upperbar4" class="col-6" style="background: ;"><a href="#"><img src="투명로고.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;"></a></div>
+					<div id="upperbar3" class="col-6" style="background: ;"><a href="#"><img src="예약조회.png" height="200em" width="200em" style="margin: 1em; border: 1em solid red;"></a></div>
+					<div id="upperbar4" class="col-6" style="background: ;"><a href="#"><img src="검정후기.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;"></a></div>
 				</div>
 				<div class="row">
-					<div id="upperbar5" class="col-6" style="background: ;"><a href="#"><img src="투명로고.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;"></a></div>
-					<div id="upperbar6" class="col-6" style="background: ;"><a href="/arealist_user"><img src="투명로고.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;">지역정보</a></div>
+					<div id="upperbar5" class="col-6" style="background: ;"><a href="#"><img src="차량 통계.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;"></a></div>
+					<div id="upperbar6" class="col-6" style="background: ;"><a href="/arealist_user"><img src="관광정보.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;">지역정보</a></div>
 				</div>
 			</div>
 			<div id="upperbar7" class="col-4" style="background: ;" >

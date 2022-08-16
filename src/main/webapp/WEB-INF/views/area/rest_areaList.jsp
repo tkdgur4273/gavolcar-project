@@ -43,7 +43,7 @@ function list(result) {
        $(result).each(function() {
           htmls += '<tr>';
           
-          htmls += '<td>' + '<a href="/areacontent_view_user?area_name=' + this.area_name + '"><div class="row" style="margin:  0 ;"><img src="'+this.area_img+'" width="250sem" height="200em">' + this.area_name + "  " + this.area_loc + '</a></div></td>'
+          htmls += '<td>' + '<a href="/areacontent_view_user?area_name=' + this.area_name + '"><div class="row" style="margin:  0 ;"><img src="\\areaimage\\'+this.area_img+'" width="250sem" height="200em">' + this.area_name + "  " + this.area_loc + '</a></div></td>'
         
           htmls += '</tr>';   
           

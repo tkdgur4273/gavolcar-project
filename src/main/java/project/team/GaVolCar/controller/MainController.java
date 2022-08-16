@@ -39,6 +39,14 @@ public class MainController {
 		
 		return "main";
 	}
+	@GetMapping("adminmain")
+	public String adminmain(Model model) {
+		
+		log.info("main()...");
+		model.addAttribute("alertForMainPage", boardsService.getMainAlert());
+		
+		return "admin/main";
+	}
 
 }
  

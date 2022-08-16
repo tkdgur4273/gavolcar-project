@@ -38,7 +38,7 @@
 		#main{
 			height: 50em;
 			
-			background: url(${name.area_img}) ;
+			background: url(./areaimage/${name.area_img}) ;
 			background-size: cover;
 		}
 		#maincontent{

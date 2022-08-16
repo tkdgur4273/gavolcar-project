@@ -57,7 +57,7 @@ public class AreaServiceImpl implements AreaService {
 	@Override
 	public void fileSave(MultipartFile file) throws Exception {
 		log.info(file.getOriginalFilename());
-		Path directory = Paths.get("C:\\Users\\skype\\git\\GaVolCarProject\\src\\main\\resources\\static").toAbsolutePath().normalize();
+		Path directory = Paths.get("C:\\Users\\skype\\git\\GaVolCarProject\\src\\main\\resources\\static\\areaimage").toAbsolutePath().normalize();
 
 		// 해당 경로까지 디렉토리를 모두 만든다.
 		Files.createDirectories(directory);
@@ -82,8 +82,8 @@ public class AreaServiceImpl implements AreaService {
 
 	@Override
 	public void fileDelete(AreaVO areaVO) {
-		File file = new File("C:\\Users\\skype\\git\\GaVolCarProject\\src\\main\\resources\\static\\" + areaVO.getArea_img());
-		log.info("C:\\Users\\skype\\git\\GaVolCarProject\\src\\main\\resources\\static\\" + areaVO.getArea_img());
+		File file = new File("C:\\Users\\skype\\git\\GaVolCarProject\\src\\main\\resources\\static\\areaimage\\" + areaVO.getArea_img());
+		log.info("C:\\Users\\skype\\git\\GaVolCarProject\\src\\main\\resources\\static\\areaimage\\" + areaVO.getArea_img());
 		if(file.exists()) { // 파일이 존재하면
 			file.delete(); // 파일 삭제	
 		}
