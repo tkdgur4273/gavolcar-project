@@ -62,11 +62,16 @@
 			line-height: 3em;
 			font-size: 1.5em;
 		}
+		#sliders{
+			background: url(./코나.jpg) ;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
 	</style>
 </head><!--/head-->
 
 <body>
-<div class="container col-12" id="headbar" style="background: gray;">
+<div class="container col-12" id="headbar" style="border-bottom: 3px solid black;">
 		<div class="row">
 			<div class="col-3"><a id="headlogo" href="#"><img src="투명로고.png" height="100em"></a></div>
 			
@@ -103,15 +108,16 @@
 						
 						<div class="carousel-inner" style="border: 1px solid black;">
 						
-							<div class="item active">
-								<div class="col-sm-6" >
+							<div  class="item active" >
+							<div id="sliders" class="col-sm-12">
+								<div class="col-sm-6">
 									<h1><span>(이벤트)</span>여름에는 놀러가자! 포인트 대 축제</h1>
 									<h2>예약에 따른 포인트 적립 이벤트!</h2>
 									<p>(이벤트 기간 2022.06.01 ~2022.08.31 까지)</p>
 									<a href="/member/eventlist"><button type="button" class="btn btn-default get" style="background-color: deepskyblue;">진행중인 이벤트 확인</button></a>
 								</div>
-								<div class="col-sm-6">
-									<img src="frameimage/자동차1.jpg" class="girl img-responsive" alt="" width="800em" height="800em"/>
+								
+									 <!-- <img src="frameimage/자동차1.jpg" class="girl img-responsive" alt="" width="800em" height="800em"/> -->
 								</div>
 							</div>
 							
@@ -162,7 +168,7 @@
 					<div id="upperbar4" class="col-6" style="background: ;"><a href="#"><img src="검정후기.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;"></a></div>
 				</div>
 				<div class="row">
-					<div id="upperbar5" class="col-6" style="background: ;"><a href="#"><img src="차량 통계.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;"></a></div>
+					<div id="upperbar5" class="col-6" style="background: ;"><a href="/trans"><img src="차량 통계.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;"></a></div>
 					<div id="upperbar6" class="col-6" style="background: ;"><a href="/arealist_user"><img src="관광정보.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;">지역정보</a></div>
 				</div>
 			</div>
@@ -179,6 +185,19 @@
 			</div>
 		</div>
 	</div>
+	
+	<div>
+		
+	
+	
+	
+	</div>
+	
+	
+	
+	
+	
+	
 	<footer id="footbar" style="background-color: black;">
 		
 		<div class="container col-11">

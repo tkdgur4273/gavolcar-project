@@ -32,7 +32,7 @@ function list(result) {
     $("#list-table").html("");
     
     $("<tr>" , {
-       html : "<td>" + "지역별 명소들" + "</td>"
+       html : "<td>" + "어디로 가볼까요?" + "</td>"
     }).appendTo("#list-table") // 이것을 테이블에 붙임
     
     	
@@ -43,7 +43,7 @@ function list(result) {
        $(result).each(function() {
           htmls += '<tr>';
           
-          htmls += '<td>' + '<a href="/areacontent_view_user?area_name=' + this.area_name + '"><div class="row" style="margin:  0 ;"><img src="\\areaimage\\'+this.area_img+'" width="250sem" height="200em">' + this.area_name + "  " + this.area_loc + '</a></div></td>'
+          htmls += '<td>' + '<a href="/areacontent_view_user?area_name=' + this.area_name + '" style="text-decoration: none; color: black;"><div class="row" style="margin:  0 ;"><img src="\\areaimage\\'+this.area_img+'" width="250em" height="200em" >' + this.area_name + "  " + this.area_loc + '</a></div></td>'
         
           htmls += '</tr>';   
           
@@ -112,12 +112,15 @@ $(document).ready(function() {
 			margin: auto;
 			line-height: 500em;
 		}
+	
 		#list-table{
 			font-size: 4em;
 			margin: 0 auto;
+		
 			text-align: center;
 			text-decoration: none;
-			border: 1px solid black;
+			border-top: 1px solid black;
+			color: black;
 		}
 		
 	</style>
@@ -127,7 +130,7 @@ $(document).ready(function() {
 
 </head>
 <body>
-<div class="container col-12" id="headbar" style="background: gray;">
+<div class="container col-12" id="headbar" style="border-bottom: 3px solid black;" >
 		<div class="row">
 			<div class="col-3"><a id="headlogo" href="/main"><img src="../투명로고.png" height="100em"></a></div>
 			
@@ -149,12 +152,12 @@ $(document).ready(function() {
 			</div>
 		</div>
 	</div>
+<div style="background-image: url(./드브르부니크.jpg); background-size: cover; padding: 20px;">
 
-<h1>일단 리스트</h1>
-	<table id="list-table" width="900em" border= "1px solid black">
+	<table id="list-table" width="900em" border= "1px solid black" style="background-color: white; opacity: 0.9;">
 		
 	</table>
-	
+</div>	
 	<footer id="footbar" style="background-color: black;">
 		
 		<div class="container col-11">

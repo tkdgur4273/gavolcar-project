@@ -21,7 +21,7 @@
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->       
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="shortcut icon" href="../images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/ico/apple-touch-icon-72-precomposed.png">
@@ -39,6 +39,69 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	
+function list(result) {
+    var htmls="";
+    
+    $("#list-table").html("");
+    
+    $("<tr>" , {
+       html : "<td>" + "지역명소 이름" + "</td>"+  // 컬럼명들
+             "<td>" + "지역명소 주소" + "</td>"+
+             "<td>" + "이용시간" + "</td>"+
+             "<td>" + "전화번호" + "</td>"
+    }).appendTo("#list-table") // 이것을 테이블에 붙임
+    
+    	
+    if(result.length < 1){
+       htmls.push("등록된 장소가 없습니다.");
+    }else{         
+       
+       $(result).each(function() {
+          htmls += '<tr>';
+          htmls += '<td>' + '<a href="/areacontent_view?area_name=' + this.area_name + '">' + this.area_name + '</a></td>'
+          htmls += '<td>' + this.area_loc +'</td>'; 
+          htmls += '<td>' + this.area_time +'</td>'; 
+          htmls += '<td>'+ this.area_tel + '</td>';
+          htmls += '</tr>';   
+          
+       });
+       
+         htmls+='<tr>';
+         htmls+='<td colspan="4"> <a href="/areawrite">글작성</a> </td>';                         
+         htmls+='</tr>';         
+    }
+    
+    $("#list-table").append(htmls);      
+    
+}
+ 
+
+
+
+$(document).ready(function() {
+	$.ajax({
+		type:"GET",
+		url:"/areas/areaList",
+		success:function(result){
+			console.log(result);
+			
+			list(result);
+		}
+		
+		
+		
+	});
+	
+	
+});	
+
+
+</script>
+	
 	<style type="text/css">
 		#warp{
 			text-align: center;
@@ -82,69 +145,8 @@
 				<a href="../admin/transEdit">통계 관리</a>
 			</div>
 			<div class="col-10"   style="border-left: 5px solid gray;">
-			<h1>통계 관리 리스트</h1>
-				<div id="pieChart_div"></div>
-	<div id="chart_div"></div>
-	
-
-	<table border="1" class="col-10" style="font-size: 2em;  margin: 5em;">
-		<tr>
-			<td width="50">번호</td>
-			<td>이익</td>
-			<td>차종</td> 
-			<td>대여일수</td>
-			<td>수정</td>
-			<td>데이터 삭제</td>		
-		</tr>
-	
-<!-- 		for (DeptVO dept : deptMapper.getDeptEmpList()) {
-			
-			log.info(dept.getLoc() + dept.getDeptno());
-			
-			for (EmpVO vo : dept.getEmpList()) {
-				System.out.println(vo);
-			}
-		} -->
-		
-				
-		<c:forEach var="list" items="${transList}">
-			<form id="updateForm" action="/transUpdate" method="post">
-			<input type="hidden" name="trans_no" value="${list.trans_no}">
-			<tr>
-				<td> ${list.trans_no}</td>
-				<td><input name="trans_sales" type="number" value="${list.trans_sales}"></td>
-
-				<td><input name="trans_type" type="text" value="${list.trans_type}"></td>
-				<td><input name="trans_date" type="text" value="${list.trans_date}"></td>
-				
-				<td><input type="submit" value="수정"></td>		
-				<td><a href="/transDelete?trans_no=${list.trans_no}">삭제</a></td>	
-				
-						
-			</tr>
-			</form>
-		</c:forEach>
-		<form id="writeForm" action="/transWrite" method="post">
-			<tr>
-				<td>추가</td>
-				<td><input name="trans_sales" type="number" value="이익" onfocus="this.value=''"></td>
-				<td><input name="trans_type" type="text" value="차종" onfocus="this.value=''"></td>
-				<td><input name="trans_date" type="text" value="대여일수" onfocus="this.value=''"></td>
-				<td colspan="2"><input type="submit" value="추가"></td>
-			</tr>
-		</form>
-	</table>
-	
-	
-	
-	<div><a href="/trans">통계로 돌아가기</a></div>
-	
-	
-
-
-
-<h1>일단 리스트</h1>
-	<table id="list-table"  border="1">
+				<h1>지역 정보 리스트</h1>
+	<table id="list-table" width="500" class="col-10"  border="1" style="font-size: 4em; margin: 5em;">
 		
 	</table>
 			</div>

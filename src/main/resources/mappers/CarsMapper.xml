@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.team.GaVolCar.mapper.TransMapper">
+	
+	<select id="getCarsList" resultType="project.team.GaVolCar.vo.CarsVO">
+		<![CDATA[
+			select * from cars
+		]]>
+	</select>
+	
+	<select id="getCarsInfo" resultType="project.team.GaVolCar.vo.CarsVO">
+		<![CDATA[
+			select * from cars where car_no=#{car_no}
+		]]>
+	</select>
+	
+	<insert id="insertCars">
+		<![CDATA[
+			insert into cars(car_no,car_type,car_company,car_volume,car_color,car_fuel,car_cc,car_price,car_img) values (cars_no_sequence.nextval,#{car_type},#{car_company},#{car_volume},#{car_color},#{car_fuel},#{car_cc},#{car_price},#{car_img})
+		]]>
+	</insert>	
+		
+	<update id="updateCars">
+		<![CDATA[
+			update cars set car_type=#{car_type}, car_company=#{car_company},car_volume=#{car_volume},car_color=#{car_color},car_fuel=#{car_fuel},car_cc=#{car_cc},car_price=#{car_price},car_img=#{car_img} where car_no=#{car_no}
+		]]>
+	</update>
+	
+	<delete id="deleteCars">
+		<![CDATA[
+			delete from cars where car_no=#{car_no}
+		]]>
+	</delete>
+	
+	<!-- 전체 랜탈 수 -->
+	
+	
+</mapper>
