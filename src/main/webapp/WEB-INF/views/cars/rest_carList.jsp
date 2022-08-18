@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!-- C태그 쓰기 위해 넣은 taglib므로 반드시 확인 --> 
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
   
+    
     
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="UTF-8">
+
+
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,6 +19,66 @@
  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	
+function list(result) {
+    var htmls="";
+    
+    $("#list-table").html("");
+    
+    $("<tr>" , {
+       html : "<td>" + "차량정보" + "</td>"
+    }).appendTo("#list-table") // 이것을 테이블에 붙임
+    
+    	
+    if(result.length < 1){
+       htmls.push("등록된 장소가 없습니다.");
+    }else{         
+       
+       $(result).each(function() {
+          htmls += '<tr>';
+          
+          htmls += '<td>' + '<a href="/carcontent_view_user?car_no=' + this.car_no + '" style="text-decoration: none; color: black;"><div class="row" style="margin:  0 ;"><img src="\\carsimages\\'+this.car_img+'" width="250em" height="200em" >' + this.car_company + "  " + this.car_type + '</a></div></td>'
+        
+          htmls += '</tr>';   
+          
+       });
+       
+  
+    }
+    
+    $("#list-table").append(htmls);      
+    
+}
+ 
+
+
+
+$(document).ready(function() {
+	$.ajax({
+		type:"GET",
+		url:"/cars/carList",
+		success:function(result){
+			console.log(result);
+			
+			list(result);
+		}
+		
+		
+		
+	});
+	
+	
+});	
+
+
+</script>
+
 <style type="text/css">
 		#headerpotal{
 			text-align: center;
@@ -43,7 +104,7 @@
 		}
 		#eventtable{
 			
-			
+			border: 2px solid black;
 			text-align: center;
 			margin: auto;
 		}
@@ -51,44 +112,25 @@
 			margin: auto;
 			line-height: 500em;
 		}
-		#go{
-			background: url(../코나.jpg) ;
-			background-repeat: no-repeat;
-			background-size: cover;
-		}
-		#go2{
-			background: url(../쿠폰이벤트2.png) ;
-			background-repeat: no-repeat;
-			background-size: cover;
+	
+		#list-table{
+			font-size: 4em;
+			margin: 0 auto;
+		
+			text-align: center;
+			text-decoration: none;
+			border-top: 1px solid black;
+			color: black;
 		}
 		
 	</style>
 
-	<title>Insert title here</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			var memberName = "<sec:authentication property='principal.username'/>";
-			console.log(memberName);
-			$("#go").html("<a class='row' href='/pevent_view_user?user_id=memberName' style='text-decoration: none; border: 0.5px solid black;'><div class='col-8'><h1 style='line-height: 10em; color: orange;'>(이벤트)여름에는 놀러가자! 포인트 대 축제</h1></div></a>");
-			$("#go2").html("<a class='row' href='/cevent_view_user?user_id=memberName' style='text-decoration: none; border: 0.5px solid black;'><div class='col-8'><h1 style='line-height: 10em; color: orange;'>(이벤트)후기쓰고 쿠폰받자!</h1></div></a>");
-			
-		});
-	</script>
 
 
-<!-- 
-	<sec:authorize access="isAuthenticated()">
-		<form:form action="${pageContext.request.contextPath}/logout" method="POST">
-	    	<input type="submit" value="로그아웃" />
-		</form:form>
-	</sec:authorize>
- -->
 
 </head>
 <body>
-
-	<div class="container col-12" id="headbar" style="background: gray;">
+<div class="container col-12" id="headbar" style="border-bottom: 3px solid black;" >
 		<div class="row">
 			<div class="col-3"><a id="headlogo" href="/main"><img src="../투명로고.png" height="100em"></a></div>
 			
@@ -110,24 +152,12 @@
 			</div>
 		</div>
 	</div>
-	<div class="container col-12">
-		<div class="row">
-			<div class="col-2" style="background-color: darkgray" >
-				<div>gg</div>
-			</div>
-			<div id="tablebase" class="col-9">
-				<div id="eventtable"  class="col-12">
-							<div id="go"></div>
-							<div id="go2"></div>
-				</div>
-			</div>
-		</div>
-	</div>
+<div style="background-image: url(./드브르부니크.jpg); background-size: cover; padding: 20px;">
 
-	
-		<p>principal: <sec:authentication property="principal.username"/>님 환영합니다.</p>
-
-
+	<table id="list-table" width="900em" border= "1px solid black" style="background-color: white; opacity: 0.9;">
+		
+	</table>
+</div>	
 	<footer id="footbar" style="background-color: black;">
 		
 		<div class="container col-11">

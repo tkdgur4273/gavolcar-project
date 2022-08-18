@@ -39,6 +39,11 @@
 			line-height: 2em;
 			font-size: 1em;
 		}
+		#main{
+			background: url(./p페이지.png) ;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
 </style>
 
 
@@ -145,10 +150,11 @@ $(document).ready(function() {
 
 
 
-
+	<div id="main" style="height: 900px; width: 1200px">
 	<h1>포인트 리스트</h1>
 	
 	<div id="totalPointBannerTitle">나의 포인트</div>
+	</div>
 	<div id="totalPointBanner"></div>
 	
 	
@@ -167,6 +173,7 @@ $(document).ready(function() {
 	        <td>차량 번호</td>
 		</tr>
 	</table>
+	
 	<a href="member/eventlist">리스트로</a>
 	
 	

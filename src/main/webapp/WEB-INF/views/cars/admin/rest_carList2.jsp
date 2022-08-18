@@ -49,29 +49,31 @@ function list(result) {
     $("#list-table").html("");
     
     $("<tr>" , {
-       html : "<td>" + "지역명소 이름" + "</td>"+  // 컬럼명들
-             "<td>" + "지역명소 주소" + "</td>"+
-             "<td>" + "이용시간" + "</td>"+
-             "<td>" + "전화번호" + "</td>"
+       html : "<td>" + "차량 식별번호" + "</td>"+  // 컬럼명들
+             "<td>" + "차종" + "</td>"+
+             "<td>" + "제조사" + "</td>"+
+             "<td>" + "연료" + "</td>"+
+             "<td>" + "사진" + "</td>"
     }).appendTo("#list-table") // 이것을 테이블에 붙임
     
     	
     if(result.length < 1){
-       htmls.push("등록된 장소가 없습니다.");
+       htmls.push("등록된 차량이 없습니다.");
     }else{         
        
        $(result).each(function() {
           htmls += '<tr>';
-          htmls += '<td>' + '<a href="/areacontent_view?area_name=' + this.area_name + '">' + this.area_name + '</a></td>'
-          htmls += '<td>' + this.area_loc +'</td>'; 
-          htmls += '<td>' + this.area_time +'</td>'; 
-          htmls += '<td>'+ this.area_tel + '</td>';
+          htmls += '<td>' + '<a href="/carcontent_view?car_no=' + this.car_no + '">' + this.car_no + '</a></td>'
+          htmls += '<td>' + this.car_type +'</td>'; 
+          htmls += '<td>' + this.car_company +'</td>'; 
+          htmls += '<td>'+ this.car_fuel + '</td>';
+          htmls += '<td>'+ this.car_img + '</td>';
           htmls += '</tr>';   
           
        });
        
          htmls+='<tr>';
-         htmls+='<td colspan="4"> <a href="/areawrite">글작성</a> </td>';                         
+         htmls+='<td colspan="5"> <a href="/carwrite">글작성</a> </td>';                         
          htmls+='</tr>';         
     }
     
@@ -85,7 +87,7 @@ function list(result) {
 $(document).ready(function() {
 	$.ajax({
 		type:"GET",
-		url:"/areas/areaList",
+		url:"/cars/carList",
 		success:function(result){
 			console.log(result);
 			
@@ -141,8 +143,23 @@ $(document).ready(function() {
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 5em 0;">
-				<a href="../admin/arealist">지역 정보 관리</a>
-				<a href="../admin/transEdit">통계 관리</a>
+				<table>
+					<tr>
+						<td>
+							<a href="../admin/arealist">지역 정보 관리</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../admin/transEdit">통계 관리</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../admin/carlist">차량 관리</a>
+						</td>
+					</tr>
+				</table>
 			</div>
 			<div class="col-10"   style="border-left: 5px solid gray;">
 				<h1>지역 정보 리스트</h1>

@@ -41,18 +41,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript">
 	
-	$(document).on("click","#area_delete",function(){
+	$(document).on("click","#cardelete",function(){
 		
 		
 		
 		
-		let area_name = $("#name").html();
-		let area_img = $("#img").val();
+		let car_no = $("#no").html();
+		let car_img = $("#img").val();
 	
 		
 		$.ajax({ 
             type: "DELETE",
-            url : "/areas/"+area_name+"/"+area_img, //http://localhost:8282/boards/list
+            url : "/cars/"+car_no+"/"+car_img, //http://localhost:8282/boards/list
             success : function(result) {
        	           console.log(result);               	
        	             
@@ -106,53 +106,80 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 5em 0;">
-				<a href="admin/arealist">지역 정보 관리</a>
-				<a href="admin/transEdit">통계 관리</a>
+				<table>
+					<tr>
+						<td>
+							<a href="../admin/arealist">지역 정보 관리</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../admin/transEdit">통계 관리</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../admin/carlist">차량 관리</a>
+						</td>
+					</tr>
+				</table>
 			</div>
 			<div class="col-10"   style="border-left: 5px solid gray;">
 				
 				<script type="text/javascript">
-	var imglo = "\\areaimage\\" + "${name.area_img}";
+	var imglo = "\\carsimages\\" + "${no.car_img}";
 	
 </script>
 				<table width="700" cellpadding="0" cellspacing="0" class="col-10"  border="1" style="font-size: 2em; margin: 5em;">
      
   	
          <tr>
-            <td> 명소이름 </td>
-            <td id="name">${name.area_name} </td>
+            <td> 등록번호 </td>
+            <td id="no">${no.car_no} </td>
          </tr>
          <tr>
-            <td> 명소주소 </td>
-            <td  id="loc">${name.area_loc} </td>
+            <td> 차종 </td>
+            <td  id="type">${no.car_type} </td>
          </tr>
          <tr>
-            <td> 이용시간 </td>
-            <td id="time">${name.area_time} </td>
+            <td> 제조회사 </td>
+            <td id="company">${no.car_company} </td>
          </tr>
-           <tr>
-            <td> 내용 </td>
-            <td id="contents">${name.area_contents}</td>
+         <tr>
+            <td> 탑승인원 </td>
+            <td id="volume">${no.car_volume}</td>
          </tr>
-           <tr>
-            <td> 이미지</td>
-            <td id="imglo"></td>
-            <input type="hidden" id="img" value="${name.area_img}">
+         <tr>
+            <td> 차량 색 </td>
+            <td id="color">${no.car_color}</td>
+         </tr>
+         <tr>
+            <td> 연료 </td>
+            <td id="fuel">${no.car_fuel}</td>
+         </tr>
+         <tr>
+            <td> 배기량 </td>
+            <td id="cc">${no.car_cc}</td>
+         </tr>
+         <tr>
+            <td> 가격 </td>
+            <td id="price">${no.car_price}</td>
+         </tr>
+         <tr>
+           <td> 이미지</td>
+           <td id="imglo"></td>
+           <input type="hidden" id="img" value="${no.car_img}">
          </tr>
          <script type="text/javascript">
-			var imglocation = "<img src='"+("\\areaimage\\" + "${name.area_img}")+"' width='1200px'>";
+			var imglocation = "<img src='"+("\\carsimages\\" + "${no.car_img}")+"' width='1200px'>";
 			$("#imglo").append(imglocation);
 		</script>
-           <tr>
-            <td> 전화번호 </td>
-            <td id="tel">${name.area_tel}</td>
-         </tr>
          <tr >
          
             <td colspan="2"> 
-            <a href="areamodify?area_name=${name.area_name}">수정하기</a> 
-            &nbsp;&nbsp; <a href="admin/arealist">목록보기</a> 
-            &nbsp;&nbsp; <a id="area_delete" href="admin/arealist">삭제</a> 
+            <a href="carmodify?car_no=${no.car_no}">수정하기</a> 
+            &nbsp;&nbsp; <a href="admin/carlist">목록보기</a> 
+            &nbsp;&nbsp; <a id="cardelete" href="admin/carlist">삭제</a> 
            </td>
          </tr>
       </form>

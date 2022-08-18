@@ -62,8 +62,13 @@
 			line-height: 3em;
 			font-size: 1.5em;
 		}
-		#sliders{
+		#slider1{
 			background: url(./코나.jpg) ;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		#slider2{
+			background: url(./쿠폰이벤트2.png) ;
 			background-repeat: no-repeat;
 			background-size: cover;
 		}
@@ -77,10 +82,11 @@
 			
 			<table  class="col-4" id="headerpotal">
 				<tr>
-					<td class="col-3"><a href="#"><img src="마이페이지.png" width="100em"></a></td>
-					<td class="col-3"><a href="#"><img src="예약.png" width="100em"></a></td>
-					<td class="col-3"><a href="#"><img src="고객지원.png" width="100em"></a></td>
-					<td class="col-3"><a href="#"><img src="후기.png" width="100em"></a></td>
+					<td class="col-2"><a href="#"><img src="마이페이지.png" width="100em"></a></td>
+					<td class="col-2"><a href="#"><img src="예약.png" width="100em"></a></td>
+					<td class="col-2"><a href="#"><img src="고객지원.png" width="100em"></a></td>
+					<td class="col-2"><a href="#"><img src="후기.png" width="100em"></a></td>
+					<td class="col-2"><a href="/member/eventlist" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">이벤트</a></td>
 				</tr>
 			</table>
 			
@@ -109,12 +115,16 @@
 						<div class="carousel-inner" style="border: 1px solid black;">
 						
 							<div  class="item active" >
-							<div id="sliders" class="col-sm-12">
+							<div id="slider1" class="col-sm-12">
 								<div class="col-sm-6">
-									<h1><span>(이벤트)</span>여름에는 놀러가자! 포인트 대 축제</h1>
-									<h2>예약에 따른 포인트 적립 이벤트!</h2>
-									<p>(이벤트 기간 2022.06.01 ~2022.08.31 까지)</p>
+									<h1 style="color: deepskyblue"><span>(이벤트)</span>여름에는 놀러가자! 포인트 대 축제</h1>
+									<h2 style="color: white">예약에 따른 포인트 적립 이벤트!</h2>
+									<p style="color: white">(이벤트 기간 2022.06.01 ~2022.08.31 까지)</p>
 									<a href="/member/eventlist"><button type="button" class="btn btn-default get" style="background-color: deepskyblue;">진행중인 이벤트 확인</button></a>
+								</div>
+								<div class="col-sm-6" style="height: 50em" >
+								
+									
 								</div>
 								
 									 <!-- <img src="frameimage/자동차1.jpg" class="girl img-responsive" alt="" width="800em" height="800em"/> -->
@@ -122,14 +132,16 @@
 							</div>
 							
 							<div class="item">
+							<div id="slider2" class="col-sm-12">
 								<div class="col-sm-6">
 									<h1><span>(이벤트)</span>후기 작성하고 할인쿠폰 받자!</h1>
 									<h2>후기만 작성해도 할인 쿠폰이!</h2>
 									<p>(이벤트 기간 2022.07.01 ~2022.09.21 까지)</p>
 									<a href="/member/eventlist"><button type="button" class="btn btn-default get" style="background-color: deepskyblue;">진행중인 이벤트 확인</button></a>
 								</div>
-								<div class="col-sm-6">
-									<img src="frameimage/자동차1.jpg" class="girl img-responsive" alt="" />
+								<div class="col-sm-6" style="height: 50em" >
+									
+								</div>
 								</div>
 							</div>
 							
@@ -169,7 +181,7 @@
 				</div>
 				<div class="row">
 					<div id="upperbar5" class="col-6" style="background: ;"><a href="/trans"><img src="차량 통계.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;"></a></div>
-					<div id="upperbar6" class="col-6" style="background: ;"><a href="/arealist_user"><img src="관광정보.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;">지역정보</a></div>
+					<div id="upperbar6" class="col-6" style="background: ;"><a href="/arealist_user"><img src="관광정보.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;"></a></div>
 				</div>
 			</div>
 			<div id="upperbar7" class="col-4" style="background: ;" >

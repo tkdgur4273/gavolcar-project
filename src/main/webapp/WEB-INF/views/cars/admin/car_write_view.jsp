@@ -49,14 +49,17 @@
     		event.preventDefault();
     	
     		var data = {
-    		 area_name : $("#area_name").val(),
-    		 area_loc : $("#area_loc").val(),
-    		 area_contents : $("#area_contents").val(),
-    		 area_time : $("#area_time").val(),
-    		 area_img : null,
-    		 area_tel : $("#area_tel").val()
+    			car_no : $("#car_no").val(),
+    			car_type : $("#car_type").val(),
+    			car_company : $("#car_company").val(),
+    			car_volume : $("#car_volume").val(),
+    			car_color : $("#car_color").val(),
+    			car_fuel : $("#car_fuel").val(),
+    			car_cc : $("#car_cc").val(),
+    			car_price : $("#car_price").val(),
+    			car_img : null
     		}
-    		var area_name = $('#area_name').val();
+    		var car_no = $('#car_no').val();
     		var form =$('#updateForm')[0];
     		var formData = new FormData(form);
     		formData.append('file', $('#file'));
@@ -64,13 +67,13 @@
     		
     		$.ajax({
     	        type: 'POST',
-    	        url: '/areas/'+area_name,
+    	        url: '/cars/'+car_no,
     	        processData: false,
     	        contentType:false,
     	        data: formData,
     	    }).done(function() {
-    	        alert('글이 등록되었습니다.');
-    	        window.location.href = 'admin/arealist';
+    	        alert('차량정보가 등록되었습니다.');
+    	        window.location.href = 'admin/carlist';
     	    }).fail(function (error) {
     	        alert(JSON.stringify(error));
     		});
@@ -117,41 +120,67 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 5em 0;">
-				<a href="admin/arealist">지역 정보 관리</a>
-				<a href="admin/transEdit">통계 관리</a>
+				<table>
+					<tr>
+						<td>
+							<a href="../admin/arealist">지역 정보 관리</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../admin/transEdit">통계 관리</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../admin/carlist">차량 관리</a>
+						</td>
+					</tr>
+				</table>
 			</div>
 			<div class="col-10"  style="border-left: 5px solid gray;">
 				
 				
 				<table width="500" cellpadding="0" cellspacing="0" class="col-10"  border="1" style="font-size: 2em; margin: 5em;">
-      <form id="updateForm" action="admin/arealist" method="post" enctype="multipart/form-data">
-         <tr>
-            <td>명소이름</td>
-            <td><input id="area_name" type="text" name="name" value="${name.area_name}"></td>
+      <form id="updateForm" action="admin/carlist" method="post" enctype="multipart/form-data">
+         
+            <td><input id="car_no" type="hidden" name="car_no" value="5"></td>
+        
+          <tr>
+            <td>차종</td>
+            <td><input id="car_type" type="text" name="car_type" value="${no.car_type}"></td>
+         </tr>
+          <tr>
+            <td>제조회사</td>
+            <td><input id="car_company" type="text" name="car_company" value="${no.car_company}"></td>
+         </tr>
+          <tr>
+            <td>탑승인원</td>
+            <td><input id="car_volume" type="text" name="car_volume" value="${no.car_volume}"></td>
+         </tr>
+          <tr>
+            <td>차량 색</td>
+            <td><input id="car_color" type="text" name="car_color" value="${no.car_color}"></td>
          </tr>
          <tr>
-            <td> 명소주소 </td>
-            <td> <input id="area_loc" type="text" name="loc" value="${name.area_loc}"></td>
+            <td> 연료 </td>
+            <td> <input id="car_fuel" type="text" name="car_fuel" value="${no.car_fuel}"></td>
          </tr>
          <tr>
-            <td> 이용시간 </td>
-            <td> <input id="area_time" type="text" name="time" value="${name.area_time}"></td>
+            <td> 배기량 </td>
+            <td> <input id="car_cc" type="text" name="car_cc" value="${no.car_cc}"></td>
          </tr>
          <tr>
-            <td> 내용 </td>
-            <td><textarea id="area_contents" rows="10" name="contents" >${name.area_contents}</textarea></td>
+            <td> 가격 </td>
+            <td><textarea id="car_price" rows="10" name="car_price" >${no.car_price}</textarea></td>
          </tr>
           <tr>
             <td> 이미지 </td>
             <td> <input type="file" name="file" id="file"></td>
          </tr>
-         <tr>
-            <td> 전화번호 </td>
-            <td> <input type="number" id="area_tel" rows="10" name="tel" >${name.area_tel}</td>
-         </tr>
          <tr >
             <td colspan="2"> <input type="submit" value="작성"> 
-            &nbsp;&nbsp; <a href="admin/arealist">목록보기</a> 
+            &nbsp;&nbsp; <a href="admin/carlist">목록보기</a> 
          </tr>
       </form>
    	  </table>

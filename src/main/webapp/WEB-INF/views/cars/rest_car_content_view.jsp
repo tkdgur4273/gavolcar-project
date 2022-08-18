@@ -38,7 +38,7 @@
 		#main{
 			height: 50em;
 			
-			background: url(./areaimage/${name.area_img}) ;
+			background: url(./carsimages/${no.car_img}) ;
 			background-size: cover;
 		}
 		#maincontent{
@@ -56,37 +56,13 @@
 
 	
 
-	//삭제 버튼 처리
-		$(document).on("click","#area_delete",function(){
-			
-			
-			
-				
-			let area_name = $("#name").html();
-		
-			
-			$.ajax({ 
-                type: "DELETE",
-                url : "/areas/"+area_name, //http://localhost:8282/boards/list
-                success : function(result) {
-           	           console.log(result);               	
-           	             
-                }, 
-                error : function(xhr, textStatus, errorThrown){ 
-                        alert(xhr);
-                        alert(textStatus);  
-                        alert(errorThrown);
-                    }
-                });		
-		
-	});		
 		
 </script>
 
 </head>
 <body>
 
-<div class="container col-12" id="headbar"style="border-bottom: 3px solid black;">
+<div class="container col-12" id="headbar" style="background: gray;">
 		<div class="row">
 			<div class="col-3"><a id="headlogo" href="/main"><img src="투명로고.png" height="100em"></a></div>
 			
@@ -102,9 +78,24 @@
 			<div class="col-2">
 				
 			</div>
-			<div id="headlogin" class="col-2">
-			<a href="#"><img src="로그인.png" width="100em"></a>
-			<a href="#"><img src="회원가입.png" width="100em"></a>
+		<div id="warp" class="col-2" style="margin: 5em 0;">
+				<table>
+					<tr>
+						<td>
+							<a href="../admin/arealist">지역 정보 관리</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../admin/transEdit">통계 관리</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../admin/carlist">차량 관리</a>
+						</td>
+					</tr>
+				</table>
 			</div>
 		</div>
 	</div>
@@ -123,19 +114,31 @@
 	
 	</div>
 	<div>
-	<ul><h3 style="color: orange;">지역이름</h3>
-		<li>${name.area_name}</li>
+	<ul><h3 style="color: orange;">차량번호</h3>
+		<li>${no.car_no}</li>
 	</ul>
-	<ul><h3 style="color: orange;">명소이름</h3>
-		<li>${name.area_loc}</li>
+	<ul><h3 style="color: orange;">차종</h3>
+		<li>${no.car_type}</li>
 	</ul>
-	<ul><h3 style="color: orange;">이용가능시간</h3>
-		<li>${name.area_time} </li>
+	<ul><h3 style="color: orange;">제조회사</h3>
+		<li>${no.car_company}</li>
+	</ul>
+	<ul><h3 style="color: orange;">탑승인원</h3>
+		<li>${no.car_volume}</li>
+	</ul>
+	<ul><h3 style="color: orange;">차량 색</h3>
+		<li>${no.car_color}</li>
+	</ul>
+	<ul><h3 style="color: orange;">연료</h3>
+		<li>${no.car_fuel}</li>
+	</ul>
+	<ul><h3 style="color: orange;">배기량</h3>
+		<li>${no.car_cc}</li>
+	</ul>
+	<ul><h3 style="color: orange;">가격</h3>
+		<li>${no.car_price} </li>
 	</ul>
 	
-	<ul><h3 style="color: orange;">명소 전화번호</h3>
-		<li>${name.area_tel}</li>
-	</ul>
 	
 	</div>
 	

@@ -72,7 +72,7 @@ public class RestAreaController {
 			@RequestPart(value = "file") MultipartFile file)throws Exception {
 		log.info("rest_area_modify() .." + area);
 	
-		
+		areaService.fileDelete(area);
 		area.setArea_img(file.getOriginalFilename());
 		areaService.fileSave(file);	
 		areaService.areaModify(area);

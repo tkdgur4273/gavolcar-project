@@ -141,8 +141,23 @@ $(document).ready(function() {
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 5em 0;">
-				<a href="../admin/arealist">지역 정보 관리</a>
-				<a href="../admin/transEdit">통계 관리</a>
+				<table>
+					<tr>
+						<td>
+							<a href="../admin/arealist">지역 정보 관리</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../admin/transEdit">통계 관리</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../admin/carlist">차량 관리</a>
+						</td>
+					</tr>
+				</table>
 			</div>
 			<div class="col-10"   style="border-left: 5px solid gray;">
 				<h1>지역 정보 리스트</h1>

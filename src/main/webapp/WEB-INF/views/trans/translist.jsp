@@ -49,14 +49,14 @@
 
             // 그래피의 옵션을 지정 ------- (※8)    
             var opt = {
-                'title': '회사별 거래비율',
-                'width': 600,
-                'height': 400,
+                'title': '제조사별 거래비율',
+                'width': 1200,
+                'height': 800,
                 pieSliceText: 'percentage', // label:이름 . vaule:실제값
                 legend: { // 범례
                     position: 'right',
                     textStyle: {
-                        color: 'blue',
+                        color: 'black',
                         fontSize: 25
                     }
                 } //'none' 
@@ -117,8 +117,8 @@
             var data = new google.visualization.DataTable();
 
             // 데이터의 컬럼을 지정 -------- (※6)    
-            data.addColumn('string', '월');
-            data.addColumn('number', '수익');
+            data.addColumn('string', '월매출');
+            data.addColumn('number', '월매출');
 
             // 실제 데이터를 지정 ------------- (※7)    
             data.addRows([
@@ -130,9 +130,9 @@
 
             // 그래피의 옵션을 지정 ------- (※8)    
             var opt = {
-                'title': '매출',
-                'width': 600,
-                'height': 400,
+                'title': '매출(단위: 천)',
+                'width': 1200,
+                'height': 800,
                 
             };
             // 그래프를 표시 ------------- (※9)    
@@ -194,7 +194,7 @@
 </head>
 <body>
 
-<div class="container col-12" id="headbar" style="background: gray;">
+<div class="container col-12" id="headbar" style="border-bottom: 3px solid black;">
 		<div class="row">
 			<div class="col-3"><a id="headlogo" href="/main"><img src="투명로고.png" height="100em"></a></div>
 			
@@ -223,7 +223,7 @@
 <div id="mainarea" class="col-4">
 	<div id="pieChart_div"></div>
 	<div id="chart_div"></div>
-	<div><a href="admin/transEdit">데이터 관리</a></div>
+<!-- 	<div><a href="admin/transEdit">데이터 관리</a></div>
 
 	<table id="ta" width="500" border="1">
 		<tr>
@@ -233,14 +233,14 @@
 			<td>대여일수</td>			
 		</tr>
 		
-<!-- 		for (DeptVO dept : deptMapper.getDeptEmpList()) {
+		for (DeptVO dept : deptMapper.getDeptEmpList()) {
 			
 			log.info(dept.getLoc() + dept.getDeptno());
 			
 			for (EmpVO vo : dept.getEmpList()) {
 				System.out.println(vo);
 			}
-		} -->
+		} 
 		<c:forEach var="list" items="${transList}">
 			
 			<tr>
@@ -254,6 +254,7 @@
 		</c:forEach>
 		
 	</table>
+	-->
 </div>
 </div>
 

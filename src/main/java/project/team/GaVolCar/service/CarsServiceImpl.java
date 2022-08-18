@@ -13,9 +13,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.slf4j.Slf4j;
-import project.team.GaVolCar.mapper.AreaMapper;
 import project.team.GaVolCar.mapper.CarsMapper;
-import project.team.GaVolCar.vo.AreaVO;
 import project.team.GaVolCar.vo.CarsVO;
 
 @Slf4j
@@ -28,7 +26,7 @@ public class CarsServiceImpl implements CarsService {
 	
 	@Override
 	public List<CarsVO> getCarsList(){
-		log.info("getAreaList is working....");
+		log.info("getCarsList is working....");
 		return carsMapper.getCarsList();
 	}
 	

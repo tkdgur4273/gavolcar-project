@@ -63,6 +63,7 @@ public class RestCarsController {
 			@RequestPart(value = "file") MultipartFile file)throws Exception {
 		log.info("rest_car_write() .." + carsVO);
 		
+		
 		carsVO.setCar_img(file.getOriginalFilename());
 		carService.fileSave(file);		
 		carService.insertCars(carsVO);
@@ -74,7 +75,7 @@ public class RestCarsController {
 			@RequestPart(value = "file") MultipartFile file)throws Exception {
 		log.info("rest_area_modify() .." + carsVO);
 	
-		
+		carService.fileDelete(carsVO);
 		carsVO.setCar_img(file.getOriginalFilename());
 		carService.fileSave(file);	
 		carService.updateCars(carsVO);
