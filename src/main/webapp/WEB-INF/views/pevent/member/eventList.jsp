@@ -19,6 +19,20 @@
  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <style type="text/css">
+		@font-face {
+			font-family: 'tway_sky';
+			src: url("../tway_sky.ttf");
+			font-weight: 400;
+		}
+		
+		*{
+			font-family: 'tway_sky';
+		}
+		#headlogin2{
+			text-align: center;
+			line-height: 4em;
+			
+		}
 		#headerpotal{
 			text-align: center;
 			font-size: 1.5em;
@@ -88,35 +102,48 @@
 </head>
 <body>
 
-	<div class="container col-12" id="headbar" style="background: gray;">
+<div class="container col-12" id="headbar" style="border-bottom: 3px solid black;">
 		<div class="row">
 			<div class="col-3"><a id="headlogo" href="/main"><img src="../투명로고.png" height="100em"></a></div>
 			
-				<table  class="col-4" id="headerpotal">
-					<tr>
-						<td class="col-3"><a href="#"><img src="../마이페이지.png" width="100em"></a></td>
-						<td class="col-3"><a href="#"><img src="../예약.png" width="100em"></a></td>
-						<td class="col-3"><a href="#"><img src="../고객지원.png" width="100em"></a></td>
-						<td class="col-3"><a href="#"><img src="../후기.png" width="100em"></a></td>
-					</tr>
-				</table>
+			<table  class="col-4" id="headerpotal">
+				<tr>
+					<!-- <td class="col-2"><a href="#"><img src="마이페이지.png" width="100em"></a></td>
+					<td class="col-2"><a href="#"><img src="예약.png" width="100em"></a></td>
+					<td class="col-2"><a href="#"><img src="고객지원.png" width="100em"></a></td>
+					<td class="col-2"><a href="#"><img src="후기.png" width="100em"></a></td>  -->
+					<td ><a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">마이페이지</a></td>
+					<td ><a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a></td>
+					<td><a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">고객지원</a></td>
+					<td ><a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">후기</a></td>
+					<td ><a href="/member/eventlist" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">이벤트</a></td>
+				</tr>
+			</table>
 			
 			<div class="col-2">
 				
 			</div>
-			<div id="headlogin" class="col-2">
-				<a href="#"><img src="../로그인.png" width="100em"></a>
-				<a href="#"><img src="../회원가입.png" width="100em"></a>
+				<sec:authorize access="isAnonymous()">
+				<div id="headlogin" class="col-2">
+					<a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">로그인</a>
+					<span style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">|</span>
+					<a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">회원가입</a>
+				</div>
+				</sec:authorize>
+				<sec:authorize access="isAuthenticated()">
+				<div id="headlogin2" class="col-2">
+					<span  style="text-decoration: none; color: black; font-size: 10px; font-weight: 900; width: 100px;"><sec:authentication property="principal.username"/>님 환영합니다.</span>
+					<a href="${pageContext.request.contextPath}/logout" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">로그아웃</a>
+				</div>
+				</sec:authorize>
 			</div>
 		</div>
-	</div>
+</div>
 	<div class="container col-12">
 		<div class="row">
-			<div class="col-2" style="background-color: darkgray" >
-				<div>gg</div>
-			</div>
-			<div id="tablebase" class="col-9">
-				<div id="eventtable"  class="col-12">
+			
+			<div id="tablebase" class="col-12">
+				<div id="eventtable"  class="col-12" style="margin: 20px 0;">
 							<div id="go"></div>
 							<div id="go2"></div>
 				</div>
@@ -125,7 +152,7 @@
 	</div>
 
 	
-		<p>principal: <sec:authentication property="principal.username"/>님 환영합니다.</p>
+		
 
 
 	<footer id="footbar" style="background-color: black;">

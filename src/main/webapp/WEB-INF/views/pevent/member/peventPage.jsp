@@ -16,8 +16,26 @@
 
 
 
+
 <style type="text/css">
-	#headerpotal{
+		@font-face {
+			font-family: 'tway_sky';
+			src: url("./tway_sky.ttf");
+			font-weight: 400;
+		}
+		
+		*{
+			font-family: 'tway_sky';
+		}
+		#headlogin2{
+			text-align: center;
+			line-height: 4em;
+			
+		}
+
+
+
+		#headerpotal{
 			text-align: center;
 			font-size: 1.5em;
 			line-height: 4em;
@@ -43,6 +61,29 @@
 			background: url(./p페이지.png) ;
 			background-repeat: no-repeat;
 			background-size: cover;
+			
+			
+		}
+		#Pointteam{
+			padding: 10% 15%;
+		}
+		#totalPointBannerTitle{
+			color: rgb(255, 185, 35);
+			font-size: 200px;
+			text-align: center;
+			border-bottom:  10px solid rgb(255, 185, 35);
+		}
+		#totalPointBanner{
+			color: rgb(255, 185, 35);
+			text-align: center;
+			font-size: 150px;
+		}
+		#list-table{
+			margin: 0 auto;
+			text-align: center;
+			font-size: 20px;
+			color: rgb(255, 185, 35);
+			border:  2px solid rgb(255, 185, 35);
 		}
 </style>
 
@@ -87,13 +128,13 @@ $(document).ready(function() {
 	       var totalPoint=0;
 	    	$(result).each(function() { 
 	    		htmls += '<tr>';
-	    	   	htmls += '<td>' + this.point_no + '</td>';
+	    	   	
 		        htmls += '<td>' + this.points +'</td>'; 
 		        htmls += '<td>' + this.point_date +'</td>';  
 		        totalPoint +=  this.points;
 	     		$(this.rentsList).each(function(){
 		          
-		        	htmls += '<td>' + this.rez_no + '</td>';
+		        	
 		        	htmls += '<td>' + this.rent_start_date +'</td>'; 
 		        	htmls += '<td>' + this.rent_end_date +'</td>'; 
 		        	htmls += '<td>' + this.final_cost + '</td>';
@@ -105,12 +146,12 @@ $(document).ready(function() {
 	     	
 	       	});
 	    	htmls += '<tr>';
-    	   	htmls += '<td colspan="11">' + "총 포인트" + '</td>';
+    	   	htmls += '<td colspan="11" >' + "총 포인트" + '</td>';
     	   	htmls += '<tr>';
 	    	htmls += '<tr>';
-    	   	htmls += '<td colspan="11">' + totalPoint + '</td>';
+    	   	htmls += '<td colspan="11">' + totalPoint + 'Point' +'</td>';
     	   	htmls += '<tr>';
-    	   	$("#totalPointBanner").append(totalPoint);
+    	   	$("#totalPointBanner").append(totalPoint + ' Point');
 	    }
 	    $("#list-table").append(htmls);
 	}
@@ -121,28 +162,39 @@ $(document).ready(function() {
 
 </head>
 <body>
-	<div class="container col-12" id="headbar" style="background: gray;">
+<div class="container col-12" id="headbar" style="border-bottom: 3px solid black;">
 		<div class="row">
-			<div class="col-3"><a id="headlogo" href="/main"><img src="../투명로고.png" height="100em"></a></div>
+			<div class="col-3"><a id="headlogo" href="/main"><img src="투명로고.png" height="100em"></a></div>
 			
-				<table  class="col-4" id="headerpotal">
-					<tr>
-						<td class="col-3"><a href="#"><img src="../마이페이지.png" width="100em"></a></td>
-						<td class="col-3"><a href="#"><img src="../예약.png" width="100em"></a></td>
-						<td class="col-3"><a href="#"><img src="../고객지원.png" width="100em"></a></td>
-						<td class="col-3"><a href="#"><img src="../후기.png" width="100em"></a></td>
-					</tr>
-				</table>
+			<table  class="col-4" id="headerpotal">
+				<tr>
+					<td ><a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">마이페이지</a></td>
+					<td ><a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a></td>
+					<td><a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">고객지원</a></td>
+					<td ><a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">후기</a></td>
+					<td ><a href="/member/eventlist" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">이벤트</a></td>
+				</tr>
+			</table>
 			
 			<div class="col-2">
 				
 			</div>
-			<div id="headlogin" class="col-2">
-				<a href="#"><img src="../로그인.png" width="100em"></a>
-				<a href="#"><img src="../회원가입.png" width="100em"></a>
+				<sec:authorize access="isAnonymous()">
+				<div id="headlogin" class="col-2">
+					<a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">로그인</a>
+					<span style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">|</span>
+					<a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">회원가입</a>
+				</div>
+				</sec:authorize>
+				<sec:authorize access="isAuthenticated()">
+				<div id="headlogin2" class="col-2">
+					<span  style="text-decoration: none; color: black; font-size: 10px; font-weight: 900; width: 100px;"><sec:authentication property="principal.username"/>님 환영합니다.</span>
+					<a href="${pageContext.request.contextPath}/logout" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">로그아웃</a>
+				</div>
+				</sec:authorize>
 			</div>
 		</div>
-	</div>
+</div>
 
 
 
@@ -150,21 +202,19 @@ $(document).ready(function() {
 
 
 
-	<div id="main" style="height: 900px; width: 1200px">
-	<h1>포인트 리스트</h1>
+	<div id="main" style="width: 100%; height: 1200px;">
+		
+		<div id="Pointteam">
+		<div id="totalPointBannerTitle">나의 포인트</div>
 	
-	<div id="totalPointBannerTitle">나의 포인트</div>
-	</div>
-	<div id="totalPointBanner"></div>
-	
-	
-	
-	<table id="list-table"  border="1">
+		<div id="totalPointBanner">총 </div>
+		</div>
+		<table id="list-table"  border="1">
 		<tr>
-			<td>포인트 번호 </td> 
+			
 	        <td>포인트</td>
 	        <td>포인트 만료일</td>
-	        <td>예약번호</td>
+	        
 	        <td>대여 시작일</td>
 	        <td>대여 종료일</td>
 	        <td>최종 비용</td>
@@ -174,7 +224,9 @@ $(document).ready(function() {
 		</tr>
 	</table>
 	
-	<a href="member/eventlist">리스트로</a>
+	</div>
+	
+	
 	
 	
 	

@@ -40,6 +40,26 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 	<style type="text/css">
+		
+		@font-face {
+			font-family: 'tway_sky';
+			src: url("./tway_sky.ttf");
+			font-weight: 400;
+		}
+		
+		*{
+			font-family: 'tway_sky';
+		}
+		#headlogin2{
+			text-align: center;
+			line-height: 4em;
+			
+		}
+		
+		
+		
+		
+		
 		#headerpotal{
 			text-align: center;
 			font-size: 1.5em;
@@ -72,37 +92,55 @@
 			background-repeat: no-repeat;
 			background-size: cover;
 		}
+		#slider3{
+			background: url(./슬라이드배경.jpg) ;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
 	</style>
 </head><!--/head-->
 
 <body>
 <div class="container col-12" id="headbar" style="border-bottom: 3px solid black;">
 		<div class="row">
-			<div class="col-3"><a id="headlogo" href="#"><img src="투명로고.png" height="100em"></a></div>
+			<div class="col-3"><a id="headlogo" href="/main"><img src="투명로고.png" height="100em"></a></div>
 			
 			<table  class="col-4" id="headerpotal">
 				<tr>
-					<td class="col-2"><a href="#"><img src="마이페이지.png" width="100em"></a></td>
+					<!-- <td class="col-2"><a href="#"><img src="마이페이지.png" width="100em"></a></td>
 					<td class="col-2"><a href="#"><img src="예약.png" width="100em"></a></td>
 					<td class="col-2"><a href="#"><img src="고객지원.png" width="100em"></a></td>
-					<td class="col-2"><a href="#"><img src="후기.png" width="100em"></a></td>
-					<td class="col-2"><a href="/member/eventlist" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">이벤트</a></td>
+					<td class="col-2"><a href="#"><img src="후기.png" width="100em"></a></td>  -->
+					<td ><a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">마이페이지</a></td>
+					<td ><a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a></td>
+					<td><a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">고객지원</a></td>
+					<td ><a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">후기</a></td>
+					<td ><a href="/member/eventlist" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">이벤트</a></td>
 				</tr>
 			</table>
 			
 			<div class="col-2">
 				
 			</div>
-			<div id="headlogin" class="col-2">
-			<a href="#"><img src="로그인.png" width="100em"></a>
-			<a href="#"><img src="회원가입.png" width="100em"></a>
+				<sec:authorize access="isAnonymous()">
+				<div id="headlogin" class="col-2">
+					<a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">로그인</a>
+					<span style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">|</span>
+					<a href="#" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">회원가입</a>
+				</div>
+				</sec:authorize>
+				<sec:authorize access="isAuthenticated()">
+				<div id="headlogin2" class="col-2">
+					<span  style="text-decoration: none; color: black; font-size: 10px; font-weight: 900; width: 100px;"><sec:authentication property="principal.username"/>님 환영합니다.</span>
+					<a href="${pageContext.request.contextPath}/logout" style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">로그아웃</a>
+				</div>
+				</sec:authorize>
 			</div>
 		</div>
-	</div>
-	
-		</div><!--/header-middle-->
+</div>
+<!--/header-middle-->
 	<section id="slider"><!--slider-->
-		<div class="container col-12">
+		<div class="container col-12" style="border-bottom: 5px solid deepskyblue;">
 			<div class="row">
 				<div class="col-sm-12">
 					<div id="slider-carousel" class="carousel slide" data-ride="carousel">
@@ -112,14 +150,14 @@
 							<li data-target="#slider-carousel" data-slide-to="2" style="background-color: deepskyblue;"></li>
 						</ol>
 						
-						<div class="carousel-inner" style="border: 1px solid black;">
+						<div class="carousel-inner" >
 						
 							<div  class="item active" >
 							<div id="slider1" class="col-sm-12">
 								<div class="col-sm-6">
-									<h1 style="color: deepskyblue"><span>(이벤트)</span>여름에는 놀러가자! 포인트 대 축제</h1>
-									<h2 style="color: white">예약에 따른 포인트 적립 이벤트!</h2>
-									<p style="color: white">(이벤트 기간 2022.06.01 ~2022.08.31 까지)</p>
+									<h1 style="color: deepskyblue; font-family: 'tway_sky';"><span>(이벤트)</span>여름에는 놀러가자! 포인트 대 축제</h1>
+									<h2 style="color: white; font-family: 'tway_sky';">예약에 따른 포인트 적립 이벤트!</h2>
+									<p style="color: white; font-family: 'tway_sky';">(이벤트 기간 2022.06.01 ~2022.08.31 까지)</p>
 									<a href="/member/eventlist"><button type="button" class="btn btn-default get" style="background-color: deepskyblue;">진행중인 이벤트 확인</button></a>
 								</div>
 								<div class="col-sm-6" style="height: 50em" >
@@ -134,9 +172,9 @@
 							<div class="item">
 							<div id="slider2" class="col-sm-12">
 								<div class="col-sm-6">
-									<h1><span>(이벤트)</span>후기 작성하고 할인쿠폰 받자!</h1>
-									<h2>후기만 작성해도 할인 쿠폰이!</h2>
-									<p>(이벤트 기간 2022.07.01 ~2022.09.21 까지)</p>
+									<h1 style="color: deepskyblue; font-family: 'tway_sky';"><span>(이벤트)</span>후기 작성하고 할인쿠폰 받자!</h1>
+									<h2 style="color: white; font-family: 'tway_sky';">후기만 작성해도 할인 쿠폰이!</h2>
+									<p style="color: white; font-family: 'tway_sky';">(이벤트 기간 2022.07.01 ~2022.09.21 까지)</p>
 									<a href="/member/eventlist"><button type="button" class="btn btn-default get" style="background-color: deepskyblue;">진행중인 이벤트 확인</button></a>
 								</div>
 								<div class="col-sm-6" style="height: 50em" >
@@ -146,15 +184,17 @@
 							</div>
 							
 							<div class="item">
+							<div id="slider3" class="col-sm-12">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free Ecommerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
+									<h1 style="color: black; font-family: 'tway_sky';">당신과 어디든 함께</h1>
+									<span style="font-size: 60px; font-family: 'tway_sky';">가볼</span><span style="font-size: 60px; color: red; font-family: 'tway_sky';">카</span>
+									<p style="font-size: 40px; color: white;">GaVolCar.co</p>
+									
 								</div>
 								<div class="col-sm-6">
-									<img src="투명로고.png" class="girl img-responsive" alt="" />
+									<img src="투명로고.png" class="girl img-responsive" alt=""  style="height: 50em"/>
 								</div>
+							</div>
 							</div>
 							
 						</div>
@@ -173,23 +213,23 @@
 	</section><!--/slider-->
 	<div class="container col-10">
 		<div id="upperbar" class="row">
-			<div id="upperbar1" class="col-4" style="background: ;"><a href="#"><img src="검정예약.png" height="416em" width="402em" style="border: 1em solid red; margin: 1em;"></a></div>
+			<div id="upperbar1" class="col-4" style="background: ;"><a href="#" style="text-decoration: none;"><div style="margin: 1em; border: 5px solid deepskyblue; height: 420px; width: 420px"><img src="검정예약.png" height="280em" width="400em"><div style="font-size: 50px;">예약하기</div></div></a></div>
 			<div id="upperbar2" class="col-4" style="background: ;">
 				<div class="row">
-					<div id="upperbar3" class="col-6" style="background: ;"><a href="#"><img src="예약조회.png" height="200em" width="200em" style="margin: 1em; border: 1em solid red;"></a></div>
-					<div id="upperbar4" class="col-6" style="background: ;"><a href="#"><img src="검정후기.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;"></a></div>
+					<div id="upperbar3" class="col-6" style="background: ;"><a href="#" style="text-decoration: none;"><div style="margin: 1em; border: 5px solid deepskyblue; height: 200px; width: 200px"><img src="예약조회.png" height="140em" width="200em"><div style="font-size: 25px;">예약확인</div></div></a></div>
+					<div id="upperbar4" class="col-6" style="background: ;"><a href="#" style="text-decoration: none;"><div style="margin: 1em; border: 5px solid deepskyblue; height: 200px; width: 200px"><img src="검정후기.png" height="140em" width="200em"><div style="font-size: 25px;">후기</div></div></a></div>
 				</div>
 				<div class="row">
-					<div id="upperbar5" class="col-6" style="background: ;"><a href="/trans"><img src="차량 통계.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;"></a></div>
-					<div id="upperbar6" class="col-6" style="background: ;"><a href="/arealist_user"><img src="관광정보.png" height="200em" width="200em" style="border: 1em solid red; margin: 1em;"></a></div>
+					<div id="upperbar5" class="col-6" style="background: ;"><a href="/trans" style="text-decoration: none;"><div style="margin: 1em; border: 5px solid deepskyblue; height: 200px; width: 200px"><img src="차량 통계.png" height="140em" width="190em"><div style="font-size: 25px;">차량통계</div></div></a></div>
+					<div id="upperbar6" class="col-6" style="background: ;"><a href="/arealist_user" style="text-decoration: none;"><div style="margin: 1em; border: 5px solid deepskyblue; height: 200px; width: 200px"><img src="관광정보.png" height="140em" width="190em"><div style="font-size: 25px;">관광정보</div></div></a></div>
 				</div>
 			</div>
 			<div id="upperbar7" class="col-4" style="background: ;" >
-			<h1 style="border: 0.5em solid red; margin: 1em;">공지사항</h1>
+			<h1 style=" margin: 1em; font-family: 'tway_sky';">공지사항</h1>
 			
 				<c:forEach var="alert" items="${alertForMainPage}">
 				
-					<a href="#"><h4 style="height: 3em; border: 0.5em solid red">${alert.b_contents}</h4></a>
+					<a href="#"><h4 style="height: 3em; border-bottom: 2px solid deepskyblue; line-height: 3em;">${alert.b_contents}</h4></a>
 				
 				</c:forEach>
 			
