@@ -1,24 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!-- C태그 쓰기 위해 넣은 taglib므로 반드시 확인 --> 
-  
-    
-    
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- C태그 쓰기 위해 넣은 taglib므로 반드시 확인 -->
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<title>boards</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 <meta chartset="utf-8">
-    <title>막대 그래프</title>
-    <!-- 라이브러리를 읽어들임 ======(※1) -->
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-   
-   
-   	<script type="text/javascript">
+<title>막대 그래프</title>
+<!-- 라이브러리를 읽어들임 ======(※1) -->
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+
+<script type="text/javascript">
         // 어떤 그래프를 사용할지 지정 ------ (※2)  
         google.load('visualization', '1.0', {
             'packages': ['corechart']
@@ -65,36 +67,36 @@
         }
 
     </script>
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-    <script type="text/javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
     
     
     $(document).ready(function(){
@@ -149,17 +151,19 @@
 <body>
 	<div id="pieChart_div"></div>
 	<div id="chart_div"></div>
-	<div><a href="admin/transEdit">데이터 관리</a></div>
+	<div>
+		<a href="admin/transEdit">데이터 관리</a>
+	</div>
 
 	<table width="500" border="1">
 		<tr>
 			<td>번호</td>
 			<td>이익</td>
 			<td>차종</td>
-			<td>대여일수</td>			
+			<td>대여일수</td>
 		</tr>
-		
-<!-- 		for (DeptVO dept : deptMapper.getDeptEmpList()) {
+
+		<!-- 		for (DeptVO dept : deptMapper.getDeptEmpList()) {
 			
 			log.info(dept.getLoc() + dept.getDeptno());
 			
@@ -168,23 +172,23 @@
 			}
 		} -->
 		<c:forEach var="list" items="${transList}">
-			
+
 			<tr>
 				<td>${list.trans_no}</td>
 				<td>${list.trans_sales}</td>
 
 				<td>${list.trans_type}</td>
-				<td>${list.trans_date}</td>				
+				<td>${list.trans_date}</td>
 			</tr>
-			
+
 		</c:forEach>
-		
+
 	</table>
-	
-	
 
 
 
-	
+
+
+
 </body>
 </html>
