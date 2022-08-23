@@ -53,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	       			.and()
 	       			.withUser("member").password("{noop}member").roles("MEMBER")
 	       			.and()
-	       			.withUser("dong").password("{noop}dong").roles("MEMBER");
+	       			.withUser("dong").password("{noop}dong").roles("MEMBER","USER");
   			
 		 //  auth.userDetailsService(customUserDetailsService).passwordEncoder(new BCryptPasswordEncoder());
 	   }

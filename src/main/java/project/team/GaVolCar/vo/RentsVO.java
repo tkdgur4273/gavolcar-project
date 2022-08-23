@@ -21,4 +21,7 @@ public class RentsVO {
 	private int baby_car_seat;
 	private String user_id;
 	private int	car_no;
+	private String	hipass2;
+	private String	baby_car_seat2;
+	
 }

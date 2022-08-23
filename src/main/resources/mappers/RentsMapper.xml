@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.team.GaVolCar.mapper.RentsMapper">
+	
+	<select id="getRentsList" resultType="project.team.GaVolCar.vo.RentsVO">
+		<![CDATA[
+			select * from rents where user_id = #{user_id} order by rez_no desc
+		]]>
+	</select>
+	<select id="getAllRentsList" resultType="project.team.GaVolCar.vo.RentsVO">
+		<![CDATA[
+			select * from rents order by rez_no desc
+		]]>
+	</select>
+	
+   
+   
+
+</mapper>

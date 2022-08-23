@@ -148,8 +148,7 @@ $(document).ready(function() {
 		        	htmls += '<td>' + this.rent_start_date +'</td>'; 
 		        	htmls += '<td>' + this.rent_end_date +'</td>'; 
 		        	htmls += '<td>' + this.final_cost + '</td>';
-		        	htmls += '<td>' + this.hipass + '</td>';
-		   	    	htmls += '<td>' + this.baby_car_seat +'</td>'; 
+		        
 		   	    	htmls += '<td>' + this.car_no + '</td>';
 		        	htmls += '</tr>';   
 	    	  	});
@@ -240,8 +239,6 @@ $(document).ready(function() {
 				<td>대여 시작일</td>
 				<td>대여 종료일</td>
 				<td>최종 비용</td>
-				<td>하이패스</td>
-				<td>카시트</td>
 				<td>차량 번호</td>
 			</tr>
 		</table>

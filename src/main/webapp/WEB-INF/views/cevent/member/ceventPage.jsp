@@ -221,7 +221,7 @@ $(document).ready(function() {
 
 
 
-			<td>제목</td>
+			<td>후기제목</td>
 			<td>획득날짜</td>
 
 

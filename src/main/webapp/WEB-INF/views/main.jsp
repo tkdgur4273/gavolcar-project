@@ -262,8 +262,11 @@
 			</div>
 			<div id="upperbar2" class="col-4" style="background:;">
 				<div class="row">
+					
+					
+					
 					<div id="upperbar3" class="col-6" style="background:;">
-						<a href="#" style="text-decoration: none;"><div
+						<a href="/user/rentscheck?user_id=<sec:authentication property='principal.username'/>" style="text-decoration: none;"><div
 								style="margin: 1em; border: 5px solid deepskyblue; height: 200px; width: 200px">
 								<img src="예약조회.png" height="140em" width="200em">
 								<div style="font-size: 25px;">예약확인</div>

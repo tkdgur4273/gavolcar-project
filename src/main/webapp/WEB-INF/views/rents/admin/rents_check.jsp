@@ -64,22 +64,39 @@
 	line-height: 2em;
 	font-size: 1em;
 }
+#main{
+	padding: 150px 0;
+}
+#mainbody {
+	background: url(../예약배경.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	back
+}
 
 </style>
 
 <title>event list</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+function deletePopup(){window.open("../deletePopup", "delete", "width=500, height=300, left=100, top=50");}
+function modifyPopup(){window.open("../modifyPopup", "modify", "width=600, height=400, left=100, top=50");}
+
+
+</script>
 
 
 
 <!-- 
-	<sec:authorize access="isAuthenticated()">
-		<form:form action="${pageContext.request.contextPath}/logout" method="POST">
-	    	<input type="submit" value="로그아웃" />
-		</form:form>
-	</sec:authorize>
- -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#changer").click(function(){
+			alert("수정");
+		});
+	});
+</script>
+-->
 
 </head>
 <body>
@@ -134,6 +151,69 @@
 		</div>
 	</div>
 	
+
+<div id="mainbody">
+<div style="text-align: center; font-size: 50px; padding: 50px 0;">
+당신의 예약 현황
+</div>
+
+<div id="main">
+	<table width="1200" border="5px solid black" style="margin: 0 auto; text-align: center;background-color: rgba(255, 255, 255, 0.603); opacity: 0.8;">
+		<tr style="background-color: rgba(155, 155, 155, 0.603);">
+			<td>예약번호</td>
+			<td>랜트 시작일</td>
+			<td>랜트 종료일</td>
+			<td>예약비용</td>
+			<td>하이패스 여부</td>
+			<td>카시트 여부</td>
+			<td>차량번호</td>
+			<td>변경</td>
+			<td>예약취소</td>
+			
+		</tr>
+	
+		<c:forEach var="rents" items="${list}">
+		
+			<tr>
+				<td>${rents.rez_no}</td>
+				<td>${rents.rent_start_date}</td>
+				<td>${rents.rent_end_date}</td>
+				<td>${rents.final_cost}</td>
+				<td>${rents.hipass2}</td>
+				<td>${rents.baby_car_seat2}</td>
+				<td>${rents.car_no}</td>
+				<td><input id="changer" type="button" value="변경" onclick="modifyPopup();"></td>
+				<td><input id="deleter" type="button" value="취소" onclick="deletePopup();"></td>
+				
+			</tr>
+		</c:forEach>	
+	
+	</table>
+
+
+</div>
+</div>
+<div style="background-color: rgb(189, 189, 189); line-height: 25px;">
+<div style="color: rgb(150, 85, 85);">※주의사항</div>
+<div style="color: gray;">-환불의 경우 이하의 규정에 따라서 이행됨을 알려 드립니다.</div>
+<div style="color: gray;">-제3자에 의한 환불을 이루어 질 수 없습니다.</div>
+<div style="color: gray;">-예약기간내에 환불을 신청하지 못하셨을 경우 환불을 받으실 수 없습니다.</div>
+<div style="color: gray;">-고객님의 단순변심으로 인해서 환불이 진행되야 할 시에는 환불을 받으실 수 없습니다.</div>
+<div style="color: gray;">-천재지변에 의한 환불요구의 경우 환불을 받으실 수 없습니다.</div>
+<div style="color: gray;">-구속, 기소의 이유로 예약을 취소해야하는 경우 환불을 받으 실 수 없습니다.</div>
+<div style="color: gray;">-상해 입원등의 이유로 예약을 취소해야하는 경우 환불을 받으 실 수 없습니다.</div>
+<div style="color: gray;">-만일 고객님의 사망시에는 환불을 받으실 수 없습니다.</div>
+<div style="color: gray;">-배편이 끊겨 매장까지 오실 수 없으실 때는 환불을 받으실 수 없습니다.</div>
+<div style="color: gray;">-회사의 문제로 인하여 환불을 받을 시에는 전액환불을 받으 실 수 있습니다.</div>
+<div style="color: gray;">-단, 환불이 이루어지는 기간은 회사의 사정에 의해 임의로 조정될 수 있습니다.</div>
+</div>
+
+
+
+
+
+
+
 
 
 

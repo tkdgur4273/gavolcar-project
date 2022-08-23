@@ -101,6 +101,9 @@
 					<tr>
 						<td><a href="../admin/carlist">차량 관리</a></td>
 					</tr>
+					<tr>
+						<td><a href="../admin/rentscheck">예약 관리</a></td>
+					</tr>
 				</table>
 			</div>
 			<div class="col-10" style="border-left: 5px solid gray;">

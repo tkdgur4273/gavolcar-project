@@ -162,10 +162,10 @@
 
 
 	<div id="main" class="col-12">
-		<div id="maincontent" class="col-4">${name.area_contents}</div>
+		<div id="maincontent" class="col-4"><div style="padding: 300px 0;">${name.area_contents}</div></div>
 
 	</div>
-	<div>
+	<div style="padding: 30px 0;">
 		<ul>
 			<h3 style="color: orange;">지역이름</h3>
 			<li>${name.area_name}</li>
