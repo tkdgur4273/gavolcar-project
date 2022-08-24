@@ -1,5 +1,8 @@
 package project.team.GaVolCar.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -11,7 +14,7 @@ public class HomeController {
 
 	@GetMapping("/")
 	public String home() {
-		return "/blankbase";
+		return "/main";
 	}
 
 	//	@GetMapping("/user/userHome")
@@ -37,7 +40,16 @@ public class HomeController {
 	//		mav.setViewName("index");
 	//		return mav;
 	//	}
-
+	@GetMapping("/error/403")
+	public String error404(HttpServletRequest request, HttpServletResponse response) {
+		log.info("error 404");
+        log.info("=====request : " + request);
+		return "/error/403";
+	}
+	@GetMapping("/error/404")
+	public String error2() {
+		return "/error/404";
+	}
 
 
 }

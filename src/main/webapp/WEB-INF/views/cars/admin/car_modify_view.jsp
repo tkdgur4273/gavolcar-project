@@ -141,7 +141,7 @@ $(document).ready(function (){
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 300px; background-color: white; opacity: 0.7;">
+				<table style="width: 300px; background-color: white; opacity: 0.7;" border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
 						<td><a href="#" style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>

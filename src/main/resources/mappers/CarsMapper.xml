@@ -6,7 +6,7 @@
 	
 	<select id="getCarsList" resultType="project.team.GaVolCar.vo.CarsVO">
 		<![CDATA[
-			select * from cars
+			select * from cars order by car_no desc
 		]]>
 	</select>
 	

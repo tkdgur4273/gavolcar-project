@@ -69,7 +69,7 @@ function list(result) {
     	htmls+='<div class="row">';
     	
        $(result).each(function() {
-    	  htmls+='<a href="/carcontent_view?car_no=' + this.car_no + '" style="border: 1px solid black; text-decoration: none; color: black;">' +'<table class="col-3">';
+    	  htmls+='<a href="/carcontent_view?car_no=' + this.car_no + '" style="border: 2px solid black; text-decoration: none; color: black;">' +'<table class="col-3">';
     	  htmls += '<tr>';
           htmls += '<td colspan="3"><img src="\\carsimages\\' + this.car_img + '" width="300em" height="200em"></td>'
           htmls += '</tr>'; 
@@ -95,7 +95,7 @@ function list(result) {
           htmls += '</tr>';  
           htmls += '</table></a>';
        });
-       htmls+='<a href="/carwrite" style="border: 1px solid black; text-decoration: none; color: black;">' +'<table class="col-3">';
+       htmls+='<a href="/carwrite" style="border: 2px solid black; text-decoration: none; color: black;">' +'<table class="col-3">';
  	   htmls += '<tr>';
        htmls += '<td colspan="3"><img src="\\차량등록.png" width="300em" height="200em"></td>'
        htmls += '</tr>'; 
@@ -198,7 +198,7 @@ $(document).ready(function() {
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 300px; background-color: white; opacity: 0.7;">
+				<table style="width: 300px; background-color: white; opacity: 0.7;"  border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
 						<td><a href="#" style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
