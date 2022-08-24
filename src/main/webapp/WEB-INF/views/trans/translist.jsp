@@ -305,7 +305,7 @@
 			<div class="col-4">
 				<div id="text1">
 					<h2>저희 매장에서 선호 되었던 자량제조사들 입니다.</h2>
-					<span style= "font-size: 1.5em;">가장 인기있는 제조사는</span> <span id="maxC" style="color: rgb(41, 144, 212); font-size: 2em;"></span> <span style= "font-size: 1.5em;">입니다</span>
+					<span style= "font-size: 1.5em;">가장 선호되는 제조사는</span> <span id="maxC" style="color: rgb(41, 144, 212); font-size: 2em;"></span> <span style= "font-size: 1.5em;">입니다</span>
 				</div>
 			</div>
 			<div id="mainarea1" class="col-4">

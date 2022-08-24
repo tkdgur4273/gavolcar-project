@@ -49,6 +49,7 @@
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
 <style type="text/css">
 @font-face {
 	font-family: 'tway_sky';
@@ -117,6 +118,9 @@
 		<div class="row">
 			<div class="col-3">
 				<a id="headlogo" href="/main"><img src="투명로고.png" height="100em"></a>
+				<sec:authorize access="hasRole('ADMIN')">
+					<a href="/adminmain" style="text-decoration: none; color: deepskyblue; font-size: 20px; font-weight: 900; width: 100px;">관리자페이지로</a>
+				</sec:authorize>
 			</div>
 
 			<table class="col-4" id="headerpotal">
@@ -133,7 +137,7 @@
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">고객지원</a></td>
 					<td><a href="#"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">후기</a></td>
-					<td><a href="/member/eventlist"
+					<td><a href="/user/eventlist"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">이벤트</a></td>
 				</tr>
 			</table>
@@ -149,6 +153,7 @@
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">회원가입</a>
 				</div>
 			</sec:authorize>
+			
 			<sec:authorize access="isAuthenticated()">
 				<div id="headlogin2" class="col-2">
 					<span
@@ -191,7 +196,7 @@
 											포인트 적립 이벤트!</h2>
 										<p style="color: white; font-family: 'tway_sky';">(이벤트 기간
 											2022.06.01 ~2022.08.31 까지)</p>
-										<a href="/member/eventlist"><button type="button"
+										<a href="/user/eventlist"><button type="button"
 												class="btn btn-default get"
 												style="background-color: deepskyblue;">진행중인 이벤트 확인</button></a>
 									</div>
@@ -211,7 +216,7 @@
 											작성해도 할인 쿠폰이!</h2>
 										<p style="color: white; font-family: 'tway_sky';">(이벤트 기간
 											2022.07.01 ~2022.09.21 까지)</p>
-										<a href="/member/eventlist"><button type="button"
+										<a href="/user/eventlist"><button type="button"
 												class="btn btn-default get"
 												style="background-color: deepskyblue;">진행중인 이벤트 확인</button></a>
 									</div>
@@ -312,7 +317,9 @@
 		</div>
 	</div>
 
-	<div></div>
+	<div>
+			<div id="toAdmin"></div>
+	</div>
 
 
 

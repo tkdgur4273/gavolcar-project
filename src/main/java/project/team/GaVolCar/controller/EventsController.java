@@ -15,10 +15,10 @@ public class EventsController {
 	private EventService eventService;
 
 	//이벤트 리스트로 이동
-	@GetMapping("/member/eventlist")
+	@GetMapping("/user/eventlist")
 	public String member() {
 		log.info("eventList()...");
-		return "pevent/member/eventList";
+		return "pevent/user/eventList";
 	}
 
 
@@ -26,7 +26,7 @@ public class EventsController {
 	@GetMapping("/pevent_view_user")
 	public String pevent_view() {
 		log.info("pevent_view_user()...");
-		return "pevent/member/peventPage";
+		return "pevent/user/peventPage";
 	}
 
 
@@ -34,7 +34,7 @@ public class EventsController {
 	@GetMapping("/cevent_view_user")
 	public String cevent_view() {
 		log.info("cevent_view_user()...");
-		return "cevent/member/ceventPage";
+		return "cevent/user/ceventPage";
 	}
 
 }

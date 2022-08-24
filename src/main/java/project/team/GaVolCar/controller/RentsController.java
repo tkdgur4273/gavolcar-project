@@ -53,4 +53,12 @@ public class RentsController {
 		log.info("deletePopup().....");
 		return "rents/admin/modifyPopup";
 	}
+	
+	@GetMapping("/admin/rentsearch")
+	public String Rentsearch(String user_id, Model model){
+		log.info("Rentsearch().....");
+		model.addAttribute("list", rentsService.getRentList(user_id));
+
+		return "rents/admin/rents_check_search";
+	}
 }

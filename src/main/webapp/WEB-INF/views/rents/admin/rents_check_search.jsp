@@ -178,6 +178,7 @@ function modifyPopup(){window.open("../adminmodifyPopup", "modify", "width=600, 
 
 							</tr>
 						</c:forEach>
+
 					</table>
 					<form style="text-align: right; margin: 0 130px;" action="/admin/rentsearch" method="get">
 						<input type="text" name="user_id">

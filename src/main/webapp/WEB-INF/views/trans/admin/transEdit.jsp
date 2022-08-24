@@ -186,14 +186,9 @@
 
 
 				<div>
-					<a href="/trans">통계로 돌아가기</a>
+					<a href="/trans" style="font-size: 30px;">통계 페이지로 가기</a>
 				</div>
 
-
-
-
-
-				<h1>일단 리스트</h1>
 				<table id="list-table" border="1">
 
 				</table>
