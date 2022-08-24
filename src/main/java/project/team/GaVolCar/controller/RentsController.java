@@ -42,4 +42,15 @@ public class RentsController {
 
 		return "rents/admin/rents_check";
 	}
+	
+	@GetMapping("/admindeletePopup")
+	public String admindeletePopup(RentsVO rentsVO, Model model){
+		log.info("deletePopup().....");
+		return "rents/admin/deletePopup";
+	}
+	@GetMapping("/adminmodifyPopup")
+	public String adminmodifyPopup(RentsVO rentsVO, Model model){
+		log.info("deletePopup().....");
+		return "rents/admin/modifyPopup";
+	}
 }

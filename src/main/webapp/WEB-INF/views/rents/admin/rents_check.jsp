@@ -1,21 +1,46 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html;charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
-
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!-- C태그 쓰기 위해 넣은 taglib므로 반드시 확인 -->
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>car information list</title>
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/prettyPhoto.css" rel="stylesheet">
+<link href="../css/price-range.css" rel="stylesheet">
+<link href="../css/animate.css" rel="stylesheet">
+<link href="../css/main.css" rel="stylesheet">
+<link href="../css/responsive.css" rel="stylesheet">
+<!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+<link rel="shortcut icon" href="../images/ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="../images/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="../images/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="../images/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed"
+	href="../images/ico/apple-touch-icon-57-precomposed.png">
 
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <script
@@ -24,35 +49,26 @@
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	
+</script>
+<script type="text/javascript">
+function deletePopup(){window.open("../admindeletePopup", "delete", "width=500, height=300, left=100, top=50");}
+function modifyPopup(){window.open("../adminmodifyPopup", "modify", "width=600, height=400, left=100, top=50");}
+
+
+</script>
+
+
 <style type="text/css">
-@font-face {
-	font-family: 'tway_sky';
-	src: url("../tway_sky.ttf");
-	font-weight: 400;
-}
-
-* {
-	font-family: 'tway_sky';
-}
-
-#headlogin2 {
+#warp {
 	text-align: center;
-	line-height: 4em;
-}
-
-#headerpotal {
-	text-align: center;
-	font-size: 1.5em;
-	line-height: 4em;
-}
-
-#headlogin {
-	text-align: center;
-	line-height: 4em;
-}
-
-#upperbar {
-	text-align: center;
+	font-size: 4em;
+	background: url(../기어.png);
+	background-size: cover;
 }
 
 #footbar {
@@ -61,163 +77,118 @@
 
 #foottxt {
 	color: gray;
-	line-height: 2em;
-	font-size: 1em;
+	line-height: 3em;
+	font-size: 1.5em;
 }
 #main{
-	padding: 150px 0;
+	padding: 3em;
+	font-size: 24px;
 }
-#mainbody {
-	background: url(../예약배경.png);
-	background-repeat: no-repeat;
+#pagetitle{
+	background: url(../기어.png);
 	background-size: cover;
-	back
 }
-
 </style>
-
-<title>event list</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
-function deletePopup(){window.open("../deletePopup", "delete", "width=500, height=300, left=100, top=50");}
-function modifyPopup(){window.open("../modifyPopup", "modify", "width=600, height=400, left=100, top=50");}
-
-
-</script>
-
-
-
-<!-- 
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("#changer").click(function(){
-			alert("수정");
-		});
-	});
-</script>
--->
-
 </head>
+<!--/head-->
+
 <body>
 
-	<div class="container col-12" id="headbar"
-		style="border-bottom: 3px solid black;">
+	<div class="container col-12" id="headbar" style="background: gray;">
 		<div class="row">
 			<div class="col-3">
-				<a id="headlogo" href="/main"><img src="../투명로고.png"
+				<a id="headlogo" href="/adminmain"><img src="../투명로고.png"
 					height="100em"></a>
 			</div>
 
 			<table class="col-4" id="headerpotal">
-				<tr>
-					<!-- <td class="col-2"><a href="#"><img src="마이페이지.png" width="100em"></a></td>
-					<td class="col-2"><a href="#"><img src="예약.png" width="100em"></a></td>
-					<td class="col-2"><a href="#"><img src="고객지원.png" width="100em"></a></td>
-					<td class="col-2"><a href="#"><img src="후기.png" width="100em"></a></td>  -->
-					<td><a href="#"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">마이페이지</a></td>
-					<td><a href="#"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a></td>
-					<td><a href="#"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">고객지원</a></td>
-					<td><a href="#"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">후기</a></td>
-					<td><a href="/member/eventlist"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">이벤트</a></td>
-				</tr>
+
 			</table>
 
 			<div class="col-2"></div>
-			<sec:authorize access="isAnonymous()">
-				<div id="headlogin" class="col-2">
-					<a href="#"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">로그인</a>
-					<span
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">|</span>
-					<a href="#"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">회원가입</a>
-				</div>
-			</sec:authorize>
-			<sec:authorize access="isAuthenticated()">
-				<div id="headlogin2" class="col-2">
-					<span
-						style="text-decoration: none; color: black; font-size: 10px; font-weight: 900; width: 100px;"><sec:authentication
-							property="principal.username" />님 환영합니다.</span> <a
-						href="${pageContext.request.contextPath}/logout"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">로그아웃</a>
-				</div>
-			</sec:authorize>
+			<div id="headlogin" class="col-2"></div>
 		</div>
 	</div>
-	
 
-<div id="mainbody">
-<div style="text-align: center; font-size: 50px; padding: 50px 0;">
-당신의 예약 현황
-</div>
+	<div class="container col-12">
+		<div class="row">
+			<div id="warp" class="col-2" style="margin: 1em 0;">
+				<table style="width: 300px; background-color: white; opacity: 0.7;">
+					<tr style="border: 1px solid black; height: 120px;">
+						<td><a href="#" style="text-decoration: none; color: black;">회원정보 관리</a></td>
+					</tr>
+					<tr style="border: 1px solid black; height: 120px;">
+						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
+					</tr>
+					<tr style="border: 1px solid black; height: 120px;">
+						<td><a href="../admin/rentscheck" style="text-decoration: none; color: black;">예약 관리</a></td>
+					</tr>
+					<tr style="border: 1px solid black; height: 120px;">
+						<td><a href="../admin/transEdit" style="text-decoration: none; color: black;">통계 관리</a></td>
+					</tr>
+					<tr style="border: 1px solid black; height: 120px;">
+						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
+					</tr>
+					<tr style="border: 1px solid black; height: 120px;">
+						<td><a href="#" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+					</tr>
+					<tr style="border: 1px solid black; height: 120px;">
+						<td><a href="#" style="text-decoration: none; color: black;">후기 관리</a></td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-10" style="border-left: 5px solid gray;">
+				<div id="pagetitle" style="text-align: center; height: 120px; line-height: 120px; font-size: 50px; font-weight: 700;">예약관리</div>
 
-<div id="main">
-	<table width="1200" border="5px solid black" style="margin: 0 auto; text-align: center;background-color: rgba(255, 255, 255, 0.603); opacity: 0.8;">
-		<tr style="background-color: rgba(155, 155, 155, 0.603);">
-			<td>예약번호</td>
-			<td>랜트 시작일</td>
-			<td>랜트 종료일</td>
-			<td>예약비용</td>
-			<td>하이패스 여부</td>
-			<td>카시트 여부</td>
-			<td>차량번호</td>
-			<td>변경</td>
-			<td>예약취소</td>
-			
-		</tr>
-	
-		<c:forEach var="rents" items="${list}">
-		
-			<tr>
-				<td>${rents.rez_no}</td>
-				<td>${rents.rent_start_date}</td>
-				<td>${rents.rent_end_date}</td>
-				<td>${rents.final_cost}</td>
-				<td>${rents.hipass2}</td>
-				<td>${rents.baby_car_seat2}</td>
-				<td>${rents.car_no}</td>
-				<td><input id="changer" type="button" value="변경" onclick="modifyPopup();"></td>
-				<td><input id="deleter" type="button" value="취소" onclick="deletePopup();"></td>
+
+				<div id="main">
+					
 				
-			</tr>
-		</c:forEach>	
-	
-	</table>
+					<table width="1200" border="5px solid black"
+						style="margin: 0 auto; text-align: center; background-color: rgba(255, 255, 255, 0.603); opacity: 0.8;">
+						<tr style="background-color: rgba(155, 155, 155, 0.603);">
+							<td>예약번호</td>
+							<td>유저 아이디</td>
+							<td>랜트 시작일</td>
+							<td>랜트 종료일</td>
+							<td>예약비용</td>
+							<td>하이패스 여부</td>
+							<td>카시트 여부</td>
+							<td>차량번호</td>
+							<td>변경</td>
+							<td>예약취소</td>
+
+						</tr>
+
+						<c:forEach var="rents" items="${list}">
+
+							<tr>
+								<td>${rents.rez_no}</td>
+								<td>${rents.user_id}</td>
+								<td>${rents.rent_start_date}</td>
+								<td>${rents.rent_end_date}</td>
+								<td>${rents.final_cost}</td>
+								<td>${rents.hipass2}</td>
+								<td>${rents.baby_car_seat2}</td>
+								<td>${rents.car_no}</td>
+								<td><input id="changer" type="button" value="변경"
+									onclick="modifyPopup();"></td>
+								<td><input id="deleter" type="button" value="취소"
+									onclick="deletePopup();"></td>
+
+							</tr>
+						</c:forEach>
+
+					</table>
 
 
-</div>
-</div>
-<div style="background-color: rgb(189, 189, 189); line-height: 25px;">
-<div style="color: rgb(150, 85, 85);">※주의사항</div>
-<div style="color: gray;">-환불의 경우 이하의 규정에 따라서 이행됨을 알려 드립니다.</div>
-<div style="color: gray;">-제3자에 의한 환불을 이루어 질 수 없습니다.</div>
-<div style="color: gray;">-예약기간내에 환불을 신청하지 못하셨을 경우 환불을 받으실 수 없습니다.</div>
-<div style="color: gray;">-고객님의 단순변심으로 인해서 환불이 진행되야 할 시에는 환불을 받으실 수 없습니다.</div>
-<div style="color: gray;">-천재지변에 의한 환불요구의 경우 환불을 받으실 수 없습니다.</div>
-<div style="color: gray;">-구속, 기소의 이유로 예약을 취소해야하는 경우 환불을 받으 실 수 없습니다.</div>
-<div style="color: gray;">-상해 입원등의 이유로 예약을 취소해야하는 경우 환불을 받으 실 수 없습니다.</div>
-<div style="color: gray;">-만일 고객님의 사망시에는 환불을 받으실 수 없습니다.</div>
-<div style="color: gray;">-배편이 끊겨 매장까지 오실 수 없으실 때는 환불을 받으실 수 없습니다.</div>
-<div style="color: gray;">-회사의 문제로 인하여 환불을 받을 시에는 전액환불을 받으 실 수 있습니다.</div>
-<div style="color: gray;">-단, 환불이 이루어지는 기간은 회사의 사정에 의해 임의로 조정될 수 있습니다.</div>
-</div>
+				</div>
 
 
 
-
-
-
-
-
-
-
-
+			</div>
+		</div>
+	</div>
 
 	<footer id="footbar" style="background-color: black;">
 
@@ -237,5 +208,15 @@ function modifyPopup(){window.open("../modifyPopup", "modify", "width=600, heigh
 		</div>
 
 	</footer>
+	<!--/Footer-->
+
+
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.scrollUp.min.js"></script>
+	<script src="js/price-range.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>

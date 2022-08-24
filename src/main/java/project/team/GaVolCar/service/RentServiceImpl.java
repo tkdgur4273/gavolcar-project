@@ -46,7 +46,18 @@ public class RentServiceImpl implements RentService {
 	@Override
 	public List<RentsVO> getAllRentsList() {
 		log.info("getAllRentsList()....");
-		return rentsMapper.getAllRentsList();
+		List<RentsVO> rentVO2= rentsMapper.getAllRentsList();
+		for(RentsVO e: rentVO2) {
+			if(e.getHipass()==1) {
+				e.setHipass2("O");
+			}
+			if(e.getBaby_car_seat()==1) {
+				e.setBaby_car_seat2("O");
+			}
+		}
+		
+		
+		return  rentVO2;
 	}
 	
 

@@ -11,27 +11,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>trans infomation edit</title>
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/font-awesome.min.css" rel="stylesheet">
-<link href="../css/prettyPhoto.css" rel="stylesheet">
-<link href="../css/price-range.css" rel="stylesheet">
-<link href="../css/animate.css" rel="stylesheet">
-<link href="../css/main.css" rel="stylesheet">
-<link href="../css/responsive.css" rel="stylesheet">
+<title>admin Main</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/prettyPhoto.css" rel="stylesheet">
+<link href="css/price-range.css" rel="stylesheet">
+<link href="css/animate.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
 <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
 <link rel="shortcut icon" href="images/ico/favicon.ico">
 <link rel="apple-touch-icon-precomposed" sizes="144x144"
-	href="../images/ico/apple-touch-icon-144-precomposed.png">
+	href="images/ico/apple-touch-icon-144-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114"
-	href="../images/ico/apple-touch-icon-114-precomposed.png">
+	href="images/ico/apple-touch-icon-114-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="72x72"
-	href="../images/ico/apple-touch-icon-72-precomposed.png">
+	href="images/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed"
-	href="../images/ico/apple-touch-icon-57-precomposed.png">
+	href="images/ico/apple-touch-icon-57-precomposed.png">
 
 
 
@@ -79,7 +79,7 @@
 	<div class="container col-12" id="headbar" style="background: gray;">
 		<div class="row">
 			<div class="col-3">
-				<a id="headlogo" href="/adminmain"><img src="../투명로고.png"
+				<a id="headlogo" href="/adminmain"><img src="투명로고.png"
 					height="100em"></a>
 			</div>
 
@@ -122,81 +122,19 @@
 				</table>
 			</div>
 			<div class="col-10" style="border-left: 5px solid gray;">
-			<div id="pagetitle" style="text-align: center; height: 120px; line-height: 120px; font-size: 50px; font-weight: 700;">통계 관리</div>
+				<div id="pagetitle" style="text-align: center; height: 120px; line-height: 120px; font-size: 50px; font-weight: 700;">예약관리</div>
 				
-				<div id="pieChart_div"></div>
-				<div id="chart_div"></div>
-
-
-				<table border="1" class="col-10"
-					style="font-size: 2em; margin: 5em;">
-					<tr>
-						<td width="50">번호</td>
-						<td>이익</td>
-						<td>차종</td>
-						<td>대여일수</td>
-						<td>수정</td>
-						<td>데이터 삭제</td>
-					</tr>
-
-					<!-- 		for (DeptVO dept : deptMapper.getDeptEmpList()) {
-			
-			log.info(dept.getLoc() + dept.getDeptno());
-			
-			for (EmpVO vo : dept.getEmpList()) {
-				System.out.println(vo);
-			}
-		} -->
-
-
-					<c:forEach var="list" items="${transList}">
-						<form id="updateForm" action="/transUpdate" method="post">
-							<input type="hidden" name="trans_no" value="${list.trans_no}">
-							<tr>
-								<td>${list.trans_no}</td>
-								<td><input name="trans_sales" type="number"
-									value="${list.trans_sales}"></td>
-
-								<td><input name="trans_type" type="text"
-									value="${list.trans_type}"></td>
-								<td><input name="trans_date" type="text"
-									value="${list.trans_date}"></td>
-
-								<td><input type="submit" value="수정"></td>
-								<td><a href="/transDelete?trans_no=${list.trans_no}">삭제</a></td>
-
-
-							</tr>
-						</form>
-					</c:forEach>
-					<form id="writeForm" action="/transWrite" method="post">
-						<tr>
-							<td>추가</td>
-							<td><input name="trans_sales" type="number" value="이익"
-								onfocus="this.value=''"></td>
-							<td><input name="trans_type" type="text" value="차종"
-								onfocus="this.value=''"></td>
-							<td><input name="trans_date" type="text" value="대여일수"
-								onfocus="this.value=''"></td>
-							<td colspan="2"><input type="submit" value="추가"></td>
-						</tr>
-					</form>
-				</table>
-
-
-
-				<div>
-					<a href="/trans">통계로 돌아가기</a>
-				</div>
-
-
-
-
-
-				<h1>일단 리스트</h1>
-				<table id="list-table" border="1">
-
-				</table>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 			</div>
 		</div>
 	</div>
@@ -205,7 +143,7 @@
 		<div class="container col-11">
 			<div class="row">
 				<div class="col-3">
-					<img src="../회색로고.png" height="100em" width="100em">
+					<img src="회색로고.png" height="100em" width="100em">
 				</div>
 				<div id="foottxt" class="col-9">
 					<div>프로젝트 가볼카 | 대표이사: 정다은 | 제주도 가볼길 001호</div>

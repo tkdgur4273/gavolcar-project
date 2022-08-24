@@ -117,6 +117,8 @@ $(document).ready(function() {
 #warp {
 	text-align: center;
 	font-size: 4em;
+	background: url(../기어.png);
+	background-size: cover;
 }
 
 #footbar {
@@ -127,6 +129,10 @@ $(document).ready(function() {
 	color: gray;
 	line-height: 3em;
 	font-size: 1.5em;
+}
+#pagetitle{
+	background: url(../기어.png);
+	background-size: cover;
 }
 </style>
 </head>
@@ -154,21 +160,33 @@ $(document).ready(function() {
 
 	<div class="container col-12">
 		<div class="row">
-			<div id="warp" class="col-2" style="margin: 5em 0;">
-				<table>
-					<tr>
-						<td><a href="../admin/arealist">지역 정보 관리</a></td>
+			<div id="warp" class="col-2" style="margin: 1em 0;">
+				<table style="width: 300px; background-color: white; opacity: 0.7;">
+					<tr style="border: 1px solid black; height: 120px;">
+						<td><a href="#" style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
-					<tr>
-						<td><a href="../admin/transEdit">통계 관리</a></td>
+					<tr style="border: 1px solid black; height: 120px;">
+						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
 					</tr>
-					<tr>
-						<td><a href="../admin/carlist">차량 관리</a></td>
+					<tr style="border: 1px solid black; height: 120px;">
+						<td><a href="../admin/rentscheck" style="text-decoration: none; color: black;">예약 관리</a></td>
+					</tr>
+					<tr style="border: 1px solid black; height: 120px;">
+						<td><a href="../admin/transEdit" style="text-decoration: none; color: black;">통계 관리</a></td>
+					</tr>
+					<tr style="border: 1px solid black; height: 120px;">
+						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
+					</tr>
+					<tr style="border: 1px solid black; height: 120px;">
+						<td><a href="#" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+					</tr>
+					<tr style="border: 1px solid black; height: 120px;">
+						<td><a href="#" style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>
 			<div class="col-10" style="border-left: 5px solid gray;">
-				<h1>지역 정보 리스트</h1>
+			<div id="pagetitle" style="text-align: center; height: 120px; line-height: 120px; font-size: 50px; font-weight: 700;">지역정보 관리</div>
 				<table id="list-table" width="500" class="col-10" border="1"
 					style="font-size: 4em; margin: 5em;">
 
