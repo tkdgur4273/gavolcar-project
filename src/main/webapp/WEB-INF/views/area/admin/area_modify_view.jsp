@@ -119,18 +119,39 @@
 				</table>
 			</div>
 			<div class="col-10" style="border-left: 5px solid gray;">
-
-
-
-
-
-
-
-
-
-
-
-
+				<table width="700" cellpadding="0" cellspacing="0" border="1">
+			     
+			      <form id="updateForm" action="admin/arealist" method="put" enctype="multipart/form-data">
+			         <tr>
+			            <td>명소이름</td>
+			            <td id="area_name">${name.area_name}</td>
+			         </tr>
+			         <tr>
+			            <td> 명소주소 </td>
+			            <td> <input id="area_loc" type="text" name="loc" value="${name.area_loc} "></td>
+			         </tr>
+			         <tr>
+			            <td> 이용시간 </td>
+			            <td> <input id="area_time" type="text" name="time" value="${name.area_time}"></td>
+			         </tr>
+			         <tr>
+			            <td> 내용 </td>
+			            <td> <input id="area_contents" type="text" name="contents" value="${name.area_contents}"></td>
+			         </tr>
+			          <tr>
+			            <td> 이미지 </td>
+			            <td> <input type="file" name="file" id="file"></td>
+			         </tr>
+			         <tr>
+			            <td> 전화번호 </td>
+			            <td> <textarea id="area_tel" rows="10" name="tel" >${name.area_tel}</textarea></td>
+			         </tr>
+			         <tr >
+			            <td colspan="2"> <input type="submit" value="수정"> 
+			            &nbsp;&nbsp; <a href="admin/arealist">목록보기</a> 
+			         </tr>
+			      </form>
+			   </table>
 
 			</div>
 		</div>
