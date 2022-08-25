@@ -50,6 +50,10 @@ public class HomeController {
 	public String error2() {
 		return "/error/404";
 	}
+	@GetMapping("/pay")
+	public String pay() {
+		return "pay";
+	}
 
 
 }
