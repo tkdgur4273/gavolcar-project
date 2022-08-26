@@ -35,5 +35,13 @@ public class MainController {
 
 		return "admin/main";
 	}
+	@GetMapping("custommerService")
+	public String custommerService(Model model) {
+
+		log.info("main()...");
+		model.addAttribute("alertForMainPage", boardsService.getMainAlert());
+
+		return "boards/custommerServiceList";
+	}
 
 }

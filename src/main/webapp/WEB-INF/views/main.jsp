@@ -133,7 +133,7 @@
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">마이페이지</a></td>
 					<td><a href="#"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a></td>
-					<td><a href="#"
+					<td><a href="custommerService"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">고객지원</a></td>
 					<td><a href="#"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">후기</a></td>
@@ -271,10 +271,17 @@
 					
 					
 					<div id="upperbar3" class="col-6" style="background:;">
-						<a href="/user/rentscheck?user_id=<sec:authentication property='principal.username'/>" style="text-decoration: none;"><div
+						<sec:authorize access="isAuthenticated()"><a href="/user/rentscheck?user_id=<sec:authentication property='principal.username'/>" style="text-decoration: none;"><div
 								style="margin: 1em; border: 5px solid deepskyblue; height: 200px; width: 200px">
 								<img src="예약조회.png" height="140em" width="200em">
 								<div style="font-size: 25px;">예약확인</div>
+						</sec:authorize>
+						<sec:authorize access="isAnonymous()"><a href="/login" style="text-decoration: none;"><div
+								style="margin: 1em; border: 5px solid deepskyblue; height: 200px; width: 200px">
+								<img src="예약조회.png" height="140em" width="200em">
+								
+								<div style="font-size: 25px;">예약확인</div>
+						</sec:authorize>
 							</div></a>
 					</div>
 					<div id="upperbar4" class="col-6" style="background:;">
@@ -307,8 +314,7 @@
 
 				<c:forEach var="alert" items="${alertForMainPage}">
 
-					<a href="#"><h4
-							style="height: 3em; border-bottom: 2px solid deepskyblue; line-height: 3em;">${alert.b_contents}</h4></a>
+					<a href="#"><h4 style="height: 3em; border-bottom: 2px solid deepskyblue; line-height: 3em;">${alert.b_contents}</h4></a>
 
 				</c:forEach>
 
