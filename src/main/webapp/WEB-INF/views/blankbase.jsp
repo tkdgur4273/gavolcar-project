@@ -104,7 +104,7 @@
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a></td>
 					<td><a href="/custommerService"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">고객지원</a></td>
-					<td><a href="#"
+					<td><a href="/review/userlist"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">후기</a></td>
 					<td><a href="/user/eventlist"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">이벤트</a></td>
@@ -114,7 +114,7 @@
 			<div class="col-2"></div>
 			<sec:authorize access="isAnonymous()">
 				<div id="headlogin" class="col-2">
-					<a href="#"
+					<a href="/login"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">로그인</a>
 					<span
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">|</span>

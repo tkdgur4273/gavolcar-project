@@ -73,8 +73,7 @@
 	text-align: center;
 	margin: 30px auto;
 	height: 750px;
-	
-	background-color: gray;
+	;
 	border: 1px solid black;
 }
 #notice{
@@ -136,7 +135,7 @@
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a></td>
 					<td><a href="#"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">고객지원</a></td>
-					<td><a href="#"
+					<td><a href="/review/userlist"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">후기</a></td>
 					<td><a href="/user/eventlist"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">이벤트</a></td>
@@ -169,12 +168,12 @@
 	
 	
 	<div id="main">
-		<div id="list" border="1px solid black" class="row">
+		<div id="list" border="1px solid black" class="row col-12">
 			
 				
-					<a href="#" id="notice"><div>공지사항</div></a>
+					<a href="/notice/userlist" id="notice" class="col-6" style="text-decoration: none;"><div style="margin: 180px 0;">공지사항</div></a>
 				
-					<a href="#" id="QnA"><div>QnA</div></a>
+					<a href="/qna/userlist" id="QnA" class="col-6" style="text-decoration: none;"><div style="margin: 180px 0;">QnA</div></a>
 				
 		
 		</div>

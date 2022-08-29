@@ -15,6 +15,10 @@ class BoardsMapperTest {
 	@Autowired
 	private BoardsMapper boardsMapper;
 	
+	@Autowired
+	private BoardMapper boardMapper;
+	
+	
 	@Test
 	void BoardsMappertest() {
 		System.out.println(boardsMapper.getBoardsList());
@@ -22,6 +26,10 @@ class BoardsMapperTest {
 		
 		
 		System.out.println(boardsMapper.getAlertListForMain());
+		
+		System.out.println(boardMapper.userCheck("dong"));
+		System.out.println(boardMapper.userCheck("dong").size());
+		
 	}
 
 }

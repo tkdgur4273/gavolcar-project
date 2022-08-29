@@ -66,6 +66,41 @@
 	line-height: 3em;
 	font-size: 1.5em;
 }
+#pagetitle{
+	background: url(../기어.png);
+	background-size: cover;
+}
+#MAIN{
+	text-align: center;
+	margin: 0 auto;
+	
+}
+#list{
+	text-align: center;
+	margin: 30px auto;
+	height: 750px;
+	;
+	border: 1px solid black;
+}
+#notice{
+	width: 900px;
+	background: url(../notice.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-size: 120px;
+	color: white;
+	
+
+}
+#QnA{
+	width: 900px;
+	background: url(../question.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-size:120px;
+	color: white;
+
+}
 </style>
 </head>
 <!--/head-->
@@ -93,7 +128,7 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 300px; background-color: white; opacity: 0.7;">
+				<table style="width: 300px; background-color: white; opacity: 0.7;" border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
 						<td><a href="#" style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
@@ -110,16 +145,37 @@
 						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="#" style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="admin/review/adminlist" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="#" style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>
 			<div class="col-10" style="border-left: 5px solid gray;">
-				<img src="톱니.png">
-				<h1>administration main page</h1>
+				<div id="pagetitle" style="text-align: center; height: 120px; line-height: 120px; font-size: 50px; font-weight: 700;">예약관리</div>
+				
+				
+				
+				
+					<div id="main">
+		<div id="list" border="1px solid black" class="row col-12">
+			
+				
+					<a href="admin/notice/adminlist" id="notice" class="col-6" style="text-decoration: none;"><div style="margin: 180px 0;">공지사항</div></a>
+				
+					<a href="admin/qna/adminlist" id="QnA" class="col-6" style="text-decoration: none;"><div style="margin: 180px 0;">QnA</div></a>
+				
+		
+		</div>
+	</div>
+				
+				
+				
+				
+				
+				
+				
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,67 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Q&A 고객 게시판</title>
+</head>
+<body>
+	<table width="600" border="1">
+
+		<tr>
+			<td>No.</td>
+			<td>제목</td>
+			<td>작성자</td>
+			<td>등록일</td>
+			<td>조회수</td>
+		</tr>
+
+		<!--이때 list는 BListCommand에서 메모리에 올린 list를 뜻함. 포워딩시까지 살아있으므로-->
+		<!--forEach문을 이용해 데이터를 꺼낼 수 있다.-->
+		<c:forEach var="board" items="${qnaUserList}">
+			<tr>
+				<td>${board.b_no}</td>
+				<td><a href="/qna/usercontent?b_no=${board.b_no}">${board.b_title}</a>
+				</td>
+				<td>${board.member_id}**</td>
+				<td>${board.b_date}</td>
+				<td>${board.b_hit}</td>
+			</tr>
+
+		</c:forEach>
+
+		<tr>
+		<sec:authorize access="isAuthenticated()">
+			<td colspan="5"><a href="/qna/userwrite_view?user_id=<sec:authentication property='principal.username'/>">글 작성</a></td>
+		</sec:authorize>
+		<sec:authorize access="isAnonymous()">
+			<td colspan="5"><a href="/login">글 작성</a></td>
+		</sec:authorize>
+		</tr>
+	</table>
+
+	<c:if test="${pageMaker.prev}">
+		<a
+			href="/qna/userlist${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
+	</c:if>
+
+	<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }"
+		var="idx">
+		<c:out value="${pageMaker.cri.pageNum == idx?'':''}" />
+		<a href="/qna/userlist${pageMaker.makeQuery(idx)}">${idx}</a>
+	</c:forEach>
+
+	<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+		<a href="/qna/userlist${pageMaker.makeQuery(pageMaker.endPage +1) }">
+			» </a>
+	</c:if>
+	<br>
+
+</body>
+</html>

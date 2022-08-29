@@ -1,17 +1,15 @@
-<%@ page language="java" contenttype="text/html; charset=utf-8"
-	pageencoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!-- c태그 쓰기 위해 넣은 taglib므로 반드시 확인 -->
+<!-- C태그 쓰기 위해 넣은 taglib므로 반드시 확인 -->
 
 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,12 +24,6 @@
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-<!-- jquery -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-  <!-- iamport.payment.js -->
-  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.7.js"></script>
- 
-	
 <style type="text/css">
 @font-face {
 	font-family: 'tway_sky';
@@ -76,14 +68,13 @@
 </style>
 
 <title>event list</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 
 <!-- 
-	<sec:authorize access="isauthenticated()">
-		<form:form action="${pagecontext.request.contextpath}/logout" method="post">
+	<sec:authorize access="isAuthenticated()">
+		<form:form action="${pageContext.request.contextPath}/logout" method="POST">
 	    	<input type="submit" value="로그아웃" />
 		</form:form>
 	</sec:authorize>
@@ -110,7 +101,7 @@
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">마이페이지</a></td>
 					<td><a href="#"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a></td>
-					<td><a href="#"
+					<td><a href="/custommerService"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">고객지원</a></td>
 					<td><a href="#"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">후기</a></td>
@@ -118,9 +109,9 @@
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">이벤트</a></td>
 				</tr>
 			</table>
-		
+
 			<div class="col-2"></div>
-			<sec:authorize access="isanonymous()">
+			<sec:authorize access="isAnonymous()">
 				<div id="headlogin" class="col-2">
 					<a href="#"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">로그인</a>
@@ -130,26 +121,32 @@
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">회원가입</a>
 				</div>
 			</sec:authorize>
-			<sec:authorize access="isauthenticated()">
+			<sec:authorize access="isAuthenticated()">
 				<div id="headlogin2" class="col-2">
 					<span
 						style="text-decoration: none; color: black; font-size: 10px; font-weight: 900; width: 100px;"><sec:authentication
 							property="principal.username" />님 환영합니다.</span> <a
-						href="${pagecontext.request.contextpath}/logout"
+						href="${pageContext.request.contextPath}/logout"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">로그아웃</a>
 				</div>
 			</sec:authorize>
 		</div>
 	</div>
-	<div style="text-align: center;">
-	<button onclick="requestpay()"><img src="../삼성페이.jpg" height="90px"></button>
+	
+
+<!-- jQuery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+  <!-- iamport.payment.js -->
+  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+
+	
   <script>
   	
-	  var imp = window.imp; // 생략 가능
-	  imp.init("imp48123044"); // 예: imp00000000
+	  var IMP = window.IMP; // 생략 가능
+	  IMP.init("imp48123044"); // 예: imp00000000
 	  function requestpay() {
 	      // imp.request_pay(param, callback) 결제창 호출
-	      imp.request_pay({ // param
+	      IMP.request_pay({ // param
 	          pg: "html5_inicis",
 	          pay_method: "samsung",
 	          merchant_uid: "ord20180131-0000011",
@@ -180,14 +177,13 @@
 	        });
 	    }
   </script>
+  
+<div style="text-align: center;">
+	
+	<button onclick="requestpay()"><img src="../삼성페이.jpg" height="90px"></button>
 
-	 
+</div>
 
-
-
-
-
-	</div>
 
 	<footer id="footbar" style="background-color: black;">
 
@@ -199,8 +195,8 @@
 				<div id="foottxt" class="col-9">
 					<div>프로젝트 가볼카 | 대표이사: 정다은 | 제주도 가볼길 001호</div>
 					<div>사업자등록번호 : 010-11-11122 | 통신판매신고번호: 제2022-제주서귀포-0001호 |
-						tel: 1111-1111 | fax:000-000-0000 | project@gavolcar.co.kr</div>
-					<div>copyright©gavolcar.all.rights.reserved</div>
+						TEL: 1111-1111 | Fax:000-000-0000 | Project@Gavolcar.co.kr</div>
+					<div>COPYRIGHT©GAVOLCAR.ALL.RIGHTS.RESERVED</div>
 
 				</div>
 			</div>

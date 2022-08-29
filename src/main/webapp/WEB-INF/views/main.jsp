@@ -70,11 +70,13 @@
 	text-align: center;
 	font-size: 1.5em;
 	line-height: 4em;
+	
 }
 
 #headlogin {
 	text-align: center;
 	line-height: 4em;
+	
 }
 
 #upperbar {
@@ -130,15 +132,15 @@
 					<td class="col-2"><a href="#"><img src="고객지원.png" width="100em"></a></td>
 					<td class="col-2"><a href="#"><img src="후기.png" width="100em"></a></td>  -->
 					<td><a href="#"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">마이페이지</a></td>
+						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">마이페이지</a></td>
 					<td><a href="#"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a></td>
+						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">예약</a></td>
 					<td><a href="custommerService"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">고객지원</a></td>
-					<td><a href="#"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">후기</a></td>
+						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">고객지원</a></td>
+					<td><a href="/review/userlist"
+						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">후기</a></td>
 					<td><a href="/user/eventlist"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">이벤트</a></td>
+						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">이벤트</a></td>
 				</tr>
 			</table>
 
@@ -146,11 +148,11 @@
 			<sec:authorize access="isAnonymous()">
 				<div id="headlogin" class="col-2">
 					<a href="#"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">로그인</a>
+						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">로그인</a>
 					<span
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">|</span>
+						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">|</span>
 					<a href="#"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">회원가입</a>
+						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">회원가입</a>
 				</div>
 			</sec:authorize>
 			
@@ -285,7 +287,7 @@
 							</div></a>
 					</div>
 					<div id="upperbar4" class="col-6" style="background:;">
-						<a href="#" style="text-decoration: none;"><div
+						<a href="/review/userlist" style="text-decoration: none;"><div
 								style="margin: 1em; border: 5px solid deepskyblue; height: 200px; width: 200px">
 								<img src="검정후기.png" height="140em" width="200em">
 								<div style="font-size: 25px;">후기</div>

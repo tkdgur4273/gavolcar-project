@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.team.GaVolCar.mapper.BoardMapper">
+
+	<select id="getList" resultType="BoardVO">
+   	 <![CDATA[
+         select * from boards order by b_no desc
+      ]]>
+	</select>
+
+	<!-- 페이징 처리 부분1 -->
+	<!-- Q&A 게시판 카운트 부분 -->
+	<select id="qnaUserTotalCount" resultType="int">
+    	<![CDATA[
+    		select count(*) from boards where b_code=1 and b_hidden=1
+    	]]>
+	</select>
+
+	<select id="qnaAdminTotalCount" resultType="int">
+    	<![CDATA[
+    		select count(*) from boards where b_code=1
+    	]]>
+	</select>
+
+	<!-- 후기 부분 -->
+	<select id="reviewUserTotalCount" resultType="int">
+    	<![CDATA[
+    		select count(*) from boards where b_code=2 and b_hidden=1
+    	]]>
+	</select>
+
+	<select id="reviewaAdminTotalCount" resultType="int">
+    	<![CDATA[
+    		select count(*) from boards where b_code=2		
+    	]]>
+	</select>
+
+	<!-- 공지사항 부분 -->
+	<select id="alertUserTotalCount" resultType="int">
+    	<![CDATA[
+    		select count(*) from boards where b_code=3 and b_hidden=1
+    	]]>
+	</select>
+
+	<select id="alertAdminTotalCount" resultType="int">
+    	<![CDATA[
+    		select count(*) from boards where b_code=3
+    	]]>
+	</select>
+
+	<!-- 페이징 처리 부분2 -->
+	<!-- Q&A 게시판 구분 -->
+	<select id="qnaUserListWithPaging" resultType="BoardVO"><!--Q&A게시판 고객 구분 -->
+    <![CDATA[
+        SELECT * FROM (SELECT ROWNUM AS RNUM, A.* FROM (SELECT *FROM boards where b_code=1 and b_hidden=1 order by b_no desc) A WHERE ROWNUM <= #{pageNum} * #{amount}) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      ]]>
+	</select>
+
+	<select id="qnaAdminLisWithPaging" resultType="BoardVO"><!--Q&A게시판 관리자 구분 -->
+    <![CDATA[
+        SELECT * FROM (SELECT ROWNUM AS RNUM, A.* FROM (SELECT *FROM boards where b_code=1 order by b_no desc) A WHERE ROWNUM <= #{pageNum} * #{amount}) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      ]]>
+	</select>
+
+	<!-- 후기 게시판 구분 -->
+	<select id="reviewUserListWithPaging" resultType="BoardVO">
+    <![CDATA[
+        SELECT * FROM (SELECT ROWNUM AS RNUM, A.* FROM (SELECT *FROM boards where b_code=2 and b_hidden=1  order by b_no desc) A WHERE ROWNUM <= #{pageNum} * #{amount}) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      ]]>
+	</select>
+
+	<select id="reviewAdminListWithPaging" resultType="BoardVO">
+    <![CDATA[
+         SELECT * FROM (SELECT ROWNUM AS RNUM, A.* FROM (SELECT *FROM boards where b_code=2 order by b_no desc) A WHERE ROWNUM <= #{pageNum} * #{amount}) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      ]]>
+	</select>
+
+	<!-- 공지사항 게시판 구분 -->
+	<select id="alertUserListWithPaging" resultType="BoardVO">
+    <![CDATA[
+         SELECT * FROM (SELECT ROWNUM AS RNUM, A.* FROM (SELECT *FROM boards where b_code=3 and b_hidden=1  order by b_no desc) A WHERE ROWNUM <= #{pageNum} * #{amount}) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      ]]>
+	</select>
+
+	<select id="alertAdminListWithPaging" resultType="BoardVO">
+    <![CDATA[
+         SELECT * FROM (SELECT ROWNUM AS RNUM, A.* FROM (SELECT *FROM boards where b_code=3 order by b_no desc) A WHERE ROWNUM <= #{pageNum} * #{amount}) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      ]]>
+	</select>
+
+	<!-- 게시판에 있는 내용을 읽어 들이는 부분 -->
+	<select id="read" resultType="BoardVO">
+    <![CDATA[
+         select * from boards where b_no  = #{bid}
+      ]]>
+	</select>
+
+	<!-- 각 게시판 글 마다의 필요한 정보 -->
+	<insert id="qnaInsert">
+    <![CDATA[
+         insert into boards (b_no, b_title, b_contents, b_date, b_answer, member_id, car_type, b_hit, b_img, user_id, b_code, b_hidden)
+         values(board_seq.nextval, #{b_title}, #{b_contents}, sysdate, null, substr(#{member_id}, 1, 2), null, 0, null, #{user_id}, 1, 1)
+      ]]>
+	</insert>
+
+	<insert id="reviewInsert">
+    <![CDATA[
+         insert into boards (b_no, b_title, b_contents, b_date, b_answer, member_id, car_type, b_hit, b_img, user_id, b_code, b_hidden)
+         values(board_seq.nextval, #{b_title}, #{b_contents}, sysdate, null, substr(#{member_id}, 1, 2), #{car_type}, 0, null, #{user_id}, 2, 1)
+      ]]>
+	</insert>
+
+	<insert id="alertInsert">
+    <![CDATA[
+         insert into boards (b_no, b_title, b_contents, b_date, b_answer, member_id, car_type, b_hit, b_img, user_id, b_code, b_hidden)
+         values(board_seq.nextval, #{b_title}, #{b_contents}, sysdate, null, #{member_id}, null, 0, null, #{user_id}, 3, 1)
+      ]]>
+	</insert>
+
+	<!-- 수정 -->
+	<update id="update">
+    <![CDATA[
+         update boards set b_title=#{b_title}, b_contents=#{b_contents} where b_no=#{b_no}
+      ]]>
+	</update>
+
+	<!-- 삭제 -->
+	<delete id="delete">
+    <![CDATA[
+         delete from boards where b_no=#{b_no}
+      ]]>
+	</delete>
+
+	<!-- 답변하기 -->
+	<update id="reply">
+    <![CDATA[
+         update boards set b_answer=#{b_answer} where b_no=#{b_no}
+      ]]>
+	</update>
+
+	<!-- 게시판 숨기기 -->
+	<update id="hidden">
+    <![CDATA[
+         update boards set b_hidden=b_hidden*-1 where b_no=#{b_no}
+      ]]>
+	</update>
+
+	<!-- 조회수 카운트 -->
+	<update id="hit">
+    <![CDATA[
+         update boards set b_hit=b_hit + 1 where b_no = #{b_no}
+      ]]>
+	</update>
+	
+	<select id="userCheck" resultType="BoardRentsCarsVO">
+    <![CDATA[
+         select cars.car_type, cars.car_no from cars,rents where #{user_id} = rents.user_id and rents.car_no = cars.car_no
+      ]]>
+	</select>
+
+</mapper>
