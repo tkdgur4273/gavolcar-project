@@ -43,7 +43,7 @@
 			<tr>
 				<td colspan="2"><input type="submit" value="수정">
 					&nbsp;&nbsp;<a href="adminlist">목록보기</a> &nbsp;&nbsp;<a
-					href="admin/notice/adminremove?b_no=${noticeAdminContent.b_no}">삭제</a>
+					href="/notice/adminremove?b_no=${noticeAdminContent.b_no}">삭제</a>
 			</tr>
 		</form>
 	</table>

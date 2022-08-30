@@ -121,7 +121,7 @@
 			<div class="col-3">
 				<a id="headlogo" href="/main"><img src="투명로고.png" height="100em"></a>
 				<sec:authorize access="hasRole('ADMIN')">
-					<a href="/adminmain" style="text-decoration: none; color: deepskyblue; font-size: 20px; font-weight: 900; width: 100px;">관리자페이지로</a>
+					<a href="/admin/main" style="text-decoration: none; color: deepskyblue; font-size: 20px; font-weight: 900; width: 100px;">관리자페이지로</a>
 				</sec:authorize>
 			</div>
 

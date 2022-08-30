@@ -25,7 +25,7 @@
 		<c:forEach var="board" items="${noticeAdminList}">
 			<tr>
 				<td>${board.b_no}</td>
-				<td><a href="admin/notice/admincontent?b_no=${board.b_no}">${board.b_title}</a>
+				<td><a href="/notice/admincontent?b_no=${board.b_no}">${board.b_title}</a>
 				</td>
 				<td>${board.b_contents}</td>
 				<td>${board.member_id}</td>
@@ -37,7 +37,7 @@
 
 
 		<tr>
-			<td colspan="8"><a href="adminwrite_view">글 작성</a></td>
+			<td colspan="8"><a href="/notice/adminwrite_view">글 작성</a></td>
 		</tr>
 	</table>
 

@@ -42,7 +42,7 @@
 				<td><textarea rows="10" name="b_contents">${reviewAdminContent.b_contents}</textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2">&nbsp;&nbsp;<a href="admin/review/adminlist">목록보기</a>
+				<td colspan="2">&nbsp;&nbsp;<a href="/review/adminlist">목록보기</a>
 			</tr>
 		</form>
 	</table>

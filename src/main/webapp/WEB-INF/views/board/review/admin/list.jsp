@@ -28,7 +28,7 @@
 		<c:forEach var="board" items="${reviewAdminList}">
 			<tr>
 				<td>${board.b_no}</td>
-				<td><a href="admin/review/admincontent?b_no=${board.b_no}">${board.b_title}</a>
+				<td><a href="/review/admincontent?b_no=${board.b_no}">${board.b_title}</a>
 				</td>
 				<td>${board.b_contents}</td>
 				<td>${board.car_type}</td>
@@ -36,7 +36,7 @@
 				<td>${board.user_id}</td>
 				<td>${board.b_date}</td>
 				<td colspan="2">&nbsp;&nbsp;<a
-					href="admin/review/adminhidden?b_no=${board.b_no}">숨기기</a>
+					href="/review/adminhidden?b_no=${board.b_no}">숨기기</a>
 			</tr>
 		</c:forEach>
 

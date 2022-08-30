@@ -109,7 +109,7 @@ public class BoardController {
 
 //---------------------------------------------------관리자-------------------------------------------------------------
 	// Q&A구분 관리자 리스트
-	@GetMapping("admin/qna/adminlist")
+	@GetMapping("/qna/adminlist")
 	public String qnaAdminList(Criteria cri, Model model) {
 		log.info("qnaAdminList()..");
 		log.info("qnaAdminList() Criteria" + cri);
@@ -125,7 +125,7 @@ public class BoardController {
 	}
 
 	// 고객이 쓴 질문 게시판 보는곳 답변 가능
-	@GetMapping("admin/qna/admincontent")
+	@GetMapping("/qna/admincontent")
 	public String qnaAdminContent(BoardVO boardVO, Model model) {
 		int bid = boardVO.getB_no();
 
@@ -135,7 +135,7 @@ public class BoardController {
 	}
 
 	// 관리자 답변
-	@PostMapping("admin/qna/adminanswer")
+	@PostMapping("/qna/adminanswer")
 	public String qnaAdminAnswer(BoardVO boardVO) {
 		log.info("qnaAdminAnswer()..");
 
@@ -147,7 +147,7 @@ public class BoardController {
 	}
 
 	// 글 숨기기
-	@GetMapping("admin/qna/adminhidden")
+	@GetMapping("/qna/adminhidden")
 	public String qnaAdminHidden(BoardVO boardVO) {
 		log.info("qnaAdminHidden()..");
 
@@ -246,7 +246,7 @@ public class BoardController {
 
 //--------------------------------------------------관리자-------------------------------------------------------------	
 	// REVIEW구분 관리자 리스트
-	@GetMapping("admin/review/adminlist")
+	@GetMapping("/review/adminlist")
 	public String reviewAdminList(Criteria cri, Model model) {
 		log.info("reviewAdminList()..");
 		log.info("reviewAdminList() Criteria" + cri);
@@ -262,7 +262,7 @@ public class BoardController {
 	}
 
 	// 고객이 쓴 리뷰 게시판 보는곳
-	@GetMapping("admin/review/admincontent")
+	@GetMapping("/review/admincontent")
 	public String reviewAdminContent(BoardVO boardVO, Model model) {
 		int bid = boardVO.getB_no();
 
@@ -272,7 +272,7 @@ public class BoardController {
 	}
 
 	// 글 숨기기
-	@GetMapping("admin/review/adminhidden")
+	@GetMapping("/review/adminhidden")
 	public String hidden(BoardVO boardVO) {
 		log.info("hidden()..");
 
@@ -316,7 +316,7 @@ public class BoardController {
 //--------------------------------------------------관리자-------------------------------------------------------------
 
 	// 관리자 리스트
-	@GetMapping("admin/notice/adminlist")
+	@GetMapping("notice/adminlist")
 	public String noticeAdminList(Criteria cri, Model model) {
 		log.info("noticeAdminList()..");
 		log.info("noticeAdminList() Criteria" + cri);
@@ -332,7 +332,7 @@ public class BoardController {
 	}
 
 	// 관리자가 쓴 공지사항 게시판 내용 보는곳 수정,삭제
-	@GetMapping("admin/notice/admincontent")
+	@GetMapping("/notice/admincontent")
 	public String noticeAdminContent(BoardVO boardVO, Model model) {
 		int bid = boardVO.getB_no();
 
@@ -342,7 +342,7 @@ public class BoardController {
 	}
 
 	// 관리자 글 작성 게시판
-	@GetMapping("admin/notice/adminwrite_view")
+	@GetMapping("/notice/adminwrite_view")
 	public String noticeAdminWriteView() {
 		log.info("noticeAdminWriteView()..");
 
@@ -350,24 +350,24 @@ public class BoardController {
 	}
 
 	// 공지사항 글 쓰기
-	@PostMapping("admin/notice/adminwrite")
+	@PostMapping("/notice/adminwrite")
 	public String noticeAdminrWrite(BoardVO boardVO) {
 		log.info("noticeAdminrWrite()..");
 
 		if (boardVO.getB_title() == "") {
 			log.info("noticeAdminTitle()..");
 
-			return "redirect:admin/notice/adminlist";
+			return "redirect:/notice/adminlist";
 
 		} else {
 			service.noticeRegister(boardVO);
 
-			return "redirect:admin/notice/adminlist";// 관리가 글을 쓸 경우 다시 list 치고 들어오도록redirect해준다.
+			return "redirect:/notice/adminlist";// 관리가 글을 쓸 경우 다시 list 치고 들어오도록redirect해준다.
 		}
 	}
 
 	// 글 수정
-	@PostMapping("admin/notice/adminmodify")
+	@PostMapping("/notice/adminmodify")
 	public String noticeAdminModify(BoardVO boardVO) {
 		log.info("noticeAdminModify()..");
 
@@ -384,7 +384,7 @@ public class BoardController {
 	}
 
 	// 글 삭제
-	@GetMapping("admin/notice/adminremove")
+	@GetMapping("/notice/adminremove")
 	public String noticeAdminRemove(BoardVO boardVO) {
 		log.info("noticeAdminRemove()..");
 
@@ -392,6 +392,6 @@ public class BoardController {
 
 		log.info("noticeAdminRemove().. result number::" + dlt);
 
-		return "redirect:admin/notice/adminlist";// 관리자가 삭제할 경우 다시 list 치고 들어오도록redirect해준다.
+		return "redirect:/notice/adminlist";// 관리자가 삭제할 경우 다시 list 치고 들어오도록redirect해준다.
 	}
 }

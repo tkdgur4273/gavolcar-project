@@ -162,9 +162,9 @@
 		<div id="list" border="1px solid black" class="row col-12">
 			
 				
-					<a href="admin/notice/adminlist" id="notice" class="col-6" style="text-decoration: none;"><div style="margin: 180px 0;">공지사항</div></a>
+					<a href="notice/adminlist" id="notice" class="col-6" style="text-decoration: none;"><div style="margin: 180px 0;">공지사항</div></a>
 				
-					<a href="admin/qna/adminlist" id="QnA" class="col-6" style="text-decoration: none;"><div style="margin: 180px 0;">QnA</div></a>
+					<a href="qna/adminlist" id="QnA" class="col-6" style="text-decoration: none;"><div style="margin: 180px 0;">QnA</div></a>
 				
 		
 		</div>

@@ -25,13 +25,13 @@
 		<c:forEach var="board" items="${qnaAdminList}">
 			<tr>
 				<td>${board.b_no}</td>
-				<td><a href="admin/qna/admincontent?b_no=${board.b_no}">${board.b_title}</a>
+				<td><a href="/qna/admincontent?b_no=${board.b_no}">${board.b_title}</a>
 				</td>
 				<td>${board.user_id}</td>
 				<td>${board.b_date}</td>
 				<td>${board.b_hit}</td>
 				<td colspan="2">&nbsp;&nbsp;<a
-					href="admin/qna/adminhidden?b_no=${board.b_no}">숨기기</a>
+					href="/qna/adminhidden?b_no=${board.b_no}">숨기기</a>
 			</tr>
 		</c:forEach>
 	</table>

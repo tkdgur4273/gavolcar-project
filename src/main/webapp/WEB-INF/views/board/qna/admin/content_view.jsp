@@ -19,7 +19,7 @@
 		<h1>관리자 답변란</h1>
 	</tr>
 	<table width="700" cellpadding="0" cellspacing="0" border="1">
-		<form action="admin/qna/adminanswer" method="post">
+		<form action="/qna/adminanswer" method="post">
 			<input type="hidden" name="b_no" value="${qnaAdminContent.b_no}">
 			<input type="hidden" name="user_id"
 				value="${qnaAdminContent.user_id}"> <input type="hidden"
@@ -59,7 +59,7 @@
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="답변완료">
-					&nbsp;&nbsp;<a href="admin/qna/adminlist">목록보기</a>
+					&nbsp;&nbsp;<a href="/qna/adminlist">목록보기</a>
 			</tr>
 		</form>
 	</table>

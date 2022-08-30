@@ -27,7 +27,18 @@ public class MainController {
 
 		return "main";
 	}
-	@GetMapping("adminmain")
+	
+	@GetMapping("admin/main")
+	public String admingate(Model model) {
+
+		log.info("main()...");
+	
+		return "redirect:/adminmain";
+	}
+	
+	
+	
+	@GetMapping("/adminmain")
 	public String adminmain(Model model) {
 
 		log.info("main()...");
