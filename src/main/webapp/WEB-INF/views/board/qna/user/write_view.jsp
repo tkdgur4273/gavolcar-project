@@ -30,7 +30,7 @@
 </head>
 <body>
 	<table width="500" cellpadding="0" cellspacing="0" border="1">
-		<form action="/qna/userwrite" method="post">
+		<form action="/qna/userWrite" method="post">
 			<input class="name" type="hidden" name="member_id" value=""> <input
 				 class="name" type="hidden" name="user_id" value="">
 			<tr>
@@ -46,7 +46,7 @@
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="입력"> <a
-					href="/qna/userlist">목록보기</a></td>
+					href="/qna/userList">목록보기</a></td>
 			</tr>
 		</form>
 	</table>

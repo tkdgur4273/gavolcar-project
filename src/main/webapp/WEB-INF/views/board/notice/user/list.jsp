@@ -24,7 +24,7 @@
 		<c:forEach var="board" items="${noticeUserList}">
 			<tr>
 				<td>${board.b_no}</td>
-				<td><a href="/notice/usercontent?b_no=${board.b_no}">${board.b_title}</a>
+				<td><a href="/notice/userContent?b_no=${board.b_no}">${board.b_title}</a>
 				</td>
 				<td>${board.member_id}</td>
 				<td>${board.b_date}</td>
@@ -36,17 +36,17 @@
 	</table>
 
 	<c:if test="${pageMaker.prev}">
-		<a href="/notice/userlist${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
+		<a href="/notice/userList${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
 	</c:if>
 
 	<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }"
 		var="idx">
 		<c:out value="${pageMaker.cri.pageNum == idx?'':''}" />
-		<a href="/notice/userlist${pageMaker.makeQuery(idx)}">${idx}</a>
+		<a href="/notice/userList${pageMaker.makeQuery(idx)}">${idx}</a>
 	</c:forEach>
 
 	<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-		<a href="/notice/userlist${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
+		<a href="/notice/userList${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
 	</c:if>
 	<br>
 

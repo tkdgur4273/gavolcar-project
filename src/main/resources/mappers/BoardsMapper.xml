@@ -12,13 +12,13 @@
 	
 	<select id="getBoardsCommentsList" resultType="project.team.GaVolCar.vo.BoardsVO">
 		<![CDATA[
-			select * from boards where b_code = 3 order by b_no
+			select * from boards where b_code = 2 order by b_no
 		]]>
 	</select>
 	
    <select id="getAlertListForMain" resultType="project.team.GaVolCar.vo.BoardsVO">
 		<![CDATA[
-			select ROWNUM,A.* from(select * from boards where b_code = 1 order by b_no desc) A where ROWNUM <= 6
+			select ROWNUM,A.* from(select * from boards where b_code = 3 order by b_no desc) A where ROWNUM <= 6
 		]]>
 	</select>
    

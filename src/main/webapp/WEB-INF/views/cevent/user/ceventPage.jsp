@@ -129,7 +129,7 @@ $(document).ready(function() {
 	    		htmls += '<tr>';
 	    	   	
 		        htmls += '<td>' + this.coupon_name +'</td>'; 
-		        htmls += '<td>' + this.COUPON_CONTENTS +'</td>';  
+		        htmls += '<td>' + this.coupon_contents +'</td>';  
 		        
 		          
 			       

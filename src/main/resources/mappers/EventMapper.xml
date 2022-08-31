@@ -73,9 +73,9 @@
 	<resultMap id="ceventboardmap" type="CeventsBoardsVO">
 		<result property="event_no" column="event_no"/>
 		<result property="coupon_name" column="coupon_name"/>
-		<result property="COUPON_CONTENTS" column="COUPON_CONTENTS"/>
-		<result property="MEMBER_ID" column="MEMBER_ID"/>
-		<result property="B_NO" column="B_NO"/>
+		<result property="coupon_contents" column="coupon_contents"/>
+		<result property="member_id" column="member_id"/>
+		<result property="b_no" column="b_no"/>
 		<collection property="boardsList" resultMap="boardmap"></collection>
 		
 	</resultMap>
@@ -90,6 +90,18 @@
 			select * from cevents, boards where cevents.b_no = boards.b_no and boards.user_id = #{user_id}
 		]]>
 	</select>
+	<select id="forB_no" resultType="project.team.GaVolCar.vo.BoardsVO">
+		<![CDATA[
+			SELECT ROWNUM AS RNUM, A.* FROM (SELECT * FROM boards order by b_no desc) A WHERE ROWNUM = 1
+		]]>
+	</select>
+	
+	<insert id="givecoupon">
+		<![CDATA[
+			insert into cevents(event_no,coupon_name,coupon_contents,member_id,b_no) values (coupon_seq.nextval,'후기이벤트 쿠폰','10% 할인',#{member_id},#{b_no})
+		
+		]]>
+	</insert>
 	
 	
 	

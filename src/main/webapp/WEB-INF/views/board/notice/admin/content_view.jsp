@@ -10,7 +10,7 @@
 </head>
 <body>
 	<table width="700" cellpadding="0" cellspacing="0" border="1">
-		<form action="/notice/adminmodify" method="post">
+		<form action="/notice/adminModify" method="post">
 			<input type="hidden" name="b_no" value="${noticeAdminContent.b_no}">
 			<input type="hidden" name="b_code"
 				value="${noticeAdminContent.b_code}"> <input type="hidden"
@@ -42,8 +42,8 @@
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="수정">
-					&nbsp;&nbsp;<a href="adminlist">목록보기</a> &nbsp;&nbsp;<a
-					href="/notice/adminremove?b_no=${noticeAdminContent.b_no}">삭제</a>
+					&nbsp;&nbsp;<a href="adminList">목록보기</a> &nbsp;&nbsp;<a
+					href="/notice/adminRemove?b_no=${noticeAdminContent.b_no}">삭제</a>
 			</tr>
 		</form>
 	</table>

@@ -10,7 +10,7 @@
 </head>
 <body>
 	<table width="700" cellpadding="0" cellspacing="0" border="1">
-		<form action="/qna/usermodify" method="post">
+		<form action="/qna/userModify" method="post">
 			<input type="hidden" name="b_no" value="${qnaUserContent.b_no}">
 			<input type="hidden" name="user_id" value="${qnaUserContent.user_id}">
 			<input type="hidden" name="b_code" value="${qnaUserContent.b_code}">
@@ -46,8 +46,8 @@
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="수정">
-					&nbsp;&nbsp;<a href="userlist">목록보기</a> &nbsp;&nbsp;<a
-					href="/qna/userremove?b_no=${qnaUserContent.b_no}">삭제</a>
+					&nbsp;&nbsp;<a href="userList">목록보기</a> &nbsp;&nbsp;<a
+					href="/qna/userRemove?b_no=${qnaUserContent.b_no}">삭제</a>
 			</tr>
 		</form>
 	</table>

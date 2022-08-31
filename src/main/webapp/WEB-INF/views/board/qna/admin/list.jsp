@@ -25,30 +25,30 @@
 		<c:forEach var="board" items="${qnaAdminList}">
 			<tr>
 				<td>${board.b_no}</td>
-				<td><a href="/qna/admincontent?b_no=${board.b_no}">${board.b_title}</a>
+				<td><a href="/qna/adminContent?b_no=${board.b_no}">${board.b_title}</a>
 				</td>
 				<td>${board.user_id}</td>
 				<td>${board.b_date}</td>
 				<td>${board.b_hit}</td>
 				<td colspan="2">&nbsp;&nbsp;<a
-					href="/qna/adminhidden?b_no=${board.b_no}">숨기기</a>
+					href="/qna/adminHidden?b_no=${board.b_no}">숨기기</a>
 			</tr>
 		</c:forEach>
 	</table>
 
 	<c:if test="${pageMaker.prev}">
 		<a
-			href="/qna/adminlist${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
+			href="/qna/adminList${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
 	</c:if>
 
 	<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }"
 		var="idx">
 		<c:out value="${pageMaker.cri.pageNum == idx?'':''}" />
-		<a href="/qna/adminlist${pageMaker.makeQuery(idx)}">${idx}</a>
+		<a href="/qna/adminList${pageMaker.makeQuery(idx)}">${idx}</a>
 	</c:forEach>
 
 	<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-		<a href="/qna/adminlist${pageMaker.makeQuery(pageMaker.endPage +1) }">
+		<a href="/qna/adminList${pageMaker.makeQuery(pageMaker.endPage +1) }">
 			» </a>
 	</c:if>
 	<br>

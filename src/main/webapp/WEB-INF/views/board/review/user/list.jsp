@@ -28,7 +28,7 @@
 		<c:forEach var="board" items="${reviewUserList}">
 			<tr>
 				<td>${board.b_no}</td>
-				<td><a href="/review/usercontent?b_no=${board.b_no}">${board.b_title}</a>
+				<td><a href="/review/userContent?b_no=${board.b_no}">${board.b_title}</a>
 				</td>
 				<td>${board.car_type}</td>
 				<td>${board.member_id}**</td>
@@ -58,18 +58,18 @@
 
 	<c:if test="${pageMaker.prev}">
 		<a
-			href="/review/userlist${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
+			href="/review/userList${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
 	</c:if>
 
 	<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }"
 		var="idx">
 		<c:out value="${pageMaker.cri.pageNum == idx?'':''}" />
-		<a href="/review/userlist${pageMaker.makeQuery(idx)}">${idx}</a>
+		<a href="/review/userList${pageMaker.makeQuery(idx)}">${idx}</a>
 	</c:forEach>
 
 	<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 		<a
-			href="/review/userlist${pageMaker.makeQuery(pageMaker.endPage +1) }">
+			href="/review/userList${pageMaker.makeQuery(pageMaker.endPage +1) }">
 			» </a>
 	</c:if>
 	<br>

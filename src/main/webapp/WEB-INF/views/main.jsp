@@ -147,7 +147,7 @@
 			<div class="col-2"></div>
 			<sec:authorize access="isAnonymous()">
 				<div id="headlogin" class="col-2">
-					<a href="#"
+					<a href="/login"
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">로그인</a>
 					<span
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">|</span>
@@ -287,7 +287,7 @@
 							</div></a>
 					</div>
 					<div id="upperbar4" class="col-6" style="background:;">
-						<a href="/review/userlist" style="text-decoration: none;"><div
+						<a href="/review/userList" style="text-decoration: none;"><div
 								style="margin: 1em; border: 5px solid deepskyblue; height: 200px; width: 200px">
 								<img src="검정후기.png" height="140em" width="200em">
 								<div style="font-size: 25px;">후기</div>
@@ -316,7 +316,7 @@
 
 				<c:forEach var="alert" items="${alertForMainPage}">
 
-					<a href="#"><h4 style="height: 3em; border-bottom: 2px solid deepskyblue; line-height: 3em;">${alert.b_contents}</h4></a>
+					<a href="/notice/usercontent?b_no=${alert.b_no}"><h4 style="height: 3em; border-bottom: 2px solid deepskyblue; line-height: 3em;">${alert.b_contents}</h4></a>
 
 				</c:forEach>
 

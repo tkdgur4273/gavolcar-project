@@ -27,7 +27,7 @@
 		<c:forEach var="board" items="${qnaUserList}">
 			<tr>
 				<td>${board.b_no}</td>
-				<td><a href="/qna/usercontent?b_no=${board.b_no}">${board.b_title}</a>
+				<td><a href="/qna/userContent?b_no=${board.b_no}">${board.b_title}</a>
 				</td>
 				<td>${board.member_id}**</td>
 				<td>${board.b_date}</td>
@@ -38,7 +38,7 @@
 
 		<tr>
 		<sec:authorize access="isAuthenticated()">
-			<td colspan="5"><a href="/qna/userwrite_view?user_id=<sec:authentication property='principal.username'/>">글 작성</a></td>
+			<td colspan="5"><a href="/qna/userwriteView?user_id=<sec:authentication property='principal.username'/>">글 작성</a></td>
 		</sec:authorize>
 		<sec:authorize access="isAnonymous()">
 			<td colspan="5"><a href="/login">글 작성</a></td>
@@ -48,17 +48,17 @@
 
 	<c:if test="${pageMaker.prev}">
 		<a
-			href="/qna/userlist${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
+			href="/qna/userList${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
 	</c:if>
 
 	<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }"
 		var="idx">
 		<c:out value="${pageMaker.cri.pageNum == idx?'':''}" />
-		<a href="/qna/userlist${pageMaker.makeQuery(idx)}">${idx}</a>
+		<a href="/qna/userList${pageMaker.makeQuery(idx)}">${idx}</a>
 	</c:forEach>
 
 	<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-		<a href="/qna/userlist${pageMaker.makeQuery(pageMaker.endPage +1) }">
+		<a href="/qna/userList${pageMaker.makeQuery(pageMaker.endPage +1) }">
 			» </a>
 	</c:if>
 	<br>

@@ -39,7 +39,7 @@
 			</tr>
 			<tr >
 				<td colspan="2">
-				&nbsp;&nbsp;<a href="userlist">목록보기</a> 
+				&nbsp;&nbsp;<a href="userList">목록보기</a> 
 			</tr>
 		</form>
 	</table>

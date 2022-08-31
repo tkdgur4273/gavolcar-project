@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 import project.team.GaVolCar.mapper.EventMapper;
+import project.team.GaVolCar.vo.BoardsVO;
 import project.team.GaVolCar.vo.CeventsBoardsVO;
 import project.team.GaVolCar.vo.CeventsVO;
 import project.team.GaVolCar.vo.PeventsRentsVO;
@@ -49,6 +50,19 @@ public class EventServiceImpl implements EventService{
 	public List<CeventsBoardsVO> getCouponInfo(String user_id) {
 		log.info("getCeventBoardList() is working...");
 		return eventMapper.getMemberCeventBoardList(user_id);
+	}
+
+	@Override
+	public void givecoupon(CeventsVO ceventVO) {
+		log.info("givecoupon().....");
+		System.out.println(ceventVO);
+		eventMapper.givecoupon(ceventVO);
+	}
+
+	@Override
+	public BoardsVO forB_no() {
+		log.info("forB_no().....");
+		return eventMapper.forB_no();
 	};
 
 	

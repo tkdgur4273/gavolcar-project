@@ -15,9 +15,9 @@ public class CeventsVO {
 
 	private int event_no;
 	private String coupon_name;
-	private String COUPON_CONTENTS;
-	private String MEMBER_ID;
-	private int B_NO;
+	private String coupon_contents;
+	private String member_id;
+	private int b_no;
 	
 	
 }

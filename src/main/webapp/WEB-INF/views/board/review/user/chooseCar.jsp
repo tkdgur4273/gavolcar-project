@@ -29,7 +29,7 @@
 				<td>${car.car_no}</td>
 				
 				<td>${car.car_type}</td>
-				<td><a href="/review/userwrite_view?car_type=${car.car_type}">리뷰를 쓴다</a></td>
+				<td><a href="/review/userWriteView?car_type=${car.car_type}">리뷰를 쓴다</a></td>
 
 			</tr>
 		</c:forEach>

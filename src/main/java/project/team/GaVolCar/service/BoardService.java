@@ -18,7 +18,7 @@ public interface BoardService {
 	// 후기 서비스
 	int reviewUserTotalCount();
 
-	int reviewaAdminTotalCount();
+	int reviewAdminTotalCount();
 
 	// 공지사항 서비스
 	int noticeUserTotalCount();

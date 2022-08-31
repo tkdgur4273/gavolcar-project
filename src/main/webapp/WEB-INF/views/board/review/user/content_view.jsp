@@ -10,7 +10,7 @@
 </head>
 <body>
 	<table width="700" cellpadding="0" cellspacing="0" border="1">
-		<form action="/review/usermodify" method="post">
+		<form action="/review/userModify" method="post">
 			<input type="hidden" name="b_no" value="${reviewUserContent.b_no}">
 			<input type="hidden" name="user_id"
 				value="${reviewUserContent.user_id}"> <input type="hidden"
@@ -45,7 +45,7 @@
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="수정">
-					&nbsp;&nbsp;<a href="userlist">목록보기</a>
+					&nbsp;&nbsp;<a href="userList">목록보기</a>
 			</tr>
 		</form>
 	</table>

@@ -18,16 +18,17 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		var name = "<sec:authentication property='principal.username'/>";
-		$(".name").val(name);
+		$("#member").val(name);
+		$("#user").val(name);
 	})
 	
 </script>
 </head>
 <body>
 	<table width="500" cellpadding="0" cellspacing="0" border="1">
-		<form action="/review/userwrite" method="post">
-			<input class="name" type="hidden" name="member_id" value=""> <input
-				 class="name" type="hidden" name="user_id" value=""> <input
+		<form action="/review/userWrite" method="post">
+			<input id="member" type="hidden" name="member_id" value=""> <input
+				 id="user" type="hidden" name="user_id" value=""> <input
 				type="hidden" name="car_type" value="${cars.car_type}">
 			<tr>
 				<td>제목</td>
@@ -43,7 +44,7 @@
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="입력"> <a
-					href="/review/userlist">목록보기</a></td>
+					href="/review/userList">목록보기</a></td>
 			</tr>
 		</form>
 	</table>

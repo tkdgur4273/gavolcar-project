@@ -47,8 +47,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int reviewaAdminTotalCount() {
-		log.info("getTotlal()...");
+	public int reviewAdminTotalCount() {
+		log.info("reviewAdminTotalCount()...");
 		return boardMapper.reviewaAdminTotalCount();
 	}
 

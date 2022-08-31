@@ -2,6 +2,7 @@ package project.team.GaVolCar.service;
 
 import java.util.List;
 
+import project.team.GaVolCar.vo.BoardsVO;
 import project.team.GaVolCar.vo.CeventsBoardsVO;
 import project.team.GaVolCar.vo.CeventsVO;
 import project.team.GaVolCar.vo.PeventsRentsVO;
@@ -21,4 +22,8 @@ public interface EventService {
 	public List<CeventsBoardsVO> getCeventBoardList();
 	//특정 유저의 join정보가져오기
 	public List<CeventsBoardsVO> getCouponInfo(String user_id);
+	
+	public void givecoupon(CeventsVO ceventVO);
+	
+	public BoardsVO forB_no();
 }
