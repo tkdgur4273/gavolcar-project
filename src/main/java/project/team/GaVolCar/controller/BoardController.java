@@ -134,7 +134,7 @@ public class BoardController {
 
 		model.addAttribute("qnaAdminContent", service.read(bid));
 
-		return "board/qna/admin/contentView";// content_view.jsp로 이동
+		return "board/qna/admin/content_view";// content_view.jsp로 이동
 	}
 
 	// 관리자 답변
@@ -188,7 +188,7 @@ public class BoardController {
 		service.count(boardVO);// 조회수 카운트
 		model.addAttribute("reviewUserContent", service.read(bid));
 
-		return "board/review/user/contentView";// content_view.jsp로 이동
+		return "board/review/user/content_view";// content_view.jsp로 이동
 	}
 
 	// 고객 글 작성 게시판 보는곳
@@ -209,7 +209,7 @@ public class BoardController {
 		log.info("reviewUserWriteView()..");
 		
 			model.addAttribute("cars", brc);
-		return "board/review/user/writeView";// write_view.jsp로 이동
+		return "board/review/user/write_view";// write_view.jsp로 이동
 		
 	}
 	
@@ -285,7 +285,7 @@ public class BoardController {
 
 		model.addAttribute("reviewAdminContent", service.read(bid));
 
-		return "board/review/admin/contentView";// content_view.jsp로 이동
+		return "board/review/admin/content_view";// content_view.jsp로 이동
 	}
 
 	// 글 숨기기
@@ -327,7 +327,7 @@ public class BoardController {
 		service.count(boardVO);// 조회수 카운트
 		model.addAttribute("noticeUserContent", service.read(bid));
 
-		return "board/notice/user/contentView";// content_view.jsp로 이동
+		return "board/notice/user/content_view";// content_view.jsp로 이동
 	}
 
 //--------------------------------------------------관리자-------------------------------------------------------------
@@ -355,7 +355,7 @@ public class BoardController {
 
 		model.addAttribute("noticeAdminContent", service.read(bid));
 
-		return "board/notice/admin/contentView";// content_view.jsp로 이동
+		return "board/notice/admin/content_view";// content_view.jsp로 이동
 	}
 
 	// 관리자 글 작성 게시판
@@ -363,7 +363,7 @@ public class BoardController {
 	public String noticeAdminWriteView() {
 		log.info("noticeAdminWriteView()..");
 
-		return "board/notice/admin/writeView";// write_view.jsp로 이동
+		return "board/notice/admin/write_view";// write_view.jsp로 이동
 	}
 
 	// 공지사항 글 쓰기
@@ -396,7 +396,7 @@ public class BoardController {
 		} else {
 			log.info("noticeAdminModify().. result number::" + mdf);
 
-			return "redirect:admin/notice/adminList";// 관리자가 수정할 경우 다시 list 치고 들어오도록redirect해준다.
+			return "redirect:/notice/adminList";// 관리자가 수정할 경우 다시 list 치고 들어오도록redirect해준다.
 		}
 	}
 

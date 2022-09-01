@@ -43,6 +43,10 @@
 
 			</tr>
 			<tr>
+            <td> 이미지 </td>
+            <td> <input type="file" name="file" id="file"></td>
+         	</tr>
+			<tr>
 				<td colspan="2"><input type="submit" value="입력"> <a
 					href="/review/userList">목록보기</a></td>
 			</tr>

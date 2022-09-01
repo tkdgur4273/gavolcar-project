@@ -37,7 +37,7 @@
 
 
 		<tr>
-			<td colspan="8"><a href="/notice/adminwriteView">글 작성</a></td>
+			<td colspan="8"><a href="/notice/adminWriteView">글 작성</a></td>
 		</tr>
 	</table>
 

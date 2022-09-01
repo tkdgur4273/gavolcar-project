@@ -38,7 +38,7 @@
 
 		<tr>
 		<sec:authorize access="isAuthenticated()">
-			<td colspan="5"><a href="/qna/userwriteView?user_id=<sec:authentication property='principal.username'/>">글 작성</a></td>
+			<td colspan="5"><a href="/qna/userWriteView?user_id=<sec:authentication property='principal.username'/>">글 작성</a></td>
 		</sec:authorize>
 		<sec:authorize access="isAnonymous()">
 			<td colspan="5"><a href="/login">글 작성</a></td>

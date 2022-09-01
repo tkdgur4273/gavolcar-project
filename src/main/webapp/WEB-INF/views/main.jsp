@@ -137,7 +137,7 @@
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">예약</a></td>
 					<td><a href="custommerService"
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">고객지원</a></td>
-					<td><a href="/review/userlist"
+					<td><a href="/review/userList"
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">후기</a></td>
 					<td><a href="/user/eventlist"
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">이벤트</a></td>
@@ -316,7 +316,7 @@
 
 				<c:forEach var="alert" items="${alertForMainPage}">
 
-					<a href="/notice/usercontent?b_no=${alert.b_no}"><h4 style="height: 3em; border-bottom: 2px solid deepskyblue; line-height: 3em;">${alert.b_contents}</h4></a>
+					<a href="/notice/userContent?b_no=${alert.b_no}"><h4 style="height: 3em; border-bottom: 2px solid deepskyblue; line-height: 3em;">${alert.b_contents}</h4></a>
 
 				</c:forEach>
 

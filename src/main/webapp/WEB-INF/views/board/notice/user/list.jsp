@@ -9,6 +9,7 @@
 <title>공지사항 고객 게시판</title>
 </head>
 <body>
+	
 	<table width="600" border="1">
 
 		<tr>

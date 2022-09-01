@@ -10,9 +10,22 @@
 <head>
 <meta charset="UTF-8">
 <title>후기 고객 게시판</title>
+<style type="text/css">
+#tableTitle{
+	width: 1000px;
+	height: 50px;
+	background-color: deepskyblue;
+	line-height: 50px;
+	font-size: 30px;
+}
+
+</style>
 </head>
 <body>
-	<table width="600" border="1">
+
+
+<div id="tableTitle" style="text-align: center; margin: 0 auto;">후기 게시판</div>
+	<table width="600" border="1" style="text-align: center; margin: 0 auto;">
 
 		<tr>
 			<td>No.</td>
@@ -55,7 +68,7 @@
 		
 		
 	</table>
-
+<div style="text-align: center; margin: 0 auto;">
 	<c:if test="${pageMaker.prev}">
 		<a
 			href="/review/userList${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
@@ -72,6 +85,7 @@
 			href="/review/userList${pageMaker.makeQuery(pageMaker.endPage +1) }">
 			» </a>
 	</c:if>
+	</div>
 	<br>
 
 </body>
