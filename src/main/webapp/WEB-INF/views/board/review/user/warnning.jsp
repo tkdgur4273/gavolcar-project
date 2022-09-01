@@ -15,7 +15,8 @@
 </script>
 
 </head>
-<body>
+<body style="text-align: center;">
+
 	<h1>아직 랜트 하신 적이 없군요?</h1>
 	<h1>후기는 랜트 후에 가능합니다</h1>
 </body>

@@ -1,12 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Q&A 고객 글 보기</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	<sec:authorize access="isAuthenticated()">
+		if("${qnaUserContent.user_id}"!="<sec:authentication property='principal.username'/>"){
+			$("#modify").html("<a href='userList'>목록보기</a>");
+		};
+	</sec:authorize>
+	<sec:authorize access="isAnonymous()">
+		$("#modify").html("<a href='userList'>목록보기</a>");
+	</sec:authorize>
+});
+</script>
 </head>
 <body>
 	<table width="700" cellpadding="0" cellspacing="0" border="1">
@@ -45,7 +61,7 @@
 				<td><textarea rows="10" name="b_answer">${qnaUserContent.b_answer} </textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="수정">
+				<td colspan="2" id="modify"><input type="submit" value="수정">
 					&nbsp;&nbsp;<a href="userList">목록보기</a> &nbsp;&nbsp;<a
 					href="/qna/userRemove?b_no=${qnaUserContent.b_no}">삭제</a>
 			</tr>
