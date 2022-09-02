@@ -1,0 +1,23 @@
+spring:
+ # Security OAuth
+  security:
+    oauth2:
+      client:
+        registration:
+         google:
+          clientId: 507222898311-1m9mgdcsp1is4trk2tqe9h7h7r5lnduj.apps.googleusercontent.com
+          clientSecret: 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
+          scope:
+            - email
+            - profile
+            
+  profiles:
+    include: oauth
+
+#JPA 설정
+  jpa:
+    hibernate:
+      ddl-auto: update #create update none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true

@@ -131,7 +131,7 @@
 					<td class="col-2"><a href="#"><img src="예약.png" width="100em"></a></td>
 					<td class="col-2"><a href="#"><img src="고객지원.png" width="100em"></a></td>
 					<td class="col-2"><a href="#"><img src="후기.png" width="100em"></a></td>  -->
-					<td><a href="#"
+					<td><a href="/user/userHome"
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">마이페이지</a></td>
 					<td><a href="#"
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">예약</a></td>
@@ -151,18 +151,18 @@
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">로그인</a>
 					<span
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">|</span>
-					<a href="#"
+					<a href="/add/addForm"
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">회원가입</a>
 				</div>
 			</sec:authorize>
 			
 			<sec:authorize access="isAuthenticated()">
-				<div id="headlogin2" class="col-2">
+				<div id="headlogin2" class="col-3">
 					<span
 						style="text-decoration: none; color: black; font-size: 10px; font-weight: 900; width: 100px;"><sec:authentication
 							property="principal.username" />님 환영합니다.</span> <a
 						href="${pageContext.request.contextPath}/logout"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">로그아웃</a>
+						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">|로그아웃</a>
 				</div>
 			</sec:authorize>
 		</div>

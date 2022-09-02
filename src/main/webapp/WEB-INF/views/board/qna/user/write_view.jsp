@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시글 작성</title>
+<title>QnA 작성</title>
 <script>
 	function calc() {
 		document.getElementById('result').value = document
@@ -27,20 +27,42 @@
 	
 	
 </script>
+<style type="text/css">
+#main{
+	padding: 60px;
+}
+#tableTitle{
+	width: 1100px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 30px;
+	font-weight: 900;
+	text-align: left;
+	margin: 0 auto;
+	border-radius: 25px;
+}
+#table{
+	width: 1200px;
+	background-color: rgba(255, 255, 255);
+	margin: 0 auto;
+}
+</style>
 </head>
 <body>
-	<table width="500" cellpadding="0" cellspacing="0" border="1">
+<div id="main">
+<div id="tableTitle">후기작성</div>
+	<table id="table" width="500" cellpadding="0" cellspacing="0">
 		<form action="/qna/userWrite" method="post">
 			<input class="name" type="hidden" name="member_id" value=""> <input
 				 class="name" type="hidden" name="user_id" value="">
 			<tr>
-				<td>제목</td>
-				<td><input type="text" name="b_title" size="50"></td>
+				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;font-size: 30px;">제목</td>
+				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;"><input type="text" name="b_title"  style="font-size: 50px;"></td>
 			</tr>
 			<tr>
-				<td>내용</td>
+				<td style="font-size: 30px;">내용</td>
 				<td><textarea name="b_contents" id="b_contents" rows="10"
-						onkeyup="calc()" onkeydown="calc()" onkeypass="calc()"></textarea>
+						onkeyup="calc()" onkeydown="calc()" onkeypass="calc()"  style="width: 1200px; height: 600px;" rows="10" name="b_contents"></textarea>
 					<br> <input type="number" id="result" value="0" readonly
 					style="boarder: none">/300</td>
 			</tr>
@@ -50,5 +72,6 @@
 			</tr>
 		</form>
 	</table>
+	</div>
 </body>
 </html>

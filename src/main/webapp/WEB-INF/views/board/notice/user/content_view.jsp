@@ -6,36 +6,46 @@
 <head>
 <meta charset="UTF-8">
 <title> 공지사항 고객 글 보기 </title>
+<style type="text/css">
+#main{
+	padding: 60px;
+}
+#tableTitle{
+	width: 1100px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 30px;
+	font-weight: 900;
+	text-align: left;
+	margin: 0 auto;
+	border-radius: 25px;
+}
+#table{
+	width: 1200px;
+	background-color: rgba(255, 255, 255);
+	margin: 0 auto;
+}
+</style>
 </head>
 <body>
-	<table width="700" cellpadding="0" cellspacing="0" border="1">
+
+<div id="main">
+<div id="tableTitle">QnA 게시판</div>
+	<table id="table" width="700" cellpadding="0" cellspacing="0">
 		<form method="post">
 			<input type="hidden" name="b_no" value="${noticeUserContent.b_no}">		
 			<input type="hidden" name="b_code" value="${noticeUserContent.b_code}">
 			<input type="hidden" name="bid" value="${noticeUserContent.b_no}">
 			<tr>
-				<td> No. </td>
-				<td> ${noticeUserContent.b_no} </td>
+				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;"><input type="text" name="b_title"
+					value="${noticeUserContent.b_title}" style="font-size: 50px;"></td>
+					<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">${noticeUserContent.member_id}** | ${noticeUserContent.b_date} | ${noticeUserContent.b_hit}
+					</td>
+				
 			</tr>
 			<tr>
-				<td> 조회수 </td>
-				<td> ${noticeUserContent.b_hit} </td>
-			</tr>
-			<tr>
-				<td> 등록일 </td>
-				<td> ${noticeUserContent.b_date} </td>
-			</tr>
-			<tr>
-				<td> 작성자 </td>
-				<td> ${noticeUserContent.member_id} </td>
-			</tr>
-			<tr>
-				<td> 제목 </td>
-				<td> <input type="text" name="b_title" value="${noticeUserContent.b_title}"></td>
-			</tr>
-			<tr>
-				<td> 내용 </td>
-				<td> <textarea rows="10" name="b_contents" >${noticeUserContent.b_contents}</textarea></td>
+				
+				<td colspan="2" > <textarea style="width: 1200px; height: 400px;" rows="10" name="b_contents" >${noticeUserContent.b_contents}</textarea></td>
 			</tr>
 			<tr >
 				<td colspan="2">

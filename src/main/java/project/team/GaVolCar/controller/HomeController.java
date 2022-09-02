@@ -54,6 +54,14 @@ public class HomeController {
 	public String pay() {
 		return "pay";
 	}
+	@GetMapping("/admin/adminHome")
+	public void adminHome() {
+		log.info("adminHome..");
+	}
+	@GetMapping("/user/userHome")
+	public void userHome() {
+		log.info("userHome..");
+	}
 
 
 }

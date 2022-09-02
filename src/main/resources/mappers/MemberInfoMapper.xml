@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="project.team.GaVolCar.mapper.MemberInfoMapper">
+
+    
+    <!-- user info -->
+    <!-- 파라미터 받는 방법 : #{} : 마이바티스 문법 -->
+     <select id="readMember" resultType="project.team.GaVolCar.vo.UsersVO">
+       <![CDATA[
+           select * from users where user_id = #{user_id}
+       ]]>
+    </select>
+    
+    <update id="updateMember">
+       <![CDATA[
+          update users set user_pw = #{user_pw}, user_name=#{user_name}, user_phone_number=#{user_phone_number},
+          user_age=#{user_age},user_email=#{user_email} 
+          	where user_id =#{user_id}
+       ]]>
+    </update>
+    
+    <delete id="deleteMember">
+       <![CDATA[
+          delete from users where user_id =#{user_id}
+       ]]>
+    </delete>
+    
+  
+   
+</mapper>

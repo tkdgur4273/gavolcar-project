@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>후기 고객 게시글 작성</title>
+<title>후기 작성</title>
 <script>
 	function calc() {
 		document.getElementById('result').value = document

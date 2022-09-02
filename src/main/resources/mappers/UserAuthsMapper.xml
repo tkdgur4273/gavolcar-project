@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="project.team.GaVolCar.mapper.UserAuthsMapper">
+
+	<resultMap id="usersMap" type="UsersVO">
+		<id property="user_id" column="user_id" />
+		<result property="user_pw" column="user_pw" />
+		<result property="user_name" column="user_name" />
+		<result property="user_phone_number" column="user_phone_number" />
+		<result property="user_age" column="user_age" />
+		<result property="user_email" column="user_email" />
+		<collection property="authList" resultMap="authMap" />
+		<collection property="uaList" resultMap="userAuthsMap" />
+	</resultMap>
+
+	<resultMap id="userAuthsMap" type="UserAuthsVO">
+		<id property="user_no" column="user_no" />
+		<result property="user_id" column="user_id" />
+		<result property="auth_no" column="auth_no" />
+	</resultMap>
+
+	<resultMap id="authMap" type="AuthsVO">
+		<id property="authorities" column="authorities" />
+		<result property="auth_no" column="auth_no" />
+	</resultMap>
+
+
+	<select id="getUser2" resultMap="usersMap">
+       <![CDATA[
+           select * from users, auths, userauths 
+           where users.user_id=userauths.user_id
+           and userauths.auth_no=auths.auth_no and users.user_id = #{username}
+           
+       ]]>
+	</select>
+	
+	<select id="getUser" resultType="UserAuthsVO">
+       <![CDATA[
+           select * from userauths 
+           where userauths.user_id = #{username}
+           
+       ]]>
+	</select>
+	
+	<select id="getUser3" resultType="UsersVO2">
+       <![CDATA[
+          	select * from users, auths, userauths 
+           where users.user_id=userauths.user_id
+           and userauths.auth_no=auths.auth_no and users.user_id = #{username}
+           
+       ]]>
+	</select>
+
+</mapper>

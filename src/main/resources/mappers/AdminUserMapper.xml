@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="project.team.GaVolCar.mapper.AdminUserMapper">
+    <!-- 인터페이스 BoardMapper의 자손구현을 xml파일에서 구현 -->
+	<!-- id : BoardMapper의 함수이름 -->
+    <select id="getList" resultType="project.team.GaVolCar.vo.UsersVO">
+       <![CDATA[
+           select * from users
+       ]]>
+    </select>
+    
+    <!-- user info -->
+    <!-- 파라미터 받는 방법 : #{} : 마이바티스 문법 -->
+     <select id="readMember" resultType="project.team.GaVolCar.vo.UsersVO">
+       <![CDATA[
+           select * from users where user_id = #{user_id}
+       ]]>
+    </select>
+    
+    <update id="updateMember">
+       <![CDATA[
+          update users set user_pw = #{user_pw}, user_name=#{user_name}, user_phone_number=#{user_phone_number},
+          user_age=#{user_age},user_email=#{user_email} 
+          	where user_id =#{user_id}
+       ]]>
+    </update>
+    
+    <delete id="deleteMember">
+       <![CDATA[
+        delete from users where user_id=#{user_id}
+       ]]>
+    </delete>
+    
+    <!-- 회원가입시 회원권한 부여 -->
+    <insert id="insertMember">
+       <![CDATA[
+          insert all
+          into users values (#{user_id}, #{user_pw}, #{user_name}, #{user_phone_number},
+          #{user_age}, #{user_email})
+          into userauths values (user_seq.nextval, #{user_id}, 10)
+          select * from dual
+       
+       ]]>
+    </insert>
+    
+</mapper>
