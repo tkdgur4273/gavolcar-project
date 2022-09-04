@@ -31,10 +31,10 @@ $(document).ready(function(){
 	width: 1100px;
 	height: 50px;
 	line-height: 50px;
-	font-size: 30px;
+	font-size: 50px;
 	font-weight: 900;
 	text-align: left;
-	margin: 0 auto;
+	margin: 20px auto;
 	border-radius: 25px;
 }
 #table{
@@ -56,24 +56,24 @@ $(document).ready(function(){
 			<input type="hidden" name="bid" value="${qnaUserContent.b_no}">
 			<tr>
 				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;"><input type="text" name="b_title"
-					value="${qnaUserContent.b_title}" style="font-size: 50px;"></td>
+					value="${qnaUserContent.b_title}" style="font-size: 40px;height: 70px"></td>
 					<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">${qnaUserContent.member_id}** | ${qnaUserContent.b_date} | ${qnaUserContent.b_hit}
 					</td>
 				
 			</tr>
 			<tr>
-				<td colspan="2"><textarea style="width: 1200px; height: 400px;" rows="10" name="b_contents">${qnaUserContent.b_contents} </textarea></td>
+				<td colspan="2"><textarea style="width: 1200px; height: 400px; font-size: 25px;" rows="10" name="b_contents">${qnaUserContent.b_contents} </textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2" style="font-size: 30px; font-weight: 900; border-bottom: 4px solid black; border-top:  4px solid black;">관리자의 답변</td>
 			</tr>
 			<tr>
-				<td colspan="2"><textarea style="width: 1200px; height: 200px;" rows="10" name="b_answer">${qnaUserContent.b_answer} </textarea></td>
+				<td colspan="2"><textarea style="width: 1200px; height: 200px; font-size: 25px;" rows="10" name="b_answer">${qnaUserContent.b_answer} </textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2" id="modify"><input type="submit" value="수정">
-					&nbsp;&nbsp;<a href="userList">목록보기</a> &nbsp;&nbsp;<a
-					href="/qna/userRemove?b_no=${qnaUserContent.b_no}">삭제</a>
+				<td colspan="2" id="modify"><input type="submit" value="수정" style="font-size: 30px;">
+					&nbsp;&nbsp;<a href="userList"style="text-decoration: none; font-size: 30px;">목록보기</a> &nbsp;&nbsp;<a
+					href="/qna/userRemove?b_no=${qnaUserContent.b_no}" style="text-decoration: none; font-size: 30px;">삭제</a>
 			</tr>
 		</form>
 	</table>

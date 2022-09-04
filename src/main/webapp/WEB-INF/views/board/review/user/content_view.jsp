@@ -31,10 +31,10 @@ $(document).ready(function(){
 	width: 1100px;
 	height: 50px;
 	line-height: 50px;
-	font-size: 30px;
+	font-size: 50px;
 	font-weight: 900;
 	text-align: left;
-	margin: 0 auto;
+	margin: 20px auto;
 	border-radius: 25px;
 }
 #table{
@@ -62,7 +62,7 @@ $(document).ready(function(){
 			
 			<tr>
 				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;"><input type="text" name="b_title"
-					value="${reviewUserContent.b_title}" style="font-size: 50px;"></td>
+					value="${reviewUserContent.b_title}" style="font-size: 40px;height: 70px"></td>
 					<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">${reviewUserContent.member_id}** | ${reviewUserContent.b_date} | ${reviewUserContent.b_hit}
 					</td>
 				
@@ -71,11 +71,11 @@ $(document).ready(function(){
 			
 			
 			<tr>
-				<td colspan="2"><textarea style="width: 1200px; height: 600px;" rows="10" name="b_contents">${reviewUserContent.b_contents}</textarea></td>
+				<td colspan="2"><textarea style="width: 1200px; height: 600px; font-size: 25px;" rows="10" name="b_contents" style="width: 1200px; height: 400px; font-size: 25px;" rows="10" name="b_contents">${reviewUserContent.b_contents}</textarea></td>
 			</tr>
 			<tr>
-				<td id="modify"  colspan="2">
-					<input type='submit' value='수정'><a href='userList'>목록보기</a>
+				<td id="modify"  colspan="2" style="font-size: 30px;">
+					<input type='submit' value='수정' style="font-size: 30px;"><a href='userList'style="text-decoration: none; font-size: 30px;">목록보기</a>
 				</td>
 			</tr>
 		</form>

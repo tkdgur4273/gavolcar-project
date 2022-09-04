@@ -18,7 +18,7 @@
 	width: 1100px;
 	height: 50px;
 	line-height: 50px;
-	font-size: 30px;
+	font-size: 50px;
 	font-weight: 900;
 	text-align: left;
 	margin: 0 auto;
@@ -37,7 +37,7 @@
 <div id="tableTitle">QnA 게시판</div>
 	<table id="table" width="600" style=" margin: 30px auto;text-align: center; border-spacing: 0px;">
 
-		<tr style=" height: 40px;">
+		<tr style=" height: 50px;font-size: 25px;">
 			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">No.</td>
 			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">제목</td>
 			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">작성자</td>
@@ -48,7 +48,7 @@
 		<!--이때 list는 BListCommand에서 메모리에 올린 list를 뜻함. 포워딩시까지 살아있으므로-->
 		<!--forEach문을 이용해 데이터를 꺼낼 수 있다.-->
 		<c:forEach var="board" items="${qnaUserList}">
-			<tr>
+			<tr height="70px" style="font-size: 25px;">
 				<td width="60px;"  style="border-bottom:2px solid gray;">${board.b_no}</td>
 				<td width="700px;" style="border-bottom:2px solid gray;text-align: left;"><a href="/qna/userContent?b_no=${board.b_no}" style="text-decoration: none;">${board.b_title}</a>
 				</td>
@@ -68,7 +68,7 @@
 		</sec:authorize>
 		</tr>
 	</table>
-<div style="text-align: center; margin: 0 auto; font-size: 20px;">
+<div style="text-align: center; margin: 0 auto; font-size: 30px;">
 	<c:if test="${pageMaker.prev}">
 		<a
 			href="/qna/userList${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>

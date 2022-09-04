@@ -27,6 +27,17 @@ public class MemberInfoController {
 		model.addAttribute("info", user);
 	}
 	
+	@GetMapping("/user/userHome")
+	public void home(Principal principal, Model model) {
+		log.info("info()..");
+		log.info("회원아이디 : "+principal.getName());
+		String user_id = principal.getName();
+		UsersVO user = service.readMember(user_id);
+		model.addAttribute("info", user);
+		
+	}
+	
+	
 	@GetMapping("/user/modify")
 	public String modify(UsersVO usersVO) {
 		log.info("modify()..");

@@ -15,10 +15,10 @@
 	width: 1100px;
 	height: 50px;
 	line-height: 50px;
-	font-size: 30px;
+	font-size: 50px;
 	font-weight: 900;
 	text-align: left;
-	margin: 0 auto;
+	margin: 30px auto;
 	border-radius: 25px;
 }
 #table{
@@ -38,7 +38,7 @@
 <body>
 <div id="tableTitle">후기 작성 차량 선택</div>
 	<table id="table" width="700" cellpadding="0" cellspacing="0">
-		<tr>
+		<tr style=" height: 50px;font-size: 25px;">
 				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">차량 번호</td>
 				
 				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">차종</td>
@@ -46,7 +46,7 @@
 
 			</tr>
 	<c:forEach var="car" items="${cars}">
-			<tr>
+			<tr style="height: 50px; font-size: 20px;">
 				<td style="border-bottom:2px solid gray;">${car.car_no}</td>
 				
 				<td style="border-bottom:2px solid gray;">${car.car_type}</td>

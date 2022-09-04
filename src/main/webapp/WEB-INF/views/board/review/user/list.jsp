@@ -18,10 +18,10 @@
 	width: 1100px;
 	height: 50px;
 	line-height: 50px;
-	font-size: 30px;
+	font-size: 50px;
 	font-weight: 900;
 	text-align: left;
-	margin: 0 auto;
+	margin: 30px auto;
 	border-radius: 25px;
 }
 #table{
@@ -37,8 +37,8 @@
 <div id="tableTitle">후기 게시판</div>
 	<table id="table" width="600" style=" margin: 30px auto;text-align: center; border-spacing: 0px;">
 
-		<tr style=" height: 40px;">
-			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">글 번호</td>
+		<tr style=" height: 50px;font-size: 25px;">
+			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">번호</td>
 			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">제목</td>
 			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">차종</td>
 			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">작성자</td>
@@ -62,7 +62,7 @@
 		</c:forEach>
 
 
-		<tr style="height: 50px; font-size: 20px;">
+		<tr height="70px" style="font-size: 25px;">
 			
 			<sec:authorize access="isAuthenticated()">
 				<td colspan="8" style=" border-bottom: 4px solid black; border-top:  4px solid black;"><a href="/review/chooseCar?user_id=<sec:authentication property='principal.username'/>" style="text-decoration: none;">글 작성</a></td>
@@ -78,7 +78,7 @@
 		
 		
 	</table>
-<div style="text-align: center; margin: 0 auto; font-size: 20px;">
+<div style="text-align: center; margin: 0 auto; font-size: 30px;">
 	<c:if test="${pageMaker.prev}">
 		<a
 			href="/review/userList${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>

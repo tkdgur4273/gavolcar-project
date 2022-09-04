@@ -7,7 +7,7 @@
     <title>로그인 페이지</title>
 <style type="text/css">
 #main{
-	border: 2px solid black;
+	border: 4px solid black;
 	border-radius: 90px;
 	width: 600px;
 	margin: 0 auto;
@@ -22,6 +22,7 @@
 
 <body onload="document.f.id.focus();">
 <div id="main">
+<a href="/main"><img src="투명로고.png" style="height: 10em; width: 15em;"></a>
 <h3>아이디와 비밀번호를 입력해주세요.</h3>
 
 <c:url value="/login" var="loginUrl" />
@@ -35,17 +36,18 @@
         <p>로그아웃 하였습니다.</p>
     </c:if>
     <p>
-        <label for="username">아이디</label>
-        <input type="text" id="username" name="username" />
+        <label for="username" style="font-size: 22px;">아이디</label>
+        <input type="text" id="username" name="username" style="height: 20px;" />
     </p>
     <p>
         <label for="password">비밀번호</label>
-        <input type="password" id="password" name="password"/>
+        <input type="password" id="password" name="password" style="height: 20px;"/>
     </p>
     <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
-    <button type="submit" class="btn">로그인</button> [<a href="<c:url value="/add/addForm" />">회원가입</a>]
+    <button type="submit" class="btn" style="width: 90px; height: 32px; font-size: 20px;">로그인</button>
+    <input type="button" value="회원가입" class="btn" onclick="location.href='/add/addForm'" style="width: 110px; height: 32px; font-size: 20px;">
     <p style="height: 30px; text-align: 30px;">
-     [소셜 로그인]<a href="/oauth2/authorization/google"><img src="../구글.png" width="20px" height="20px"></a>
+     [간편 로그인]</p><p><a href="/oauth2/authorization/google"><img src="../구글.png" width="50px" height="50px"></a>
     
     </p>
    

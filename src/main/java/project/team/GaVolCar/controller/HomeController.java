@@ -58,10 +58,6 @@ public class HomeController {
 	public void adminHome() {
 		log.info("adminHome..");
 	}
-	@GetMapping("/user/userHome")
-	public void userHome() {
-		log.info("userHome..");
-	}
 
 
 }
