@@ -133,7 +133,7 @@
 					<td class="col-2"><a href="#"><img src="후기.png" width="100em"></a></td>  -->
 					<td><a href="/user/userHome"
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 20em;">마이페이지</a></td>
-					<td><a href="#"
+					<td><a href="/rez/reserve"
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">예약</a></td>
 					<td><a href="custommerService"
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">고객지원</a></td>
@@ -261,10 +261,10 @@
 	<div class="container col-10">
 		<div id="upperbar" class="row">
 			<div id="upperbar1" class="col-4" style="background:;">
-				<a href="#" style="text-decoration: none;"><div
+				<a href="/rez/reserve" style="text-decoration: none;"><div
 						style="margin: 1em; border: 5px solid rgb(0, 51, 99); height: 39.5em;">
 						<img src="검정예약.png" height="280em" width="100%">
-						<div style="font-size: 50px;">예약하기</div>
+						<div style="font-size: 50px; color: rgb(0, 51, 99)">예약하기</div>
 					</div></a>
 			</div>
 			<div id="upperbar2" class="col-4" style="background:;">
@@ -276,13 +276,13 @@
 						<sec:authorize access="isAuthenticated()"><a href="/user/rentscheck?user_id=<sec:authentication property='principal.username'/>" style="text-decoration: none;"><div
 								style="margin: 5px; border: 5px solid rgb(0, 51, 99);">
 								<img src="예약조회.png" height="140em" width="100%">
-								<div style="font-size: 25px;">예약확인</div>
+								<div style="font-size: 25px; color: rgb(0, 51, 99)">예약확인</div>
 						</sec:authorize>
 						<sec:authorize access="isAnonymous()"><a href="/login" style="text-decoration: none;"><div
 								style="margin: 5px; border: 5px solid rgb(0, 51, 99);">
 								<img src="예약조회.png" height="140em" width="100%">
 								
-								<div style="font-size: 25px;">예약확인</div>
+								<div style="font-size: 25px; color: rgb(0, 51, 99)">예약확인</div>
 						</sec:authorize>
 							</div></a>
 					</div>
@@ -290,7 +290,7 @@
 						<a href="/review/userList" style="text-decoration: none;"><div
 								style="margin: 5px; border: 5px solid rgb(0, 51, 99);">
 								<img src="검정후기.png" height="140em" width="100%">
-								<div style="font-size: 25px;">후기</div>
+								<div style="font-size: 25px; color: rgb(0, 51, 99)">후기</div>
 							</div></a>
 					</div>
 				</div>
@@ -299,13 +299,13 @@
 						<a href="/trans" style="text-decoration: none;"><div
 								style="margin: 5px; border: 5px solid rgb(0, 51, 99);">
 								<img src="차량 통계.png" height="140em" width="100%">
-								<div style="font-size: 25px;">차량통계</div>
+								<div style="font-size: 25px; color: rgb(0, 51, 99)">차량통계</div>
 							</div></a>
 					</div>
 					<div id="upperbar6" class="col-6" style=" height: 200px; width: 200px;">
 						<a href="/arealist_user" style="text-decoration: none;"><div style="margin: 5px; border: 5px solid rgb(0, 51, 99);">
 								<img src="관광정보.png" height="140em" width="100%">
-								<div style="font-size: 25px;">관광정보</div>
+								<div style="font-size: 25px; color: rgb(0, 51, 99)">관광정보</div>
 							</div></a>
 					</div>
 				</div>

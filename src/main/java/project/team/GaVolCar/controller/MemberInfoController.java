@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import lombok.extern.slf4j.Slf4j;
+import project.team.GaVolCar.service.EventService;
 import project.team.GaVolCar.service.MemberInfoService;
 import project.team.GaVolCar.vo.UsersVO;
 
@@ -17,6 +18,13 @@ public class MemberInfoController {
 	
 	@Autowired
 	private MemberInfoService service;
+	
+	@Autowired
+	private BCryptPasswordEncoder encoder;
+	
+	@Autowired
+	private EventService eService;
+
 	
 	@GetMapping("/user/info")
 	public void info(Principal principal, Model model) {
@@ -41,6 +49,11 @@ public class MemberInfoController {
 	@GetMapping("/user/modify")
 	public String modify(UsersVO usersVO) {
 		log.info("modify()..");
+		
+		String rawPw = usersVO.getUser_pw();
+		String encPassword = encoder.encode(rawPw);
+		usersVO.setUser_pw(encPassword);
+		
 		int rn = service.updateMember(usersVO);
 		log.info("modify()..result number : " + rn);
 		return "redirect:/user/userHome";
@@ -55,9 +68,10 @@ public class MemberInfoController {
 	}
 	
 	@GetMapping("/user/couponInfo")
-	public void couponInfo() {
-		log.info("couponInfo()..");
+	public void couponInfo(String user_id, Model model) {
 		
+		log.info("couponInfo()..");
+		model.addAttribute("list", eService.couponAllInfo(user_id));
 	}
 
 }

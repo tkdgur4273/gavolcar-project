@@ -16,6 +16,11 @@ public class HomeController {
 	public String home() {
 		return "redirect:/main";
 	}
+	
+	@GetMapping("/testblankbase")
+	public String blank() {
+		return "/blankbase";
+	}
 
 	//	@GetMapping("/user/userHome")
 	//	public String userHome() {

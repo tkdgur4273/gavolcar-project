@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="project.team.GaVolCar.mapper.CouponsMapper">
+
+    
+    <!-- user info -->
+    <!-- 파라미터 받는 방법 : #{} : 마이바티스 문법 -->
+     <select id="getCouponsInfo" resultType="project.team.GaVolCar.vo.CouponsVO">
+       <![CDATA[
+           select * from coupons where user_id = #{user_id}
+       ]]>
+    </select>
+    
+    
+	
+	<select id="getAllCouponsInfo" resultType="project.team.GaVolCar.vo.CeventsVO">
+		<![CDATA[
+			select coupon_name,coupon_contents from coupons, cevents where coupons.event_no = cevents.event_no and  user_id = #{user_id}
+		]]>
+	</select>
+    
+    
+  
+   
+</mapper>

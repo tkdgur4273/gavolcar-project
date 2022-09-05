@@ -39,6 +39,10 @@ public class AdminUserController {
 	@GetMapping("/admin/modify")
 	public String modify(UsersVO usersVO) {
 		log.info("modify()..");
+		
+		String rawPw = usersVO.getUser_pw();
+		String encPassword = encoder.encode(rawPw);
+		usersVO.setUser_pw(encPassword);
 		int rn = service.updateMember(usersVO);
 		
 		log.info("modify()..result number : " + rn);

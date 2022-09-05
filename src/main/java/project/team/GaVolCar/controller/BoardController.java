@@ -234,6 +234,7 @@ public class BoardController {
 				cevent.setMember_id(boardVO.getMember_id());
 				cevent.setB_no(eventService.forB_no().getB_no());
 				eventService.givecoupon(cevent);
+				eventService.insertCouponInfo(cevent);
 				
 				return "redirect:/cevent_view_user?user_id="+boardVO.getUser_id();
 			}

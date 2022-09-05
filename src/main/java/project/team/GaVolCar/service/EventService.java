@@ -5,8 +5,8 @@ import java.util.List;
 import project.team.GaVolCar.vo.BoardsVO;
 import project.team.GaVolCar.vo.CeventsBoardsVO;
 import project.team.GaVolCar.vo.CeventsVO;
+import project.team.GaVolCar.vo.CouponsVO;
 import project.team.GaVolCar.vo.PeventsRentsVO;
-import project.team.GaVolCar.vo.RentsVO;
 
 public interface EventService {
 	//모든 포인트 정보가져오기
@@ -26,4 +26,11 @@ public interface EventService {
 	public void givecoupon(CeventsVO ceventVO);
 	
 	public BoardsVO forB_no();
+	
+	public void insertCouponInfo (CeventsVO ceventVO);
+	
+	public List<CouponsVO> couponInfo (String user_id);
+	
+	public List<CeventsVO> couponAllInfo (String user_id);
+	
 }

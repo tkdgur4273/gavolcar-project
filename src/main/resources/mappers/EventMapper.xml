@@ -103,6 +103,19 @@
 		]]>
 	</insert>
 	
+	<insert id="insertCouponInfo">
+		<![CDATA[
+			insert into coupons(coupon_no,event_no,user_id) values (coupons_seq.nextval,coupon_seq.currval,#{member_id})
+		
+		]]>
+	</insert>
+	
+	<select id="getCoupon" resultType="project.team.GaVolCar.vo.BoardsVO">
+		<![CDATA[
+			SELECT ROWNUM AS RNUM, A.* FROM (SELECT * FROM boards order by b_no desc) A WHERE ROWNUM = 1
+		]]>
+	</select>
+	
 	
 	
 </mapper>

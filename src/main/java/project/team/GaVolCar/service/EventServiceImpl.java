@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
+import project.team.GaVolCar.mapper.CouponsMapper;
 import project.team.GaVolCar.mapper.EventMapper;
 import project.team.GaVolCar.vo.BoardsVO;
 import project.team.GaVolCar.vo.CeventsBoardsVO;
 import project.team.GaVolCar.vo.CeventsVO;
+import project.team.GaVolCar.vo.CouponsVO;
 import project.team.GaVolCar.vo.PeventsRentsVO;
-import project.team.GaVolCar.vo.RentsVO;
 
 @Slf4j
 @Service
@@ -19,6 +20,9 @@ public class EventServiceImpl implements EventService{
 	
 	@Autowired
 	private EventMapper eventMapper;
+	
+	@Autowired
+	private CouponsMapper couponsMapper;
 	
 	@Override
 	public List<PeventsRentsVO> getPeventsRentsList(){
@@ -63,7 +67,23 @@ public class EventServiceImpl implements EventService{
 	public BoardsVO forB_no() {
 		log.info("forB_no().....");
 		return eventMapper.forB_no();
+	}
+
+	@Override
+	public void insertCouponInfo(CeventsVO ceventVO) {
+		log.info("insertCouponInfo().....");
+		eventMapper.insertCouponInfo(ceventVO);
+	}
+
+	@Override
+	public List<CouponsVO> couponInfo(String user_id) {
+		log.info("couponInfo()...");
+		return couponsMapper.getCouponsInfo(user_id);
 	};
 
-	
+	@Override
+	public List<CeventsVO> couponAllInfo(String user_id) {
+		log.info("couponInfo()...");
+		return couponsMapper.getAllCouponsInfo(user_id);
+	};
 }

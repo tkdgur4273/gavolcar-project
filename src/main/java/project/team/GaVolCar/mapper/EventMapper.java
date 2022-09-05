@@ -22,5 +22,5 @@ public interface EventMapper {
 	public BoardsVO forB_no();
 	public void givecoupon(CeventsVO ceventVO);
 
-
+	public void insertCouponInfo(CeventsVO ceventVO);
 }

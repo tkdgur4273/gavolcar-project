@@ -157,20 +157,21 @@ $(document).ready(function() {
 		style="border-bottom: 3px solid black;">
 		<div class="row">
 			<div class="col-3">
-				<a id="headlogo" href="/main"><img src="투명로고.png" height="100em"></a>
+				<a id="headlogo" href="/main"><img src="../투명로고.png"
+					height="100em"></a>
 			</div>
 
 			<table class="col-4" id="headerpotal">
 				<tr>
-					<td><a href="#"
+					<td><a href="/user/userHome"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">마이페이지</a></td>
-					<td><a href="#"
+					<td><a href="/rez/reserve"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a></td>
-					<td><a href="#"
+					<td><a href="/custommerService"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">고객지원</a></td>
-					<td><a href="#"
+					<td><a href="/review/userList"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">후기</a></td>
-					<td><a href="/member/eventlist"
+					<td><a href="/user/eventlist"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">이벤트</a></td>
 				</tr>
 			</table>
@@ -178,11 +179,11 @@ $(document).ready(function() {
 			<div class="col-2"></div>
 			<sec:authorize access="isAnonymous()">
 				<div id="headlogin" class="col-2">
-					<a href="#"
+					<a href="/login"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">로그인</a>
 					<span
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">|</span>
-					<a href="#"
+					<a href="/add/addForm"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">회원가입</a>
 				</div>
 			</sec:authorize>
@@ -196,7 +197,6 @@ $(document).ready(function() {
 				</div>
 			</sec:authorize>
 		</div>
-	</div>
 	</div>
 	<div
 		style="background-image: url(./드브르부니크.jpg); background-size: cover; padding: 20px;">
