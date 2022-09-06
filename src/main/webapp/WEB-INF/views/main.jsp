@@ -238,7 +238,7 @@
 									</div>
 									<div class="col-sm-6">
 										<img src="투명로고.png" class="girl img-responsive" alt=""
-											style="height: 50em" />
+											style="height: 50em;" />
 									</div>
 								</div>
 							</div>
@@ -315,7 +315,7 @@
 
 				<c:forEach var="alert" items="${alertForMainPage}">
 
-					<a href="/notice/userContent?b_no=${alert.b_no}"><h4 style="height: 3em; border-bottom: 2px solid rgb(0, 51, 99); line-height: 3em;">${alert.b_contents}</h4></a>
+					<a href="/notice/userContent?b_no=${alert.b_no}" style="text-decoration: none;"><h4 style="height: 3em; border-bottom: 2px solid rgb(0, 51, 99); line-height: 3em; font-size: 18px;">${alert.b_contents}</h4></a>
 
 				</c:forEach>
 

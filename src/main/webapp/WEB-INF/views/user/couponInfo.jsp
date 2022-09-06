@@ -16,7 +16,7 @@
 		 	height: 50px;
 		 }
 	   .name{
-			width: 150px;
+			width: 200px;
 			border-bottom: 1px solid gray;
 			border-top: 1px solid gray;
 	 		background-color: rgb(235, 235, 235);

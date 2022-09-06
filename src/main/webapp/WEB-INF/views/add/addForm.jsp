@@ -140,7 +140,7 @@
          </tr>
          <tr class="tHeight">
             <td class="name"> 비밀번호 </td>
-            <td class="cont"> <input class="box"  type="password" name="user_pw" size = "10"> </td>
+            <td class="cont"> <input class="box"  type="password" name="user_pw" size = "10" style="font-family: serif;"> </td>
          </tr>
          <tr class="tHeight">
             <td class="name"> 이름 </td>

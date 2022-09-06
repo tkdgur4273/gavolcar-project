@@ -30,6 +30,8 @@ class BoardsMapperTest {
 		System.out.println(boardMapper.userCheck("dong"));
 		System.out.println(boardMapper.userCheck("dong").size());
 		
+		
+		
 	}
 
 }

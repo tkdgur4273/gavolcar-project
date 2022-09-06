@@ -97,9 +97,9 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 300px; background-color: white; opacity: 0.7;" border="5px solid black">
+				<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">회원정보 관리</a></td>
+						<td><a href="../admin/list" style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
 						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
@@ -114,10 +114,10 @@
 						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>
@@ -130,7 +130,7 @@
 
 				<table border="1" class="col-10"
 					style="font-size: 2em; margin: 5em; border:4px solid gray;">
-					<tr>
+					<tr style="background-color:  rgba(155, 155, 155, 0.603);">
 						<td width="50">번호</td>
 						<td>이익</td>
 						<td>차종</td>
@@ -153,7 +153,7 @@
 						<form id="updateForm" action="/transUpdate" method="post">
 							<input type="hidden" name="trans_no" value="${list.trans_no}">
 							<tr>
-								<td>${list.trans_no}</td>
+								<td style="background-color: rgb(235, 235, 235); padding-left: 20px;">${list.trans_no}</td>
 								<td><input name="trans_sales" type="number"
 									value="${list.trans_sales}"></td>
 

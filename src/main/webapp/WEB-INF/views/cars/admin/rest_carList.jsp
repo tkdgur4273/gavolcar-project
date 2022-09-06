@@ -198,9 +198,9 @@ $(document).ready(function() {
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 300px; background-color: white; opacity: 0.7;"  border="5px solid black;">
+					<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">회원정보 관리</a></td>
+						<td><a href="../admin/list" style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
 						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
@@ -215,10 +215,10 @@ $(document).ready(function() {
 						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>

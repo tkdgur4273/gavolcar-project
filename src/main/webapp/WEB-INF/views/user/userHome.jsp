@@ -63,7 +63,7 @@
 	}
 	</style>
 	<script type="text/javascript">
-	function couponPopup(){window.open("./couponInfo?user_id=<sec:authentication property='principal.username'/>", "coupon", "width=500, height=300, left=100, top=50");}
+	function couponPopup(){window.open("./couponInfo?user_id=<sec:authentication property='principal.username'/>", "coupon", "width=900, height=400, left=100, top=50");}
 	</script>
 </head>
 
@@ -122,7 +122,7 @@
 String user_id = (String) session.getAttribute("user_id");
 %>
 
-<p>안녕하세요 <sec:authentication property="principal.username"/>님!</p>
+<p style="margin: 20px;">안녕하세요 <sec:authentication property="principal.username"/>님!</p>
 <h3 style=" text-align: left; margin: 60px 30px;">내 정보</h3>
 <table style="margin: 20px auto; font-size: 20px; width: 700px; text-align: left; color: rgb(70, 70, 70);"  cellpadding="10px" cellspacing="0">
 	<tr height="50px">

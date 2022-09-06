@@ -93,6 +93,11 @@
 			line-height: 3em;
 			font-size: 1.5em;
 		}
+		.bar{
+	background-color: rgb(235, 235, 235);
+	padding-left: 20px;
+	
+}
 	</style>
 </head><!--/head-->
 
@@ -119,9 +124,9 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 300px; background-color: white; opacity: 0.7;" border="5px solid black;">
+				<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">회원정보 관리</a></td>
+						<td><a href="../admin/list" style="text-decoration: none; color: black; wid">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
 						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
@@ -136,10 +141,10 @@
 						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>
@@ -149,27 +154,27 @@
 				<table width="500" cellpadding="0" cellspacing="0" class="col-10"  border="1" style="font-size: 2em; margin: 5em;">
       <form id="updateForm" action="admin/arealist" method="post" enctype="multipart/form-data">
          <tr>
-            <td>명소이름</td>
+            <td class="bar">명소이름</td>
             <td><input id="area_name" type="text" name="name" value="${name.area_name}"></td>
          </tr>
          <tr>
-            <td> 명소주소 </td>
+            <td class="bar"> 명소주소 </td>
             <td> <input id="area_loc" type="text" name="loc" value="${name.area_loc}"></td>
          </tr>
          <tr>
-            <td> 이용시간 </td>
+            <td class="bar"> 이용시간 </td>
             <td> <input id="area_time" type="text" name="time" value="${name.area_time}"></td>
          </tr>
          <tr>
-            <td> 내용 </td>
+            <td class="bar"> 내용 </td>
             <td><textarea id="area_contents" rows="10" name="contents" >${name.area_contents}</textarea></td>
          </tr>
           <tr>
-            <td> 이미지 </td>
+            <td class="bar"> 이미지 </td>
             <td> <input type="file" name="file" id="file"></td>
          </tr>
          <tr>
-            <td> 전화번호 </td>
+            <td class="bar"> 전화번호 </td>
             <td> <input type="number" id="area_tel" rows="10" name="tel" >${name.area_tel}</td>
          </tr>
          <tr >

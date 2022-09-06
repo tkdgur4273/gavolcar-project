@@ -16,7 +16,7 @@ public class TransController {
 
 	@Autowired
 	private TransService transService;
-
+	//통계 페이지로
 	@GetMapping("/trans")
 	public String getTransList(Model model){
 		log.info("getTransList().....");
@@ -28,7 +28,7 @@ public class TransController {
 		return "trans/translist";
 	}
 
-
+	//관리자 통계페이지로
 	@GetMapping("/admin/transEdit")
 	public String getTransEdit(Model model){
 		log.info("getTransList().....");
@@ -36,7 +36,7 @@ public class TransController {
 
 		return "trans/admin/transEdit";
 	}
-
+	//통계정보 추가
 	@PostMapping("/transWrite")
 	public String transWrite(TransVO transVO, Model model) {
 		log.info("write Trans...");
@@ -46,7 +46,7 @@ public class TransController {
 		model.addAttribute("transList", transService.getTransList());
 		return "trans/admin/transEdit";
 	}
-
+	//통계정보 수정
 	@PostMapping("/transUpdate")
 	public String transUpdate(TransVO transVO, Model model) {
 		log.info("update Trans...");
@@ -57,7 +57,7 @@ public class TransController {
 		return "trans/admin/transEdit";
 	}
 
-
+	//통계정보 제거
 	@GetMapping("/transDelete")
 	public String transDelete(TransVO transVO, Model model) {
 		log.info("delete Trans...");

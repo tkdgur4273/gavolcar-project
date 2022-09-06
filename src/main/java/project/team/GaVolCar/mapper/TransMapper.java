@@ -12,12 +12,12 @@ import project.team.GaVolCar.vo.TransVO;
 
 @Mapper
 public interface TransMapper {
-	public List<TransVO> getTransList();
-	public List<TransCountMonthVO> getMonth();
-	public List<TransCountTypeVO> getType();
+	public List<TransVO> getTransList();//모든 통계정보
+	public List<TransCountMonthVO> getMonth();//월별 통계정보
+	public List<TransCountTypeVO> getType();//제조사별 통계정보
 	
-	public void insertTrans(TransVO transVO);
-	public void updateTrans(TransVO transVO);
-	public void deleteTrans(TransVO transVO);
+	public void insertTrans(TransVO transVO);//통계정보 추가
+	public void updateTrans(TransVO transVO);//통계정보 수정
+	public void deleteTrans(TransVO transVO);//통계정보 삭제
 	
 }

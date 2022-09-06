@@ -98,6 +98,15 @@
 	background: url(../기어.png);
 	background-size: cover;
 }
+.bar{
+	background-color: rgb(235, 235, 235);
+	padding-left: 20px;
+	width: 150px;
+}
+.cont{
+	padding-left: 20px;
+	
+}
 </style>
 </head>
 <!--/head-->
@@ -125,9 +134,9 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 300px; background-color: white; opacity: 0.7;" border="5px solid black;">
+					<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">회원정보 관리</a></td>
+						<td><a href="../admin/list" style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
 						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
@@ -142,10 +151,10 @@
 						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>
@@ -155,54 +164,54 @@
 	var imglo = "\\carsimages\\" + "${no.car_img}";
 	
 </script>
-				<table width="700" cellpadding="0" cellspacing="0" class="col-10"
+				<table width="700" cellpadding="0" cellspacing="0" class="col-8"
 					border="1" style="font-size: 2em; margin: 5em;">
 
 
 					<tr>
-						<td>등록번호</td>
-						<td id="no">${no.car_no}</td>
+						<td class="bar">등록번호</td>
+						<td class="cont" id="no">${no.car_no}</td>
 					</tr>
 					<tr>
-						<td>차종</td>
-						<td id="type">${no.car_type}</td>
+						<td class="bar">차종</td>
+						<td class="cont" id="type">${no.car_type}</td>
 					</tr>
 					<tr>
-						<td>제조회사</td>
-						<td id="company">${no.car_company}</td>
+						<td class="bar">제조회사</td>
+						<td class="cont" id="company">${no.car_company}</td>
 					</tr>
 					<tr>
-						<td>탑승인원</td>
-						<td id="volume">${no.car_volume}</td>
+						<td class="bar">탑승인원</td>
+						<td class="cont" id="volume">${no.car_volume}</td>
 					</tr>
 					<tr>
-						<td>차량 색</td>
-						<td id="color">${no.car_color}</td>
+						<td class="bar">차량 색</td>
+						<td class="cont" id="color">${no.car_color}</td>
 					</tr>
 					<tr>
-						<td>연료</td>
-						<td id="fuel">${no.car_fuel}</td>
+						<td class="bar">연료</td>
+						<td class="cont" id="fuel">${no.car_fuel}</td>
 					</tr>
 					<tr>
-						<td>배기량</td>
-						<td id="cc">${no.car_cc}</td>
+						<td class="bar">배기량</td>
+						<td class="cont" id="cc">${no.car_cc}</td>
 					</tr>
 					<tr>
-						<td>가격</td>
-						<td id="price">${no.car_price}</td>
+						<td class="bar">가격</td>
+						<td class="cont" id="price">${no.car_price}</td>
 					</tr>
 					<tr>
-						<td>이미지</td>
-						<td id="imglo"></td>
+						<td class="bar">이미지</td>
+						<td class="cont" id="imglo"></td>
 						<input type="hidden" id="img" value="${no.car_img}">
 					</tr>
 					<script type="text/javascript">
-			var imglocation = "<img src='"+("\\carsimages\\" + "${no.car_img}")+"' width='1200px'>";
+			var imglocation = "<img src='"+("\\carsimages\\" + "${no.car_img}")+"' width='900px'>";
 			$("#imglo").append(imglocation);
 		</script>
 					<tr>
 
-						<td colspan="2"><a href="carmodify?car_no=${no.car_no}">수정하기</a>
+						<td  class="cont" colspan="2"><a href="carmodify?car_no=${no.car_no}">수정하기</a>
 							&nbsp;&nbsp; <a href="admin/carlist">목록보기</a> &nbsp;&nbsp; <a
 							id="cardelete" href="admin/carlist">삭제</a></td>
 					</tr>

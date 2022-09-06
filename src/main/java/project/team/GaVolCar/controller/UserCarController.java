@@ -17,7 +17,7 @@ public class UserCarController {
 	@Autowired
 	private CarsService carsService;
 
-	//지역정보 리스트이동
+	//차량정보 리스트이동
 	@GetMapping("/carlist_user")
 	public String list(Model model) {
 
@@ -26,7 +26,7 @@ public class UserCarController {
 		return "cars/rest_carList";
 	}
 
-	//지역정보 contents_view이동
+	//차량정보 contents_view이동
 	@GetMapping("/carcontent_view_user")
 	public String rest_car_view(CarsVO carVO ,Model model){
 		log.info("rest_car_view()...");

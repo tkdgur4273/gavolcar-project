@@ -94,6 +94,14 @@
 	line-height: 3em;
 	font-size: 1.5em;
 }
+.bar{
+	background-color: rgb(235, 235, 235);
+	padding-left: 20px;
+}
+.cont{
+	padding-left: 20px;
+	
+}
 </style>
 </head>
 <!--/head-->
@@ -121,9 +129,9 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 300px; background-color: white; opacity: 0.7;" border="5px solid black;">
+				<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">회원정보 관리</a></td>
+						<td><a href="../admin/list" style="text-decoration: none; color: black; wid">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
 						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
@@ -138,10 +146,10 @@
 						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>
@@ -156,37 +164,37 @@
 
 
 					<tr>
-						<td>명소이름</td>
-						<td id="name">${name.area_name}</td>
+						<td class="bar">명소이름</td>
+						<td class="cont" id="name">${name.area_name}</td>
 					</tr>
 					<tr>
-						<td>명소주소</td>
-						<td id="loc">${name.area_loc}</td>
+						<td class="bar">명소주소</td>
+						<td class="cont" id="loc">${name.area_loc}</td>
 					</tr>
 					<tr>
-						<td>이용시간</td>
-						<td id="time">${name.area_time}</td>
+						<td class="bar">이용시간</td>
+						<td class="cont" id="time">${name.area_time}</td>
 					</tr>
 					<tr>
-						<td>내용</td>
-						<td id="contents">${name.area_contents}</td>
+						<td class="bar">내용</td>
+						<td class="cont" id="contents">${name.area_contents}</td>
 					</tr>
 					<tr>
-						<td>이미지</td>
-						<td id="imglo"></td>
+						<td class="bar">이미지</td>
+						<td class="cont" id="imglo"></td>
 						<input type="hidden" id="img" value="${name.area_img}">
 					</tr>
 					<script type="text/javascript">
-			var imglocation = "<img src='"+("\\areaimage\\" + "${name.area_img}")+"' width='1200px'>";
+			var imglocation = "<img src='"+("\\areaimage\\" + "${name.area_img}")+"' width='900px'>";
 			$("#imglo").append(imglocation);
 		</script>
 					<tr>
-						<td>전화번호</td>
-						<td id="tel">${name.area_tel}</td>
+						<td class="bar">전화번호</td>
+						<td class="cont" id="tel">${name.area_tel}</td>
 					</tr>
 					<tr>
 
-						<td colspan="2"><a
+						<td class="cont" colspan="2"><a
 							href="areamodify?area_name=${name.area_name}">수정하기</a>
 							&nbsp;&nbsp; <a href="admin/arealist">목록보기</a> &nbsp;&nbsp; 
 							<a id="area_delete" href="admin/arealist">삭제</a></td>

@@ -8,10 +8,10 @@ import project.team.GaVolCar.vo.AreaVO;
 
 @Mapper
 public interface AreaMapper {
-	public List<AreaVO> getAreaList();
-	AreaVO areaRead(String area_name);
-	void areaInsert(AreaVO area);
-	int areaUpdate(AreaVO area);
-	int areaDelete(AreaVO area);
+	public List<AreaVO> getAreaList();//모든지역정보
+	AreaVO areaRead(String area_name);//개별지역 정보
+	void areaInsert(AreaVO area);//지역정보 추가
+	int areaUpdate(AreaVO area);//지역정보 수정
+	int areaDelete(AreaVO area);//지역정보 삭제
 
 }

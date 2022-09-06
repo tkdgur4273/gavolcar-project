@@ -60,10 +60,10 @@ function list(result) {
     $("#list-table").html("");
     
     $("<tr>" , {
-       html : "<td>" + "지역명소 이름" + "</td>"+  // 컬럼명들
-             "<td>" + "지역명소 주소" + "</td>"+
-             "<td>" + "이용시간" + "</td>"+
-             "<td>" + "전화번호" + "</td>"
+       html : "<td style='background-color:  rgba(155, 155, 155, 0.603);'>" + "지역명소 이름" + "</td>"+  // 컬럼명들
+             "<td style='background-color:  rgba(155, 155, 155, 0.603);'>" + "지역명소 주소" + "</td>"+
+             "<td style='background-color:  rgba(155, 155, 155, 0.603);'>" + "이용시간" + "</td>"+
+             "<td style='background-color:  rgba(155, 155, 155, 0.603);'>" + "전화번호" + "</td>"
     }).appendTo("#list-table") // 이것을 테이블에 붙임
     
     	
@@ -73,7 +73,7 @@ function list(result) {
        
        $(result).each(function() {
           htmls += '<tr>';
-          htmls += '<td>' + '<a href="/areacontent_view?area_name=' + this.area_name + '">' + this.area_name + '</a></td>'
+          htmls += '<td>' + '<a style="text-decoration: none; color: rgb(0, 88, 10);" href="/areacontent_view?area_name=' + this.area_name + '">' + this.area_name + '</a></td>'
           htmls += '<td>' + this.area_loc +'</td>'; 
           htmls += '<td>' + this.area_time +'</td>'; 
           htmls += '<td>'+ this.area_tel + '</td>';
@@ -161,9 +161,9 @@ $(document).ready(function() {
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 300px; background-color: white; opacity: 0.7;" border="5px solid black;">
+				<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">회원정보 관리</a></td>
+						<td><a href="../admin/list" style="text-decoration: none; color: black; wid">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
 						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
@@ -178,10 +178,10 @@ $(document).ready(function() {
 						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>

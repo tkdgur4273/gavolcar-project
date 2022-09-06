@@ -137,12 +137,12 @@
     </p>
     <p>
         <label for="password">비밀번호</label>
-        <input type="password" id="password" name="password" style="height: 20px;"/>
+        <input type="password" id="password" name="password" style="height: 20px;font-family: serif; width: 235px;"/>
     </p>
     <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
     <button type="submit"  style="width: 90px; height: 32px; font-size: 20px;">로그인</button>
     <input type="button" value="회원가입"  onclick="location.href='/add/addForm'" style="width: 110px; height: 32px; font-size: 20px;">
-    <p style="height: 30px; text-align: 30px;">
+    <p style="height: 30px; text-align: 30px;margin-top: 30px;">
      [간편 로그인]</p><p><a href="/oauth2/authorization/google"><img src="../구글.png" width="50px" height="50px"></a>
     
     </p>

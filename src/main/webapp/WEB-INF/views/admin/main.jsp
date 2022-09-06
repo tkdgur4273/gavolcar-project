@@ -2,8 +2,7 @@
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +51,7 @@
 <style type="text/css">
 #warp {
 	text-align: center;
-	font-size: 4em;
+	font-size: 40px;
 	background: url(../기어.png);
 	background-size: cover;
 }
@@ -93,7 +92,7 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 300px; background-color: white; opacity: 0.7;">
+				<table style="width: 300px; background-color: white; opacity: 0.7;" border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
 						<td><a href="../admin/list" style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>

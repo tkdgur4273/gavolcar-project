@@ -112,6 +112,11 @@
 	background: url(../기어.png);
 	background-size: cover;
 }
+.bar{
+	background-color: rgb(235, 235, 235);
+	padding-left: 20px;
+	
+}
 </style>
 </head>
 <!--/head-->
@@ -139,9 +144,9 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 300px; background-color: white; opacity: 0.7;" border="5px solid black;">
+					<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">회원정보 관리</a></td>
+						<td><a href="../admin/list" style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
 						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
@@ -156,10 +161,10 @@
 						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>
@@ -174,41 +179,41 @@
 						<td><input id="car_no" type="hidden" name="car_no" value="5"></td>
 
 						<tr>
-							<td>차종</td>
+							<td class="bar">차종</td>
 							<td><input id="car_type" type="text" name="car_type"
 								value="${no.car_type}"></td>
 						</tr>
 						<tr>
-							<td>제조회사</td>
+							<td class="bar">제조회사</td>
 							<td><input id="car_company" type="text" name="car_company"
 								value="${no.car_company}"></td>
 						</tr>
 						<tr>
-							<td>탑승인원</td>
+							<td class="bar">탑승인원</td>
 							<td><input id="car_volume" type="text" name="car_volume"
 								value="${no.car_volume}"></td>
 						</tr>
 						<tr>
-							<td>차량 색</td>
+							<td class="bar">차량 색</td>
 							<td><input id="car_color" type="text" name="car_color"
 								value="${no.car_color}"></td>
 						</tr>
 						<tr>
-							<td>연료</td>
+							<td class="bar">연료</td>
 							<td><input id="car_fuel" type="text" name="car_fuel"
 								value="${no.car_fuel}"></td>
 						</tr>
 						<tr>
-							<td>배기량</td>
+							<td class="bar">배기량</td>
 							<td><input id="car_cc" type="text" name="car_cc"
 								value="${no.car_cc}"></td>
 						</tr>
 						<tr>
-							<td>가격</td>
-							<td><textarea id="car_price" rows="10" name="car_price">${no.car_price}</textarea></td>
+							<td class="bar">가격</td>
+							<td><input id="car_price" rows="10" name="car_price" value="${no.car_price}"></td>
 						</tr>
 						<tr>
-							<td>이미지</td>
+							<td class="bar">이미지</td>
 							<td><input type="file" name="file" id="file"></td>
 						</tr>
 						<tr>

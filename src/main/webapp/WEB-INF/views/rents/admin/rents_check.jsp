@@ -88,6 +88,11 @@ function modifyPopup(){window.open("../adminmodifyPopup", "modify", "width=600, 
 	background: url(../기어.png);
 	background-size: cover;
 }
+.bar{
+	background-color: rgb(235, 235, 235);
+	padding-left: 20px;
+	
+}
 </style>
 </head>
 <!--/head-->
@@ -113,9 +118,9 @@ function modifyPopup(){window.open("../adminmodifyPopup", "modify", "width=600, 
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 300px; background-color: white; opacity: 0.7;" border="5px solid black;">
+					<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">회원정보 관리</a></td>
+						<td><a href="../admin/list" style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
 						<td><a href="../admin/carlist" style="text-decoration: none; color: black;">차량 관리</a></td>
@@ -130,10 +135,10 @@ function modifyPopup(){window.open("../adminmodifyPopup", "modify", "width=600, 
 						<td><a href="../admin/arealist" style="text-decoration: none; color: black;">지역정보 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">고객지원 관리</a></td>
+						<td><a href="/adminCustommerService" style="text-decoration: none; color: black;">고객지원 관리</a></td>
 					</tr>
 					<tr style="border: 1px solid black; height: 120px;">
-						<td><a href="#" style="text-decoration: none; color: black;">후기 관리</a></td>
+						<td><a href="/review/adminList" style="text-decoration: none; color: black;">후기 관리</a></td>
 					</tr>
 				</table>
 			</div>
@@ -163,7 +168,7 @@ function modifyPopup(){window.open("../adminmodifyPopup", "modify", "width=600, 
 						<c:forEach var="rents" items="${list}">
 
 							<tr>
-								<td>${rents.rez_no}</td>
+								<td class="bar">${rents.rez_no}</td>
 								<td>${rents.user_id}</td>
 								<td>${rents.rent_start_date}</td>
 								<td>${rents.rent_end_date}</td>
@@ -181,7 +186,7 @@ function modifyPopup(){window.open("../adminmodifyPopup", "modify", "width=600, 
 					</table>
 					<form style="text-align: right; margin: 0 130px;" action="/admin/rentsearch" method="get">
 						<input type="text" name="user_id">
-						<input type="submit" value="검색">
+						<input type="submit" value="유저 검색">
 					</form>
 
 
