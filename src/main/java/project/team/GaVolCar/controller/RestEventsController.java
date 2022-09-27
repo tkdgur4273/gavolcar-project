@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.extern.slf4j.Slf4j;
 import project.team.GaVolCar.service.EventService;
 import project.team.GaVolCar.vo.PeventsRentsVO;
-import project.team.GaVolCar.vo.RentsVO;
+import project.team.GaVolCar.vo.RentsVO2;
 
 @Slf4j
 @RequestMapping("/pevent")
@@ -32,7 +32,7 @@ public class RestEventsController {
 
 	//특정 유저 이벤트 리스트 호출
 	@GetMapping("/{user_id}")
-	public List<PeventsRentsVO> getPointsInfo(RentsVO rentsVO, Model model) {
+	public List<PeventsRentsVO> getPointsInfo(RentsVO2 rentsVO, Model model) {
 		log.info("getPointsInfo()....");
 		log.info(rentsVO.getUser_id());
 

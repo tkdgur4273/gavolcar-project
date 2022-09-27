@@ -4,17 +4,130 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="project.team.GaVolCar.mapper.RentsMapper">
 	
-	<select id="getRentsList" resultType="project.team.GaVolCar.vo.RentsVO">
+	<select id="getRentsList2" resultType="project.team.GaVolCar.vo.RentsVO2">
 		<![CDATA[
 			select * from rents where user_id = #{user_id} order by rez_no desc
 		]]>
 	</select>
-	<select id="getAllRentsList" resultType="project.team.GaVolCar.vo.RentsVO">
+	<select id="getAllRentsList" resultType="project.team.GaVolCar.vo.RentsVO2">
 		<![CDATA[
 			select * from rents order by rez_no desc
 		]]>
 	</select>
 	
+   
+   
+   
+
+
+	<!--VO두개이상 불러오기-->
+	<resultMap id="rentsMap" type="RentsVO">
+      <id property="rez_no" column="rez_no" />
+      <result property="user_id" column="user_id" />
+      <result property="rent_start_date" column="rent_start_date" />
+      <result property="rent_end_date" column="rent_end_date" />
+      <result property="final_cost" column="final_cost" />
+      <result property="hipass" column="hipass" />
+      <result property="baby_car_seat" column="baby_car_seat" />
+      <result property="car_no" column="car_no" />
+      <!-- 이건 rents와 user 두개 조인 -->
+      <collection property="rentsUsers" resultMap="rentUserMap" />
+      <!-- 이건 rents와 car 두개 조인 -->
+      <collection property="rentsCars" resultMap="rentCarMap" />
+   </resultMap>
+
+   
+   <resultMap id="rentUserMap" type="UsersVO">
+      <id property="user_id" column="user_id" />
+      <result property="user_pw" column="user_pw" />
+      <result property="user_name" column="user_name" />
+      <result property="user_phone_number" column="user_phone_number" />
+      <result property="user_age" column="user_age" />
+      <result property="user_email" column="user_email" />     
+   </resultMap>
+
+   <resultMap id="rentCarMap" type="CarsVO">
+      <id property="car_no" column="car_no" />
+      <result property="car_company" column="car_company" />
+      <result property="car_volume" column="car_volume" />
+      <result property="car_color" column="car_color" />
+      <result property="car_fuel" column="car_fuel" />
+      <result property="car_cc" column="car_cc" />
+      <result property="car_price" column="car_price" />
+      <result property="car_img" column="car_img" /> 
+   </resultMap>
+   
+	
+	<!-- 예약리스트 확인 -->
+	<select id="getRentsList" resultType="project.team.GaVolCar.vo.RentsVO">
+		<![CDATA[
+			select * from rents where user_id = #{user_id} order by rez_no desc
+		]]>
+	</select>
+	
+	<!-- 회원정보 확인 -->
+	<select id="getRentsUsers" resultMap="rentUserMap">
+		<![CDATA[
+			select * from users, rents where users.user_id = rents.user_id and users.user_id = #{user_id}
+		]]>
+			<!-- 유저 아이디로 들어오는 로직 추가되면 where user_id = #{user_id} 으로 고치기-->
+	</select>
+	
+	<!-- 회원리스트 확인 -->
+	<select id="getRentsUsersList" resultType="project.team.GaVolCar.vo.UsersVO">
+		<![CDATA[
+			select * from users 
+		]]>
+	</select>
+	
+	<!-- 차량 리스트 확인 -->
+	<select id="getRentsCarsList" resultType="project.team.GaVolCar.vo.CarsVO">
+		<![CDATA[
+			select * from cars order by car_no desc
+		]]>
+	</select>
+	
+	<!-- 차량 정보 확인 -->
+	<select id="getRentsCarsInfo" resultType="project.team.GaVolCar.vo.CarsVO">
+		<![CDATA[
+			select * from cars where car_no = #{car_no}
+		]]>
+	</select>
+	
+	<!-- 예약정보 확인 -->
+	<select id="getRentsInfo" resultMap="rentCarMap">
+		<![CDATA[
+			select * from rents, cars where rents.car_no = cars.car_no and rents.rez_no=#{rez_no}
+		]]>
+	</select>
+	<!-- 예약번호로 들어오는 로직 추가되면 rents.rez_no=#{rez_no}-->
+	<!-- 예약 추가 -->
+	<insert id="insertRents">
+		<![CDATA[
+			insert into rents(rez_no, rent_start_date, rent_end_date, final_cost, hipass, baby_car_seat, user_id, car_no) 
+			values (rez_no_sequence.nextval,#{rent_start_date},#{rent_end_date},#{final_cost},#{hipass},#{baby_car_seat},#{user_id},#{car_no})
+			
+		]]>
+	</insert>	
+	
+	<!-- 예약 수정 -->
+	<update id="updateRents">
+		<![CDATA[
+			update rents set rent_start_date=#{rent_start_date},rent_end_date=#{rent_end_date},final_cost=#{final_cost},
+			hipass=#{hipass},baby_car_seat=#{baby_car_seat},user_id=#{user_id},car_no=#{car_no} where rez_no=#{rez_no}
+		]]>
+	</update>
+	
+	<!-- 예약 삭제 -->
+	<delete id="deleteRents">
+		<![CDATA[
+			delete from rents where rez_no=#{rez_no}
+		]]>
+	</delete>
+	
+	<!-- 전체 랜탈 수 -->
+	
+   
    
    
 

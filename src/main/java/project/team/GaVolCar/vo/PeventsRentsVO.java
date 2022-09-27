@@ -20,7 +20,7 @@ public class PeventsRentsVO {
 	private int rez_no;
 	
 	
-	List<RentsVO> rentsList;
+	List<RentsVO2> rentsList;
 	
 	
 	

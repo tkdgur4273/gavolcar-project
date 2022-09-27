@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 import project.team.GaVolCar.mapper.TransMapper;
 import project.team.GaVolCar.vo.PeventsRentsVO;
-import project.team.GaVolCar.vo.RentsVO;
+import project.team.GaVolCar.vo.RentsVO2;
 import project.team.GaVolCar.vo.TransCountMonthVO;
 import project.team.GaVolCar.vo.TransCountTypeVO;
 import project.team.GaVolCar.vo.TransVO;

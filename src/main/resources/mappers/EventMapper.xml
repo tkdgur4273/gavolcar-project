@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="project.team.GaVolCar.mapper.EventMapper">
 	
-	<resultMap id="rentmap" type="RentsVO">
+	<resultMap id="rentmap" type="RentsVO2">
 		<id property="rez_no" column="rez_no"/>
 		<result property="rent_start_date" column="rent_start_date"/>
 		<result property="rent_end_date" column="rent_end_date"/>

@@ -11,7 +11,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class RentsVO {
+public class RentsVO2 {
 	private int rez_no;
 	private String rent_start_date;
 	private String rent_end_date;
