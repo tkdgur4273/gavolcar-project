@@ -113,8 +113,18 @@ function modifyPopup(){window.open("../modifyPopup", "modify", "width=600, heigh
 				<tr>
 					<td><a href="/user/userHome"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">마이페이지</a></td>
-					<td><a href="/rez/reserve"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a></td>
+					<td>
+						<sec:authorize access="isAnonymous()">
+					<a href="/login"
+						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a>
+					
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+					<a href="/rez/reserve"
+						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a>
+					</sec:authorize>	
+						
+					</td>
 					<td><a href="/custommerService"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">고객지원</a></td>
 					<td><a href="/review/userList"

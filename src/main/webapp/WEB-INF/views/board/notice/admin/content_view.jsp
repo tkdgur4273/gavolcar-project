@@ -72,7 +72,7 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
+				<table style="width: 100%; background-color: white; opacity: 0.7;" border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
 						<td><a href="../admin/list" style="text-decoration: none; color: black; wid">회원정보 관리</a></td>
 					</tr>

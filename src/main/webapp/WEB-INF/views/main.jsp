@@ -84,6 +84,7 @@
 }
 
 #footbar {
+
 	text-align: center;
 }
 
@@ -133,8 +134,19 @@
 					<td class="col-2"><a href="#"><img src="후기.png" width="100em"></a></td>  -->
 					<td><a href="/user/userHome"
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 20em;">마이페이지</a></td>
-					<td><a href="/rez/reserve"
-						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">예약</a></td>
+					<td>
+					
+					<sec:authorize access="isAnonymous()">
+					<a href="/login"
+						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">예약</a>
+					
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+					<a href="/rez/reserve"
+						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">예약</a>
+					</sec:authorize>	
+						
+						</td>
 					<td><a href="custommerService"
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">고객지원</a></td>
 					<td><a href="/review/userList"
@@ -166,7 +178,6 @@
 				</div>
 			</sec:authorize>
 		</div>
-	</div>
 	</div>
 	<!--/header-middle-->
 	<section id="slider">
@@ -261,10 +272,20 @@
 	<div class="container col-10">
 		<div id="upperbar" class="row">
 			<div id="upperbar1" class="col-4" style="background:;">
-				<a href="/rez/reserve" style="text-decoration: none;"><div
+				<sec:authorize access="isAuthenticated()"><a href="/rez/reserve" style="text-decoration: none;"><div
 						style="margin: 1em; border: 5px solid rgb(0, 51, 99); height: 39.5em;">
 						<img src="검정예약.png" height="280em" width="100%">
 						<div style="font-size: 50px; color: rgb(0, 51, 99)">예약하기</div>
+				</sec:authorize>	
+				<sec:authorize access="isAnonymous()"><a href="/login" style="text-decoration: none;"><div
+						style="margin: 1em; border: 5px solid rgb(0, 51, 99); height: 39.5em;">
+						<img src="검정예약.png" height="280em" width="100%">
+						<div style="font-size: 50px; color: rgb(0, 51, 99)">예약하기</div>
+				</sec:authorize>	
+					
+					
+					
+					
 					</div></a>
 			</div>
 			<div id="upperbar2" class="col-4" style="background:;">

@@ -57,12 +57,18 @@
 
 #footbar {
 	text-align: center;
+	width:100%;
+	position: absolute;
+	bottom: 0;
 }
 
 #foottxt {
 	color: gray;
 	line-height: 2em;
 	font-size: 1em;
+}
+#check{
+	text-align: center;
 }
 
 </style>
@@ -99,8 +105,19 @@
 					<td class="col-2"><a href="#"><img src="후기.png" width="100em"></a></td>  -->
 					<td><a href="#"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">마이페이지</a></td>
-					<td><a href="#"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a></td>
+					<td>
+					
+					<sec:authorize access="isAnonymous()">
+					<a href="/login"
+						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a>
+					
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+					<a href="/rez/reserve"
+						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a>
+					</sec:authorize>	
+						
+						</td>
 					<td><a href="/custommerService"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">고객지원</a></td>
 					<td><a href="#"
@@ -150,8 +167,8 @@
 	          pg: "html5_inicis",
 	          pay_method: "samsung",
 	          merchant_uid: "ord20180131-0000011",
-	          name: "노르웨이 회전 의자",
-	          amount: 64900,
+	          name: "가볼카 랜트카 예약",
+	          amount: ${rentsinfo.final_cost},
 	          buyer_email: "gildong@gmail.com",
 	          buyer_name: "홍길동",
 	          buyer_tel: "010-4242-4242",
@@ -180,8 +197,80 @@
   
 <div style="text-align: center;">
 	
-	<button onclick="requestpay()"><img src="../삼성페이.jpg" height="90px"></button>
+	<div style="height: 40px; line-height: 40px; font-size: 30px; margin: 20px auto;">최종내역 확인</div>
 
+
+	<table id="check" width="700" cellpadding="0" cellspacing="0" style="margin: 50px auto;" border="4px solid black;">
+		<form method="post">
+			
+			<tr>
+				<td style=" border-bottom: 4px solid black; border-top:  4px solid black; background-color:rgb(125, 164, 224);">랜트 시작일</td>
+				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;font-size: 40px;height: 70px"><input type="hidden" name="b_title"
+					value="${rentsinfo.rent_start_date}">${rentsinfo.rent_start_date}</td>
+			</tr>
+			<tr>
+				<td style=" border-bottom: 4px solid black; border-top:  4px solid black; background-color:rgb(125, 164, 224);">랜트 종료일</td>
+				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;font-size: 40px;height: 70px"><input type="hidden" name="b_title"
+					value="${rentsinfo.rent_end_date}">${rentsinfo.rent_end_date}</td>
+			</tr>
+			
+			<tr>
+				<td style=" border-bottom: 4px solid black; border-top:  4px solid black; background-color:rgb(125, 164, 224);">하이패스</td>
+				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;font-size: 40px;height: 70px"><input type="hidden" name="b_title"
+					value="${rentsinfo.hipass}">${rentsinfo.hipass}</td>
+			</tr>
+			<tr>
+				<td style=" border-bottom: 4px solid black; border-top:  4px solid black; background-color:rgb(125, 164, 224);">카시트</td>
+				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;font-size: 40px;height: 70px"><input type="hidden" name="b_title"
+					value="${rentsinfo.baby_car_seat}">${rentsinfo.baby_car_seat}</td>
+			</tr>
+			<tr>
+				<td style=" border-bottom: 4px solid black; border-top:  4px solid black; background-color:rgb(125, 164, 224);">차량번호</td>
+				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;font-size: 40px;height: 70px"><input type="hidden" name="b_title"
+					value="${rentsinfo.car_no}">${rentsinfo.car_no}</td>
+				
+			</tr>
+			<tr>
+				<td style=" border-bottom: 4px solid black; border-top:  4px solid black; background-color:rgb(125, 164, 224);">총 요금</td>
+				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;font-size: 40px;height: 70px"><input type="hidden" name="b_title"
+					value="${rentsinfo.final_cost}">${rentsinfo.final_cost} 원</td>
+			</tr>
+			
+		</form>
+	</table>
+
+
+
+
+	
+	<button onclick="requestpay()"><img src="../삼성페이.jpg" height="90px"></button>
+	<table>
+	<form action="/insertRents2" method="post">
+		
+			
+		<tr>
+        	<td><input type="hidden" name="user_id" id="user_id" title="아이디"
+        			value=<sec:authentication property="principal.username" /> valid='{"required":"true"}' readonly> </td>
+        	<td><input type="hidden" name="rent_start_date" id="rent_start_date" title="아이디"
+        			value="${rentsinfo.rent_start_date}" valid='{"required":"true"}' readonly> </td>
+        	<td><input type="hidden" name="rent_end_date" id="rent_end_date" title="아이디"
+        			value="${rentsinfo.rent_end_date}" valid='{"required":"true"}' readonly> </td>
+        	<td><input type="hidden" name="final_cost" id="final_cost" title="아이디"
+        			value="${rentsinfo.final_cost}" valid='{"required":"true"}' readonly> </td>
+        	<td><input type="hidden" name="hipass" id="hipass" title="아이디"
+        			value="${rentsinfo.hipass}" valid='{"required":"true"}' readonly> </td>
+        	<td><input type="hidden" name="baby_car_seat" id="baby_car_seat" title="아이디"
+        			value="${rentsinfo.baby_car_seat}" valid='{"required":"true"}' readonly> </td>
+        	<td><input type="hidden" name="car_no" id="car_no" title="아이디"
+        			value="${rentsinfo.car_no}" valid='{"required":"true"}' readonly> </td>
+        	
+        </tr>
+        
+		 <tr><td><input type="submit" value="(테스트용)예약하기"></a></td><td>
+		 </tr>
+
+		 </form>
+		 </table>
 </div>
 
 

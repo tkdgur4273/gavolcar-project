@@ -67,7 +67,7 @@ public class RentsController {
 	public String Rentsearch(String user_id, Model model){
 		log.info("Rentsearch().....");
 		model.addAttribute("list", rentsService.getRentList2(user_id));
-
+		
 		return "rents/admin/rents_check_search";
 	}
 	
@@ -98,19 +98,43 @@ public class RentsController {
 	}
 	
 	// rez_no, rent_start_date, rent_end_date, final_cost, hipass, baby_car_seat, user_id, car_no
-	@RequestMapping(value="/insertRents")
-    public ModelAndView formTag(HttpServletRequest request){
-        ModelAndView mv = new ModelAndView();
-        int rez_no = Integer.parseInt(request.getParameter("rez_no").trim());
-        String rent_start_date  = request.getParameter("rent_start_date");    
-        String rent_end_date  = request.getParameter("rent_end_date");
-        String final_cost  = request.getParameter("final_cost"); 
-        int hipass = Integer.parseInt(request.getParameter("hipass").trim());
-        int baby_car_seat = Integer.parseInt(request.getParameter("baby_car_seat").trim());
-        String user_id  = request.getParameter("user_id");
-        int car_no = Integer.parseInt(request.getParameter("car_no").trim());
-        
-        return mv;
+	
+//	@RequestMapping(value="/insertRents")
+//    public ModelAndView formTag(HttpServletRequest request){
+//        ModelAndView mv = new ModelAndView();
+//        int rez_no = Integer.parseInt(request.getParameter("rez_no").trim());
+//        String rent_start_date  = request.getParameter("rent_start_date");    
+//        String rent_end_date  = request.getParameter("rent_end_date");
+//        String final_cost  = request.getParameter("final_cost"); 
+//        int hipass = Integer.parseInt(request.getParameter("hipass").trim());
+//        int baby_car_seat = Integer.parseInt(request.getParameter("baby_car_seat").trim());
+//        String user_id  = request.getParameter("user_id");
+//        int car_no = Integer.parseInt(request.getParameter("car_no").trim());
+//        
+//        return mv;
+//    }
+	
+	@RequestMapping("/insertRents")
+    public String formTag(RentsVO rentsVO, Model model){
+		log.info("insert wait...");
+		if(rentsVO.getCar_no() == 0) {
+			return "rez/reserve";
+		}
+		else if(rentsVO.getUser_id() == "") {
+			return "rez/reserve";
+		}
+		else {
+		model.addAttribute("rentsinfo",rentsVO);
+		return "/pay";
+		}
+		
+    }
+	
+	@RequestMapping("/insertRents2")
+    public String formTag(RentsVO rentsVO){
+		log.info("insert wait...");
+		rentsService.insertRents(rentsVO);
+		return "main";
     }
 
 	//�삁�빟議고쉶 getRentsInfo

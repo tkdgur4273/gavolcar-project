@@ -28,6 +28,7 @@
 	font-size: 40px;
 	background: url(../기어.png);
 	background-size: cover;
+	overflow: hidden;
 }
 
 #footbar {
@@ -52,7 +53,7 @@
 	margin: 0 auto;
 	border-radius: 25px;
 }
-#table{
+#r_table{
 	width: 1200px;;
 }
 #pagetitle{
@@ -85,7 +86,7 @@
 	<div class="container col-12">
 		<div class="row">
 			<div id="warp" class="col-2" style="margin: 1em 0;">
-				<table style="width: 287px; background-color: white; opacity: 0.7;" border="5px solid black;">
+				<table style="width: 100%; background-color: white; opacity: 0.7;" border="5px solid black;">
 					<tr style="border: 1px solid black; height: 120px;">
 						<td><a href="../admin/list" style="text-decoration: none; color: black;">회원정보 관리</a></td>
 					</tr>
@@ -114,7 +115,7 @@
 
 <div id="main">
 <div id="tableTitle">후기 게시판</div>
-	<table id="table" width="600" style=" margin: 30px auto;text-align: center; border-spacing: 0px;">
+	<table id="r_table" width="600" style=" margin: 30px auto;text-align: center; border-spacing: 0px;">
 
 		<tr style=" height: 40px;">
 			<td style=" border-bottom: 4px solid black; border-top:  4px solid black;">No.</td>
