@@ -70,13 +70,11 @@
 	text-align: center;
 	font-size: 1.5em;
 	line-height: 4em;
-	
 }
 
 #headlogin {
 	text-align: center;
 	line-height: 4em;
-	
 }
 
 #upperbar {
@@ -84,7 +82,6 @@
 }
 
 #footbar {
-
 	text-align: center;
 }
 
@@ -122,7 +119,10 @@
 			<div class="col-3">
 				<a id="headlogo" href="/main"><img src="투명로고.png" height="100em"></a>
 				<sec:authorize access="hasRole('ADMIN')">
-					<div style="width: 300px;"><a href="/admin/main" style="text-decoration: none; color: rgb(0, 51, 99); font-size: 20px; font-weight: 900;" >관리자페이지로</a></div>
+					<div style="width: 300px;">
+						<a href="/admin/main"
+							style="text-decoration: none; color: rgb(0, 51, 99); font-size: 20px; font-weight: 900;">관리자페이지로</a>
+					</div>
 				</sec:authorize>
 			</div>
 
@@ -134,19 +134,14 @@
 					<td class="col-2"><a href="#"><img src="후기.png" width="100em"></a></td>  -->
 					<td><a href="/user/userHome"
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 20em;">마이페이지</a></td>
-					<td>
-					
-					<sec:authorize access="isAnonymous()">
-					<a href="/login"
-						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">예약</a>
-					
-					</sec:authorize>
-					<sec:authorize access="isAuthenticated()">
-					<a href="/rez/reserve"
-						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">예약</a>
-					</sec:authorize>	
-						
-						</td>
+					<td><sec:authorize access="isAnonymous()">
+							<a href="/login"
+								style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">예약</a>
+
+						</sec:authorize> <sec:authorize access="isAuthenticated()">
+							<a href="/rez/reserve"
+								style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">예약</a>
+						</sec:authorize></td>
 					<td><a href="custommerService"
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">고객지원</a></td>
 					<td><a href="/review/userList"
@@ -167,7 +162,7 @@
 						style="text-decoration: none; color: black; font-size: 1.5em; font-weight: 900; width: 100px;">회원가입</a>
 				</div>
 			</sec:authorize>
-			
+
 			<sec:authorize access="isAuthenticated()">
 				<div id="headlogin2" class="col-3">
 					<span
@@ -203,7 +198,9 @@
 								<div id="slider1" class="col-sm-12">
 									<div class="col-sm-6">
 										<h1 style="color: white; font-family: 'tway_sky';">
-											<span>(이벤트)</span><span style="background-color: rgb(52, 118, 218); opacity: 0.9; color: white;">여름에는 놀러가자! 포인트 대 축제</span>
+											<span>(이벤트)</span><span
+												style="background-color: rgb(52, 118, 218); opacity: 0.9; color: white;">여름에는
+												놀러가자! 포인트 대 축제</span>
 										</h1>
 										<h2 style="color: white; font-family: 'tway_sky';">예약에 따른
 											포인트 적립 이벤트!</h2>
@@ -211,7 +208,8 @@
 											2022.06.01 ~2022.08.31 까지)</p>
 										<a href="/user/eventlist"><button type="button"
 												class="btn btn-default get"
-												style="background-color:  rgb(52, 118, 218); color: white;">진행중인 이벤트 확인</button></a>
+												style="background-color: rgb(52, 118, 218); color: white;">진행중인
+												이벤트 확인</button></a>
 									</div>
 									<div class="col-sm-6" style="height: 50em"></div>
 
@@ -223,7 +221,9 @@
 								<div id="slider2" class="col-sm-12">
 									<div class="col-sm-6">
 										<h1 style="color: white; font-family: 'tway_sky';">
-											<span>(이벤트)</span><span style="background-color: rgb(52, 118, 218); opacity: 0.9; color: white;">후기 작성하고 할인쿠폰 받자!</span>
+											<span>(이벤트)</span><span
+												style="background-color: rgb(52, 118, 218); opacity: 0.9; color: white;">후기
+												작성하고 할인쿠폰 받자!</span>
 										</h1>
 										<h2 style="color: white; font-family: 'tway_sky';">후기만
 											작성해도 할인 쿠폰이!</h2>
@@ -231,7 +231,8 @@
 											2022.07.01 ~2022.09.21 까지)</p>
 										<a href="/user/eventlist"><button type="button"
 												class="btn btn-default get"
-												style="background-color:  rgb(52, 118, 218); color: white;">진행중인 이벤트 확인</button></a>
+												style="background-color: rgb(52, 118, 218); color: white;">진행중인
+												이벤트 확인</button></a>
 									</div>
 									<div class="col-sm-6" style="height: 50em"></div>
 								</div>
@@ -272,81 +273,93 @@
 	<div class="container col-10">
 		<div id="upperbar" class="row">
 			<div id="upperbar1" class="col-4" style="background:;">
-				<sec:authorize access="isAuthenticated()"><a href="/rez/reserve" style="text-decoration: none;"><div
-						style="margin: 1em; border: 5px solid rgb(0, 51, 99); height: 39.5em;">
-						<img src="검정예약.png" height="280em" width="100%">
-						<div style="font-size: 50px; color: rgb(0, 51, 99)">예약하기</div>
-				</sec:authorize>	
-				<sec:authorize access="isAnonymous()"><a href="/login" style="text-decoration: none;"><div
-						style="margin: 1em; border: 5px solid rgb(0, 51, 99); height: 39.5em;">
-						<img src="검정예약.png" height="280em" width="100%">
-						<div style="font-size: 50px; color: rgb(0, 51, 99)">예약하기</div>
-				</sec:authorize>	
-					
-					
-					
-					
+				<sec:authorize access="isAuthenticated()">
+					<a href="/rez/reserve" style="text-decoration: none;"><div
+							style="margin: 1em; border: 5px solid rgb(0, 51, 99); height: 39.5em;">
+							<img src="검정예약.png" height="280em" width="100%">
+							<div style="font-size: 50px; color: rgb(0, 51, 99)">예약하기</div>
+				</sec:authorize>
+				<sec:authorize access="isAnonymous()">
+					<a href="/login" style="text-decoration: none;"><div
+							style="margin: 1em; border: 5px solid rgb(0, 51, 99); height: 39.5em;">
+							<img src="검정예약.png" height="280em" width="100%">
+							<div style="font-size: 50px; color: rgb(0, 51, 99)">예약하기</div>
+				</sec:authorize>
+
+
+
+
+			</div>
+			</a>
+		</div>
+		<div id="upperbar2" class="col-4" style="background:;">
+			<div class="row">
+
+
+
+				<div id="upperbar3" class="col-6" style="background:;">
+					<sec:authorize access="isAuthenticated()">
+						<a
+							href="/user/rentscheck?user_id=<sec:authentication property='principal.username'/>"
+							style="text-decoration: none;"><div
+								style="margin: 5px; border: 5px solid rgb(0, 51, 99);">
+								<img src="예약조회.png" height="140em" width="100%">
+								<div style="font-size: 25px; color: rgb(0, 51, 99)">예약확인</div>
+					</sec:authorize>
+					<sec:authorize access="isAnonymous()">
+						<a href="/login" style="text-decoration: none;"><div
+								style="margin: 5px; border: 5px solid rgb(0, 51, 99);">
+								<img src="예약조회.png" height="140em" width="100%">
+
+								<div style="font-size: 25px; color: rgb(0, 51, 99)">예약확인</div>
+					</sec:authorize>
+				</div>
+				</a>
+			</div>
+			<div id="upperbar4" class="col-6" style="background:;">
+				<a href="/review/userList" style="text-decoration: none;"><div
+						style="margin: 5px; border: 5px solid rgb(0, 51, 99);">
+						<img src="검정후기.png" height="140em" width="100%">
+						<div style="font-size: 25px; color: rgb(0, 51, 99)">후기</div>
 					</div></a>
 			</div>
-			<div id="upperbar2" class="col-4" style="background:;">
-				<div class="row">
-					
-					
-					
-					<div id="upperbar3" class="col-6" style="background:;">
-						<sec:authorize access="isAuthenticated()"><a href="/user/rentscheck?user_id=<sec:authentication property='principal.username'/>" style="text-decoration: none;"><div
-								style="margin: 5px; border: 5px solid rgb(0, 51, 99);">
-								<img src="예약조회.png" height="140em" width="100%">
-								<div style="font-size: 25px; color: rgb(0, 51, 99)">예약확인</div>
-						</sec:authorize>
-						<sec:authorize access="isAnonymous()"><a href="/login" style="text-decoration: none;"><div
-								style="margin: 5px; border: 5px solid rgb(0, 51, 99);">
-								<img src="예약조회.png" height="140em" width="100%">
-								
-								<div style="font-size: 25px; color: rgb(0, 51, 99)">예약확인</div>
-						</sec:authorize>
-							</div></a>
-					</div>
-					<div id="upperbar4" class="col-6" style="background:;">
-						<a href="/review/userList" style="text-decoration: none;"><div
-								style="margin: 5px; border: 5px solid rgb(0, 51, 99);">
-								<img src="검정후기.png" height="140em" width="100%">
-								<div style="font-size: 25px; color: rgb(0, 51, 99)">후기</div>
-							</div></a>
-					</div>
-				</div>
-				<div class="row">
-					<div id="upperbar5" class="col-6" style="background:;">
-						<a href="/trans" style="text-decoration: none;"><div
-								style="margin: 5px; border: 5px solid rgb(0, 51, 99);">
-								<img src="차량 통계.png" height="140em" width="100%">
-								<div style="font-size: 25px; color: rgb(0, 51, 99)">차량통계</div>
-							</div></a>
-					</div>
-					<div id="upperbar6" class="col-6" style=" height: 200px; width: 200px;">
-						<a href="/arealist_user" style="text-decoration: none;"><div style="margin: 5px; border: 5px solid rgb(0, 51, 99);">
-								<img src="관광정보.png" height="140em" width="100%">
-								<div style="font-size: 25px; color: rgb(0, 51, 99)">관광정보</div>
-							</div></a>
-					</div>
-				</div>
+		</div>
+		<div class="row">
+			<div id="upperbar5" class="col-6" style="background:;">
+				<a href="/trans" style="text-decoration: none;"><div
+						style="margin: 5px; border: 5px solid rgb(0, 51, 99);">
+						<img src="차량 통계.png" height="140em" width="100%">
+						<div style="font-size: 25px; color: rgb(0, 51, 99)">차량통계</div>
+					</div></a>
 			</div>
-			<div id="upperbar7" class="col-4" style="background:;">
-				<h1 style="margin: 1em; font-family: 'tway_sky'; font-size: 30px">공지사항</h1>
-
-				<c:forEach var="alert" items="${alertForMainPage}">
-
-					<a href="/notice/userContent?b_no=${alert.b_no}" style="text-decoration: none;"><h4 style="height: 3em; border-bottom: 2px solid rgb(0, 51, 99); line-height: 3em; font-size: 18px;">${alert.b_contents}</h4></a>
-
-				</c:forEach>
-
-
+			<div id="upperbar6" class="col-6"
+				style="height: 200px; width: 200px;">
+				<a href="/arealist_user" style="text-decoration: none;"><div
+						style="margin: 5px; border: 5px solid rgb(0, 51, 99);">
+						<img src="관광정보.png" height="140em" width="100%">
+						<div style="font-size: 25px; color: rgb(0, 51, 99)">관광정보</div>
+					</div></a>
 			</div>
 		</div>
 	</div>
+	<div id="upperbar7" class="col-4" style="background:;">
+		<h1 style="margin: 1em; font-family: 'tway_sky'; font-size: 30px">공지사항</h1>
+
+		<c:forEach var="alert" items="${alertForMainPage}">
+
+			<a href="/notice/userContent?b_no=${alert.b_no}"
+				style="text-decoration: none;"><h4
+					style="height: 3em; border-bottom: 2px solid rgb(0, 51, 99); line-height: 3em; font-size: 18px;">${alert.b_contents}</h4></a>
+
+		</c:forEach>
+
+
+	</div>
+	</div>
+	</div>
 
 	<div>
-			<div id="toAdmin"></div>
+		<div id="toAdmin"></div>
 	</div>
 
 

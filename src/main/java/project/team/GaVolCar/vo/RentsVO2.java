@@ -16,12 +16,12 @@ public class RentsVO2 {
 	private String rent_start_date;
 	private String rent_end_date;
 	private String final_cost;
-	
+
 	private int hipass;
 	private int baby_car_seat;
 	private String user_id;
 	private int	car_no;
 	private String	hipass2;
 	private String	baby_car_seat2;
-	
+
 }

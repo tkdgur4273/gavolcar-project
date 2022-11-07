@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!-- C태그 쓰기 위해 넣은 taglib므로 반드시 확인 -->
@@ -16,8 +17,8 @@
 
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-	 
-	 <script type="text/javascript">document.cookie = "crosscookie=bar; samesite=none; secure"</script>
+
+<script type="text/javascript">document.cookie = "crosscookie=bar; samesite=none; secure"</script>
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script
@@ -57,9 +58,10 @@
 
 #footbar {
 	text-align: center;
-	width:100%;
+	width: 100%;
 	position: absolute;
 	bottom: 0;
+	position: absolute;
 }
 
 #foottxt {
@@ -67,14 +69,15 @@
 	line-height: 2em;
 	font-size: 1em;
 }
-#check{
+
+#check {
 	text-align: center;
 }
-
 </style>
 
 <title>event list</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 
@@ -105,19 +108,14 @@
 					<td class="col-2"><a href="#"><img src="후기.png" width="100em"></a></td>  -->
 					<td><a href="#"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">마이페이지</a></td>
-					<td>
-					
-					<sec:authorize access="isAnonymous()">
-					<a href="/login"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a>
-					
-					</sec:authorize>
-					<sec:authorize access="isAuthenticated()">
-					<a href="/rez/reserve"
-						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a>
-					</sec:authorize>	
-						
-						</td>
+					<td><sec:authorize access="isAnonymous()">
+							<a href="/login"
+								style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a>
+
+						</sec:authorize> <sec:authorize access="isAuthenticated()">
+							<a href="/rez/reserve"
+								style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">예약</a>
+						</sec:authorize></td>
 					<td><a href="/custommerService"
 						style="text-decoration: none; color: black; font-size: 20px; font-weight: 900; width: 100px;">고객지원</a></td>
 					<td><a href="#"
@@ -149,15 +147,17 @@
 			</sec:authorize>
 		</div>
 	</div>
-	
 
-<!-- jQuery -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-  <!-- iamport.payment.js -->
-  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 
-	
-  <script>
+	<!-- jQuery -->
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<!-- iamport.payment.js -->
+	<script type="text/javascript"
+		src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+
+
+	<script>
   	
 	  var IMP = window.IMP; // 생략 가능
 	  IMP.init("imp48123044"); // 예: imp00000000
@@ -194,84 +194,116 @@
 	        });
 	    }
   </script>
-  
-<div style="text-align: center;">
-	
-	<div style="height: 40px; line-height: 40px; font-size: 30px; margin: 20px auto;">최종내역 확인</div>
+
+	<div style="text-align: center;">
+
+		<div
+			style="height: 40px; line-height: 40px; font-size: 30px; margin: 20px auto;">최종내역
+			확인</div>
 
 
-	<table id="check" width="700" cellpadding="0" cellspacing="0" style="margin: 50px auto;" border="4px solid black;">
-		<form method="post">
-			
-			<tr>
-				<td style=" border-bottom: 4px solid black; border-top:  4px solid black; background-color:rgb(125, 164, 224);">랜트 시작일</td>
-				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;font-size: 40px;height: 70px"><input type="hidden" name="b_title"
-					value="${rentsinfo.rent_start_date}">${rentsinfo.rent_start_date}</td>
-			</tr>
-			<tr>
-				<td style=" border-bottom: 4px solid black; border-top:  4px solid black; background-color:rgb(125, 164, 224);">랜트 종료일</td>
-				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;font-size: 40px;height: 70px"><input type="hidden" name="b_title"
-					value="${rentsinfo.rent_end_date}">${rentsinfo.rent_end_date}</td>
-			</tr>
-			
-			<tr>
-				<td style=" border-bottom: 4px solid black; border-top:  4px solid black; background-color:rgb(125, 164, 224);">하이패스</td>
-				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;font-size: 40px;height: 70px"><input type="hidden" name="b_title"
-					value="${rentsinfo.hipass}">${rentsinfo.hipass}</td>
-			</tr>
-			<tr>
-				<td style=" border-bottom: 4px solid black; border-top:  4px solid black; background-color:rgb(125, 164, 224);">카시트</td>
-				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;font-size: 40px;height: 70px"><input type="hidden" name="b_title"
-					value="${rentsinfo.baby_car_seat}">${rentsinfo.baby_car_seat}</td>
-			</tr>
-			<tr>
-				<td style=" border-bottom: 4px solid black; border-top:  4px solid black; background-color:rgb(125, 164, 224);">차량번호</td>
-				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;font-size: 40px;height: 70px"><input type="hidden" name="b_title"
-					value="${rentsinfo.car_no}">${rentsinfo.car_no}</td>
-				
-			</tr>
-			<tr>
-				<td style=" border-bottom: 4px solid black; border-top:  4px solid black; background-color:rgb(125, 164, 224);">총 요금</td>
-				<td style=" border-bottom: 4px solid black; border-top:  4px solid black;font-size: 40px;height: 70px"><input type="hidden" name="b_title"
-					value="${rentsinfo.final_cost}">${rentsinfo.final_cost} 원</td>
-			</tr>
-			
-		</form>
-	</table>
+		<table id="check" width="700" cellpadding="0" cellspacing="0"
+			style="margin: 50px auto;" border="4px solid black;">
+			<form method="post">
+
+				<tr>
+					<td
+						style="border-bottom: 4px solid black; border-top: 4px solid black; background-color: rgb(125, 164, 224);">랜트
+						시작일</td>
+					<td
+						style="border-bottom: 4px solid black; border-top: 4px solid black; font-size: 40px; height: 70px"><input
+						type="hidden" name="b_title" value="${rentsinfo.rent_start_date}">${rentsinfo.rent_start_date}</td>
+				</tr>
+				<tr>
+					<td
+						style="border-bottom: 4px solid black; border-top: 4px solid black; background-color: rgb(125, 164, 224);">랜트
+						종료일</td>
+					<td
+						style="border-bottom: 4px solid black; border-top: 4px solid black; font-size: 40px; height: 70px"><input
+						type="hidden" name="b_title" value="${rentsinfo.rent_end_date}">${rentsinfo.rent_end_date}</td>
+				</tr>
+
+				<tr>
+					<td
+						style="border-bottom: 4px solid black; border-top: 4px solid black; background-color: rgb(125, 164, 224);">하이패스</td>
+					<td
+						style="border-bottom: 4px solid black; border-top: 4px solid black; font-size: 40px; height: 70px"><input
+						type="hidden" name="b_title" value="${rentsinfo.hipass}">${rentsinfo.hipass}</td>
+				</tr>
+				<tr>
+					<td
+						style="border-bottom: 4px solid black; border-top: 4px solid black; background-color: rgb(125, 164, 224);">카시트</td>
+					<td
+						style="border-bottom: 4px solid black; border-top: 4px solid black; font-size: 40px; height: 70px"><input
+						type="hidden" name="b_title" value="${rentsinfo.baby_car_seat}">${rentsinfo.baby_car_seat}</td>
+				</tr>
+				<tr>
+					<td
+						style="border-bottom: 4px solid black; border-top: 4px solid black; background-color: rgb(125, 164, 224);">차량번호</td>
+					<td
+						style="border-bottom: 4px solid black; border-top: 4px solid black; font-size: 40px; height: 70px"><input
+						type="hidden" name="b_title" value="${rentsinfo.car_no}">${rentsinfo.car_no}</td>
+
+				</tr>
+				<tr>
+					<td
+						style="border-bottom: 4px solid black; border-top: 4px solid black; background-color: rgb(125, 164, 224);">총
+						요금</td>
+					<td
+						style="border-bottom: 4px solid black; border-top: 4px solid black; font-size: 40px; height: 70px"><input
+						type="hidden" name="b_title" value="${rentsinfo.final_cost}">${rentsinfo.final_cost}
+						원</td>
+				</tr>
+
+			</form>
+		</table>
 
 
 
 
-	
-	<button onclick="requestpay()"><img src="../삼성페이.jpg" height="90px"></button>
-	<table>
-	<form action="/insertRents2" method="post">
-		
-			
-		<tr>
-        	<td><input type="hidden" name="user_id" id="user_id" title="아이디"
-        			value=<sec:authentication property="principal.username" /> valid='{"required":"true"}' readonly> </td>
-        	<td><input type="hidden" name="rent_start_date" id="rent_start_date" title="아이디"
-        			value="${rentsinfo.rent_start_date}" valid='{"required":"true"}' readonly> </td>
-        	<td><input type="hidden" name="rent_end_date" id="rent_end_date" title="아이디"
-        			value="${rentsinfo.rent_end_date}" valid='{"required":"true"}' readonly> </td>
-        	<td><input type="hidden" name="final_cost" id="final_cost" title="아이디"
-        			value="${rentsinfo.final_cost}" valid='{"required":"true"}' readonly> </td>
-        	<td><input type="hidden" name="hipass" id="hipass" title="아이디"
-        			value="${rentsinfo.hipass}" valid='{"required":"true"}' readonly> </td>
-        	<td><input type="hidden" name="baby_car_seat" id="baby_car_seat" title="아이디"
-        			value="${rentsinfo.baby_car_seat}" valid='{"required":"true"}' readonly> </td>
-        	<td><input type="hidden" name="car_no" id="car_no" title="아이디"
-        			value="${rentsinfo.car_no}" valid='{"required":"true"}' readonly> </td>
-        	
-        </tr>
-        
-		 <tr><td><input type="submit" value="(테스트용)예약하기"></a></td><td>
-		 </tr>
 
-		 </form>
-		 </table>
-</div>
+		<button onclick="requestpay()">
+			<img src="../삼성페이.jpg" height="90px">
+		</button>
+		<table>
+			<form action="/insertRents2" method="post">
+
+
+				<tr>
+					<td><input type="hidden" name="user_id" id="user_id"
+						title="아이디"
+						value=<sec:authentication property="principal.username" />
+						valid='{"required":"true"}' readonly></td>
+					<td><input type="hidden" name="rent_start_date"
+						id="rent_start_date" title="아이디"
+						value="${rentsinfo.rent_start_date}" valid='{"required":"true"}'
+						readonly></td>
+					<td><input type="hidden" name="rent_end_date"
+						id="rent_end_date" title="아이디" value="${rentsinfo.rent_end_date}"
+						valid='{"required":"true"}' readonly></td>
+					<td><input type="hidden" name="final_cost" id="final_cost"
+						title="아이디" value="${rentsinfo.final_cost}"
+						valid='{"required":"true"}' readonly></td>
+					<td><input type="hidden" name="hipass" id="hipass" title="아이디"
+						value="${rentsinfo.hipass}" valid='{"required":"true"}' readonly>
+					</td>
+					<td><input type="hidden" name="baby_car_seat"
+						id="baby_car_seat" title="아이디" value="${rentsinfo.baby_car_seat}"
+						valid='{"required":"true"}' readonly></td>
+					<td><input type="hidden" name="car_no" id="car_no" title="아이디"
+						value="${rentsinfo.car_no}" valid='{"required":"true"}' readonly>
+					</td>
+
+				</tr>
+
+				<tr>
+					<td><input type="submit" value="(테스트용)예약하기"></a></td>
+					<td>
+				</tr>
+
+			</form>
+		</table>
+	</div>
 
 
 	<footer id="footbar" style="background-color: black;">
